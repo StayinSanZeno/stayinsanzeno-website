@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stay in San Zeno – Ferienwohnung am Gardasee</title>
+  <meta name="description" content="Moderne Ferienwohnung in San Zeno di Montagna mit Blick auf den Gardasee. Komfortabel renoviert, zentrale Lage, perfekt für Familien und Paare." />
+  <meta name="keywords" content="Ferienwohnung Gardasee, San Zeno di Montagna, Urlaub Gardasee, appartamento lago di Garda, holiday apartment Lake Garda" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --lake:       #1C4E6E;
+      --lake-mid:   #2E7096;
+      --lake-light: #B8D8E8;
+      --cream:      #F9F5EF;
+      --warm:       #E8DFD0;
+      --terra:      #C05A38;
+      --gold:       #C89B4A;
+      --dark:       #1A1A1A;
+      --mid:        #5A5A5A;
+      --light:      #9A9A9A;
+      --white:      #FFFFFF;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'Jost', sans-serif;
+    }
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); color: var(--dark); background: var(--white); overflow-x: hidden; }
+    img  { display:block; width:100%; }
+    a    { text-decoration:none; color:inherit; }
+
+    /* LANGUAGE BAR */
+    .lang-bar {
+      position:fixed; top:0; right:0; z-index:200;
+      display:flex; background:rgba(28,78,110,0.92);
+      backdrop-filter:blur(8px); border-bottom-left-radius:10px;
+    }
+    .lang-bar button {
+      padding:10px 18px; background:none; border:none; cursor:pointer;
+      font-family:var(--font-sans); font-size:0.75rem; font-weight:500;
+      letter-spacing:0.12em; text-transform:uppercase;
+      color:rgba(255,255,255,0.55); transition:color 0.3s;
+    }
+    .lang-bar button.active,
+    .lang-bar button:hover { color:var(--white); }
+    .lang-bar button.active { border-bottom:2px solid var(--gold); }
+
+    /* NAV */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 48px; height:72px; transition:background 0.4s, box-shadow 0.4s;
+    }
+    nav.scrolled { background:rgba(249,245,239,0.97); box-shadow:0 1px 20px rgba(0,0,0,0.08); }
+    .nav-logo { font-family:var(--font-serif); font-size:1.45rem; font-weight:600; color:var(--white); letter-spacing:0.02em; transition:color 0.4s; }
+    nav.scrolled .nav-logo { color:var(--lake); }
+    .nav-links { display:flex; gap:36px; list-style:none; }
+    .nav-links a { font-size:0.76rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.85); transition:color 0.3s; padding-bottom:3px; border-bottom:1px solid transparent; }
+    nav.scrolled .nav-links a { color:var(--mid); }
+    .nav-links a:hover { color:var(--white); border-color:var(--white); }
+    nav.scrolled .nav-links a:hover { color:var(--lake); border-color:var(--lake); }
+    .nav-cta { padding:10px 24px !important; background:var(--terra) !important; color:var(--white) !important; border-radius:4px; font-weight:500 !important; border-bottom:none !important; }
+    .nav-cta:hover { background:#a04a2a !important; }
+    .nav-toggle { display:none; background:none; border:none; cursor:pointer; flex-direction:column; gap:5px; }
+    .nav-toggle span { display:block; width:26px; height:2px; background:white; border-radius:2px; transition:background 0.4s; }
+    nav.scrolled .nav-toggle span { background:var(--dark); }
+
+    /* HERO */
+    .hero { position:relative; height:100vh; min-height:640px; display:flex; align-items:flex-end; overflow:hidden; }
+    .hero-bg { position:absolute; inset:0; background:linear-gradient(165deg,#0d2f45 0%,#1C4E6E 35%,#2E7096 60%,#7ab0c8 100%); transform:scale(1.04); animation:heroZoom 12s ease-out forwards; }
+    @keyframes heroZoom { from{transform:scale(1.04);} to{transform:scale(1);} }
+    .hero-photo { position:absolute; inset:0; background-image:url('IMG_5861.jpeg'); background-size:cover; background-position:center 30%; opacity:0.85; }
+    .hero-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(10,28,40,0.85) 0%,rgba(10,28,40,0.3) 45%,transparent 100%); }
+    .hero-content { position:relative; z-index:10; padding:0 72px 90px; max-width:780px; animation:heroFadeUp 1.2s ease-out both; animation-delay:0.3s; }
+    @keyframes heroFadeUp { from{opacity:0;transform:translateY(30px);} to{opacity:1;transform:translateY(0);} }
+    .hero-eyebrow { font-size:0.72rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
+    .hero h1 { font-family:var(--font-serif); font-size:clamp(3rem,6vw,5.5rem); font-weight:300; line-height:1.05; color:var(--white); margin-bottom:22px; }
+    .hero h1 em { font-style:italic; color:var(--lake-light); }
+    .hero-sub { font-size:1rem; font-weight:300; color:rgba(255,255,255,0.78); line-height:1.7; margin-bottom:40px; max-width:500px; }
+    .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
+    .btn-primary { padding:15px 36px; background:var(--terra); color:var(--white); font-family:var(--font-sans); font-size:0.8rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; border-radius:4px; border:none; cursor:pointer; transition:background 0.3s,transform 0.2s; display:inline-block; }
+    .btn-primary:hover { background:#a04a2a; transform:translateY(-2px); }
+    .btn-outline { padding:14px 36px; background:transparent; color:var(--white); font-family:var(--font-sans); font-size:0.8rem; font-weight:400; letter-spacing:0.14em; text-transform:uppercase; border:1px solid rgba(255,255,255,0.55); border-radius:4px; cursor:pointer; transition:border-color 0.3s,background 0.3s; display:inline-block; }
+    .btn-outline:hover { border-color:white; background:rgba(255,255,255,0.1); }
+    .scroll-hint { position:absolute; bottom:32px; right:72px; z-index:10; display:flex; align-items:center; gap:12px; color:rgba(255,255,255,0.5); font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; animation:bounce 2s infinite; }
+    .scroll-hint::before { content:''; width:1px; height:50px; background:rgba(255,255,255,0.35); }
+    @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(8px);} }
+
+    /* SECTIONS COMMON */
+    section { padding:100px 72px; }
+    .section-label { font-size:0.7rem; font-weight:500; letter-spacing:0.22em; text-transform:uppercase; color:var(--terra); margin-bottom:16px; }
+    .section-title { font-family:var(--font-serif); font-size:clamp(2rem,4vw,3.2rem); font-weight:300; line-height:1.15; color:var(--lake); margin-bottom:24px; }
+    .section-title em { font-style:italic; }
+    .section-body { font-size:1rem; font-weight:300; line-height:1.8; color:var(--mid); max-width:580px; }
+
+    /* STRIP */
+    .strip { background:var(--lake); padding:28px 72px; display:flex; gap:48px; flex-wrap:wrap; align-items:center; justify-content:center; }
+    .strip-item { display:flex; align-items:center; gap:14px; color:var(--white); }
+    .strip-icon { font-size:1.4rem; opacity:0.75; }
+    .strip-text { font-size:0.85rem; font-weight:300; letter-spacing:0.05em; }
+    .strip-text strong { font-weight:500; display:block; }
+
+    /* ABOUT */
+    .about { background:var(--cream); display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .about-img { position:relative; height:520px; border-radius:4px; overflow:hidden; }
+    .about-img-inner { width:100%; height:100%; background-size:cover; background-position:center; }
+    .about-img-badge { position:absolute; bottom:-20px; right:-20px; width:130px; height:130px; background:var(--terra); border-radius:50%; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; text-align:center; box-shadow:0 8px 30px rgba(192,90,56,0.4); }
+    .badge-num { font-family:var(--font-serif); font-size:2.4rem; font-weight:300; line-height:1; }
+    .badge-text { font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; opacity:0.85; }
+
+    /* FEATURES */
+    .features { background:var(--white); }
+    .features-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:60px; }
+    .feature-card { padding:44px 36px; background:var(--cream); transition:background 0.3s,transform 0.3s; cursor:default; }
+    .feature-card:hover { background:var(--lake); transform:translateY(-4px); }
+    .feature-icon { font-size:2rem; margin-bottom:20px; }
+    .feature-card h3 { font-family:var(--font-serif); font-size:1.3rem; font-weight:600; color:var(--lake); margin-bottom:12px; transition:color 0.3s; }
+    .feature-card:hover h3 { color:var(--white); }
+    .feature-card p { font-size:0.88rem; font-weight:300; line-height:1.75; color:var(--mid); transition:color 0.3s; }
+    .feature-card:hover p { color:rgba(255,255,255,0.8); }
+
+    /* GALLERY */
+    .gallery { padding:80px 0; background:var(--dark); }
+    .gallery-header { padding:0 72px 48px; }
+    .gallery-header .section-label { color:var(--gold); }
+    .gallery-header .section-title { color:var(--white); }
+    .gallery-grid { display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:280px 280px; gap:3px; }
+    .gallery-item { background:#2a3a45; overflow:hidden; position:relative; }
+    .gallery-item.tall { grid-row:span 2; }
+    .gallery-item-inner { width:100%; height:100%; background-size:cover; background-position:center; transition:transform 0.6s ease; }
+    .gallery-item:hover .gallery-item-inner { transform:scale(1.04); }
+    .g1 .gallery-item-inner { background-image:url('IMG_5861.jpeg'); }
+    .g2 .gallery-item-inner { background-image:url('IMG_5868.jpeg'); }
+    .g3 .gallery-item-inner { background-image:url('IMG_5858.jpeg'); }
+    .g4 .gallery-item-inner { background-image:url('IMG_5833.jpeg'); }
+    .g5 .gallery-item-inner { background-image:url('IMG_5871.jpeg'); }
+    .gallery-label { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 60%); display:flex; align-items:flex-end; padding:20px; }
+    .gallery-label span { font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.8); font-weight:300; }
+
+    /* PRICES */
+    .prices { background:var(--cream); }
+    .prices-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; margin-top:52px; }
+    .price-table { width:100%; border-collapse:collapse; font-size:0.88rem; background:var(--white); border-radius:6px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+    .price-table thead tr { background:var(--lake); color:var(--white); }
+    .price-table th { padding:14px 16px; text-align:left; font-weight:400; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; }
+    .price-table tbody tr { border-bottom:1px solid var(--warm); transition:background 0.2s; }
+    .price-table tbody tr:hover { background:#f0eae0; }
+    .price-table tbody tr.base-row { background:var(--lake-light); }
+    .price-table td { padding:13px 16px; color:var(--mid); }
+    .price-table td:first-child { color:var(--dark); font-weight:400; }
+    .price-tag { color:var(--terra) !important; font-weight:500 !important; }
+    .season-badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:0.68rem; letter-spacing:0.06em; font-weight:500; }
+    .badge-summer { background:#fff0e0; color:#c05a38; }
+    .badge-winter { background:#e0eaf5; color:#1c4e6e; }
+    .badge-special { background:#f0f0f0; color:#555; }
+    .sheets-embed-wrap { background:var(--white); border-radius:6px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+    .sheets-embed-header { background:var(--lake); color:var(--white); padding:14px 20px; display:flex; align-items:center; gap:10px; }
+    .sheets-embed-header span { font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; }
+    .live-dot { width:8px; height:8px; background:#4caf50; border-radius:50%; animation:pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    .sheets-embed-wrap iframe { display:block; border:none; }
+    .sheets-note { padding:12px 20px; font-size:0.75rem; color:var(--light); border-top:1px solid var(--warm); background:var(--cream); }
+
+    /* CALENDAR */
+    .calendar-section { background:var(--white); }
+    .calendar-layout { display:grid; grid-template-columns:1fr 2fr; gap:60px; align-items:start; margin-top:52px; }
+    .calendar-info h3 { font-family:var(--font-serif); font-size:1.3rem; font-weight:400; color:var(--lake); margin-bottom:16px; }
+    .calendar-info p { font-size:0.88rem; font-weight:300; line-height:1.8; color:var(--mid); margin-bottom:20px; }
+    .legend { display:flex; flex-direction:column; gap:10px; margin-top:24px; }
+    .legend-item { display:flex; align-items:center; gap:12px; font-size:0.82rem; color:var(--mid); }
+    .legend-dot { width:14px; height:14px; border-radius:3px; flex-shrink:0; }
+    .dot-booked { background:#9a9cff; }
+    .dot-free   { background:#d4edda; border:1px solid #aad4b5; }
+    .calendar-embed-wrap { border-radius:8px; overflow:hidden; box-shadow:0 8px 40px rgba(0,0,0,0.1); }
+    .calendar-embed-wrap iframe { display:block; border:none; }
+
+    /* LOCATION */
+    .location { background:var(--cream); display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+    .location-map { height:420px; border-radius:4px; overflow:hidden; }
+    .location-map iframe { width:100%; height:100%; border:none; }
+    .location-tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+    .tag { padding:8px 18px; background:var(--white); border:1px solid var(--warm); border-radius:30px; font-size:0.78rem; font-weight:400; color:var(--lake); }
+
+    /* BOOKING */
+    .booking { background:var(--lake); text-align:center; padding:100px 72px; }
+    .booking .section-label { color:var(--gold); }
+    .booking .section-title { color:var(--white); margin:0 auto 16px; }
+    .booking .section-body { color:rgba(255,255,255,0.7); margin:0 auto 40px; text-align:center; }
+    .booking-tabs { display:flex; justify-content:center; gap:0; margin-bottom:36px; }
+    .booking-tab { padding:12px 36px; background:rgba(255,255,255,0.12); border:none; cursor:pointer; font-family:var(--font-sans); font-size:0.78rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.65); transition:background 0.3s,color 0.3s; }
+    .booking-tab:first-child { border-radius:4px 0 0 4px; }
+    .booking-tab:last-child  { border-radius:0 4px 4px 0; }
+    .booking-tab.active,.booking-tab:hover { background:var(--white); color:var(--lake); }
+    .booking-card { max-width:760px; margin:0 auto; background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,0.25); }
+    .booking-card-header { background:var(--cream); padding:24px 36px; border-bottom:1px solid var(--warm); display:flex; align-items:center; justify-content:space-between; }
+    .booking-card-header h3 { font-family:var(--font-serif); font-size:1.4rem; font-weight:400; color:var(--lake); }
+    .booking-card-header .lang-flag { font-size:1.4rem; }
+    .form-panel { display:none; }
+    .form-panel.active { display:block; }
+    .form-panel iframe { width:100%; border:none; display:block; min-height:700px; }
+
+    /* FOOTER */
+    footer { background:var(--dark); padding:64px 72px 40px; display:grid; grid-template-columns:2fr 1fr 1fr; gap:48px; }
+    .footer-brand h2 { font-family:var(--font-serif); font-size:1.6rem; font-weight:300; color:var(--white); margin-bottom:12px; }
+    .footer-brand p { font-size:0.85rem; font-weight:300; color:rgba(255,255,255,0.45); line-height:1.7; max-width:320px; }
+    .footer-col h4 { font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
+    .footer-col ul { list-style:none; }
+    .footer-col li { font-size:0.85rem; color:rgba(255,255,255,0.5); margin-bottom:10px; font-weight:300; transition:color 0.3s; }
+    .footer-col li:hover { color:rgba(255,255,255,0.85); }
+    .footer-bottom { background:var(--dark); padding:20px 72px; border-top:1px solid rgba(255,255,255,0.07); display:flex; justify-content:space-between; align-items:center; }
+    .footer-bottom p { font-size:0.75rem; color:rgba(255,255,255,0.25); font-weight:300; }
+
+    /* TRANSLATIONS */
+    [data-lang]         { display:none; }
+    [data-lang].active  { display:block; }
+    span[data-lang]         { display:none; }
+    span[data-lang].active  { display:inline; }
+
+    /* RESPONSIVE */
+    @media (max-width:900px) {
+      section,nav,.strip,footer,.footer-bottom { padding-left:24px; padding-right:24px; }
+      .hero-content { padding:0 24px 70px; }
+      .about,.location,.prices-layout,.calendar-layout { grid-template-columns:1fr; gap:36px; }
+      .about-img { height:300px; }
+      .features-grid { grid-template-columns:1fr; }
+      .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:200px 200px 200px; }
+      .gallery-item.tall { grid-row:span 1; }
+      footer { grid-template-columns:1fr; }
+      .footer-bottom { flex-direction:column; gap:8px; }
+      .nav-links { display:none; }
+      .nav-toggle { display:flex; }
+      .gallery-header { padding-left:24px; padding-right:24px; }
+      .booking-tabs { flex-wrap:wrap; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <button class="active" onclick="setLang('de')">DE</button>
+  <button onclick="setLang('it')">IT</button>
+  <button onclick="setLang('en')">EN</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Stay in San Zeno</a>
+  <ul class="nav-links">
+    <li><a href="#unterkunft">
+      <span data-lang="de" class="active">Die Wohnung</span>
+      <span data-lang="it">L'alloggio</span>
+      <span data-lang="en">The Apartment</span>
+    </a></li>
+    <li><a href="#preise">
+      <span data-lang="de" class="active">Preise</span>
+      <span data-lang="it">Prezzi</span>
+      <span data-lang="en">Prices</span>
+    </a></li>
+    <li><a href="#verfuegbarkeit">
+      <span data-lang="de" class="active">Verfügbarkeit</span>
+      <span data-lang="it">Disponibilità</span>
+      <span data-lang="en">Availability</span>
+    </a></li>
+    <li><a href="#buchen" class="nav-cta">
+      <span data-lang="de" class="active">Anfragen</span>
+      <span data-lang="it">Prenota</span>
+      <span data-lang="en">Book Now</span>
+    </a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-photo"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">San Zeno di Montagna · Gardasee · 550 m ü.M.</p>
+    <h1>
+      <span data-lang="de" class="active">Urlaub mit<br><em>Seeblick</em></span>
+      <span data-lang="it">Vacanze con<br><em>vista lago</em></span>
+      <span data-lang="en">Holidays with<br><em>lake views</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="de" class="active">Moderne, frisch renovierte Ferienwohnung hoch über dem Gardasee — zwischen alpiner Ruhe und mediterranem Flair.</span>
+      <span data-lang="it">Moderno appartamento appena ristrutturato con vista panoramica sul Lago di Garda — tra tranquillità alpina e atmosfera mediterranea.</span>
+      <span data-lang="en">A freshly renovated apartment high above Lake Garda — where alpine calm meets Mediterranean warmth.</span>
+    </p>
+    <div class="hero-actions">
+      <a href="#buchen" class="btn-primary">
+        <span data-lang="de" class="active">Verfügbarkeit prüfen</span>
+        <span data-lang="it">Verifica disponibilità</span>
+        <span data-lang="en">Check Availability</span>
+      </a>
+      <a href="#unterkunft" class="btn-outline">
+        <span data-lang="de" class="active">Die Wohnung entdecken</span>
+        <span data-lang="it">Scopri l'alloggio</span>
+        <span data-lang="en">Discover the apartment</span>
+      </a>
+    </div>
+  </div>
+  <div class="scroll-hint">Scroll</div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="strip-item"><span class="strip-icon">🛏️</span>
+    <div class="strip-text"><strong>2 <span data-lang="de" class="active">Schlafzimmer</span><span data-lang="it">Camere</span><span data-lang="en">Bedrooms</span></strong>
+      <span data-lang="de" class="active">bis zu 5 Gäste</span><span data-lang="it">fino a 5 ospiti</span><span data-lang="en">up to 5 guests</span></div>
+  </div>
+  <div class="strip-item"><span class="strip-icon">🏔️</span>
+    <div class="strip-text"><strong>Monte Baldo</strong>
+      <span data-lang="de" class="active">direkt vor der Tür</span><span data-lang="it">fuori dalla porta</span><span data-lang="en">on your doorstep</span></div>
+  </div>
+  <div class="strip-item"><span class="strip-icon">🚗</span>
+    <div class="strip-text"><strong>15–20 Min.</strong>
+      <span data-lang="de" class="active">zum Gardasee-Strand</span><span data-lang="it">alla spiaggia del lago</span><span data-lang="en">to Lake Garda beach</span></div>
+  </div>
+  <div class="strip-item"><span class="strip-icon">✨</span>
+    <div class="strip-text"><strong><span data-lang="de" class="active">Neu renoviert</span><span data-lang="it">Ristrutturato</span><span data-lang="en">Renovated</span> 2026</strong>
+      <span data-lang="de" class="active">Küche &amp; Bad komplett neu</span><span data-lang="it">cucina e bagno nuovi</span><span data-lang="en">brand new kitchen &amp; bathroom</span></div>
+  </div>
+  <div class="strip-item"><span class="strip-icon">🅿️</span>
+    <div class="strip-text"><strong><span data-lang="de" class="active">Parkplatz</span><span data-lang="it">Parcheggio</span><span data-lang="en">Parking</span></strong>
+      <span data-lang="de" class="active">15 m vom Eingang</span><span data-lang="it">15 m dall'ingresso</span><span data-lang="en">15 m from entrance</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="unterkunft">
+  <div class="about-img">
+    <div class="about-img-inner" style="background-image:url('IMG_5868.jpeg');background-size:cover;background-position:center;"></div>
+    <div class="about-img-badge">
+      <span class="badge-num">5</span>
+      <span class="badge-text"><span data-lang="de" class="active">Gäste</span><span data-lang="it">Ospiti</span><span data-lang="en">Guests</span></span>
+    </div>
+  </div>
+  <div>
+    <p class="section-label"><span data-lang="de" class="active">Die Unterkunft</span><span data-lang="it">L'alloggio</span><span data-lang="en">The Apartment</span></p>
+    <h2 class="section-title">
+      <span data-lang="de" class="active">Ihr Zuhause<br><em>hoch über dem See</em></span>
+      <span data-lang="it">La vostra casa<br><em>sopra il lago</em></span>
+      <span data-lang="en">Your home<br><em>above the lake</em></span>
+    </h2>
+    <p class="section-body">
+      <span data-lang="de" class="active">Willkommen in San Zeno di Montagna — einem kleinen, authentischen Dorf auf 550 m über dem Gardasee. Unsere komplett renovierte Ferienwohnung bietet modernen Komfort: offener Wohn- und Kochbereich, zwei helle Schlafzimmer, modernes Badezimmer mit ebenerdiger Dusche.</span>
+      <span data-lang="it">Benvenuti a San Zeno di Montagna — un piccolo borgo a 550 m sul Lago di Garda. Il nostro appartamento completamente ristrutturato: zona living open space, due camere luminose, bagno moderno con doccia a filo pavimento.</span>
+      <span data-lang="en">Welcome to San Zeno di Montagna — a small village at 550m above Lake Garda. Fully renovated apartment: open-plan living and kitchen, two bright bedrooms, and a modern bathroom with walk-in shower.</span>
+    </p>
+    <br>
+    <p class="section-body">
+      <span data-lang="de" class="active">Restaurants, Cafés, Supermarkt und Apotheke sind zu Fuß erreichbar — der Gardasee mit seinen Stränden liegt nur 15–20 Min. mit dem Auto entfernt.</span>
+      <span data-lang="it">Ristoranti, caffè, supermercato e farmacia a piedi — spiagge del Garda a 15–20 minuti in auto.</span>
+      <span data-lang="en">Restaurants, cafés, supermarket and pharmacy within walking distance — Lake Garda's beaches just 15–20 min by car.</span>
+    </p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div style="max-width:680px;">
+    <p class="section-label"><span data-lang="de" class="active">Ausstattung</span><span data-lang="it">Dotazioni</span><span data-lang="en">Amenities</span></p>
+    <h2 class="section-title">
+      <span data-lang="de" class="active">Alles was Sie<br><em>brauchen</em></span>
+      <span data-lang="it">Tutto ciò<br><em>che vi serve</em></span>
+      <span data-lang="en">Everything<br><em>you need</em></span>
+    </h2>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card"><div class="feature-icon">🍳</div>
+      <h3><span data-lang="de" class="active">Vollausgestattete Küche</span><span data-lang="it">Cucina completa</span><span data-lang="en">Fully equipped kitchen</span></h3>
+      <p><span data-lang="de" class="active">Herd, Backofen, Spülmaschine, Kaffeemaschine, Mikrowelle, Wasserkocher — neu 2026. Esstisch für 6.</span><span data-lang="it">Fornello, forno, lavastoviglie, caffè, microonde — nuovo 2026. Tavolo per 6.</span><span data-lang="en">Stove, oven, dishwasher, coffee machine, microwave — new 2026. Table for 6.</span></p>
+    </div>
+    <div class="feature-card"><div class="feature-icon">🛁</div>
+      <h3><span data-lang="de" class="active">Modernes Badezimmer</span><span data-lang="it">Bagno moderno</span><span data-lang="en">Modern bathroom</span></h3>
+      <p><span data-lang="de" class="active">Ebenerdige Dusche, Waschmaschine, Fön, Kosmetikspiegel — frisch renoviert mit natürlichem Licht.</span><span data-lang="it">Doccia a filo, lavatrice, asciugacapelli, specchio — ristrutturato con luce naturale.</span><span data-lang="en">Walk-in shower, washing machine, hairdryer, vanity mirror — freshly renovated.</span></p>
+    </div>
+    <div class="feature-card"><div class="feature-icon">❄️</div>
+      <h3><span data-lang="de" class="active">Klimaanlage &amp; WLAN</span><span data-lang="it">Aria condizionata &amp; WiFi</span><span data-lang="en">A/C &amp; WiFi</span></h3>
+      <p><span data-lang="de" class="active">Klimaanlage mit Heizfunktion, schnelles WLAN und Fernseher für maximalen Komfort zu jeder Jahreszeit.</span><span data-lang="it">Climatizzatore, WiFi veloce e TV per il massimo comfort tutto l'anno.</span><span data-lang="en">Air conditioning with heating, fast WiFi and TV for comfort year-round.</span></p>
+    </div>
+    <div class="feature-card"><div class="feature-icon">🛏️</div>
+      <h3><span data-lang="de" class="active">2 Schlafzimmer</span><span data-lang="it">2 camere da letto</span><span data-lang="en">2 bedrooms</span></h3>
+      <p><span data-lang="de" class="active">Zimmer 1 (15,9 m²): Doppel- + Einzelbett. Zimmer 2 (11,3 m²): Doppelbett. Schlafsofa für Gast 5.</span><span data-lang="it">Camera 1 (15,9 m²): matrimoniale + singolo. Camera 2 (11,3 m²): matrimoniale. Divano letto per il 5° ospite.</span><span data-lang="en">Room 1 (15.9 m²): double + single. Room 2 (11.3 m²): double. Sofa bed for guest 5.</span></p>
+    </div>
+    <div class="feature-card"><div class="feature-icon">🌄</div>
+      <h3><span data-lang="de" class="active">Balkon mit Aussicht</span><span data-lang="it">Balcone panoramico</span><span data-lang="en">Balcony with views</span></h3>
+      <p><span data-lang="de" class="active">Kleiner Balkon mit Blick über das Dorf — ideal für Morgenkaffee oder Wein beim Sonnenuntergang.</span><span data-lang="it">Piccolo balcone con vista sul paese — ideale per caffè o vino al tramonto.</span><span data-lang="en">Small balcony overlooking the village — perfect for morning coffee or evening wine.</span></p>
+    </div>
+    <div class="feature-card"><div class="feature-icon">📍</div>
+      <h3><span data-lang="de" class="active">Zentrale Lage</span><span data-lang="it">Posizione centrale</span><span data-lang="en">Central location</span></h3>
+      <p><span data-lang="de" class="active">Supermarkt gegenüber, Restaurants zu Fuß, Parkplatz 15 m. Perfekter Ausgangspunkt für Gardasee und Monte Baldo.</span><span data-lang="it">Supermercato di fronte, ristoranti a piedi, parcheggio a 15 m. Base perfetta per Garda e Monte Baldo.</span><span data-lang="en">Supermarket opposite, restaurants on foot, parking 15 m. Perfect base for Lake Garda and Monte Baldo.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galerie">
+  <div class="gallery-header">
+    <p class="section-label"><span data-lang="de" class="active">Impressionen</span><span data-lang="it">Immagini</span><span data-lang="en">Gallery</span></p>
+    <h2 class="section-title">
+      <span data-lang="de" class="active">Bilder sagen<br><em>mehr als Worte</em></span>
+      <span data-lang="it">Le immagini parlano<br><em>da sole</em></span>
+      <span data-lang="en">Pictures say<br><em>more than words</em></span>
+    </h2>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item tall g1"><div class="gallery-item-inner"></div><div class="gallery-label"><span>Panorama · Gardasee</span></div></div>
+    <div class="gallery-item g2"><div class="gallery-item-inner"></div><div class="gallery-label"><span>Ausblick · Monte Baldo</span></div></div>
+    <div class="gallery-item g3"><div class="gallery-item-inner"></div><div class="gallery-label"><span>Seeblick vom Zimmer</span></div></div>
+    <div class="gallery-item g4"><div class="gallery-item-inner"></div><div class="gallery-label"><span>San Zeno di Montagna</span></div></div>
+    <div class="gallery-item g5"><div class="gallery-item-inner"></div><div class="gallery-label"><span>Das Dorf</span></div></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PREISE
+════════════════════════════════════════ -->
+<section class="prices" id="preise">
+  <p class="section-label"><span data-lang="de" class="active">Transparente Preise</span><span data-lang="it">Prezzi trasparenti</span><span data-lang="en">Transparent pricing</span></p>
+  <h2 class="section-title">
+    <span data-lang="de" class="active">Was kostet<br><em>Ihr Urlaub?</em></span>
+    <span data-lang="it">Quanto costa<br><em>la vostra vacanza?</em></span>
+    <span data-lang="en">What does<br><em>your stay cost?</em></span>
+  </h2>
+  <p class="section-body">
+    <span data-lang="de" class="active">Alle Preise auf einen Blick — keine versteckten Kosten. Der Basispreis gilt außerhalb der Saison; saisonale Aufschläge kommen dazu.</span>
+    <span data-lang="it">Tutti i prezzi in uno sguardo — nessun costo nascosto. Il prezzo base vale fuori stagione; i supplementi stagionali si aggiungono.</span>
+    <span data-lang="en">All prices at a glance — no hidden costs. Base price applies off-season; seasonal surcharges are added on top.</span>
+  </p>
+
+  <div class="prices-layout">
+    <!-- STATIC TABLE -->
+    <div>
+      <table class="price-table">
+        <thead>
+          <tr>
+            <th><span data-lang="de" class="active">Saison</span><span data-lang="it">Stagione</span><span data-lang="en">Season</span></th>
+            <th><span data-lang="de" class="active">Zeitraum</span><span data-lang="it">Periodo</span><span data-lang="en">Period</span></th>
+            <th>+ € / <span data-lang="de" class="active">Nacht</span><span data-lang="it">notte</span><span data-lang="en">night</span></th>
+            <th><span data-lang="de" class="active">Min. Nächte</span><span data-lang="it">Min. notti</span><span data-lang="en">Min. nights</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="base-row">
+            <td><strong><span data-lang="de" class="active">Basispreis</span><span data-lang="it">Prezzo base</span><span data-lang="en">Base price</span></strong></td>
+            <td><span data-lang="de" class="active">Nebensaison</span><span data-lang="it">Bassa stagione</span><span data-lang="en">Off-season</span></td>
+            <td class="price-tag"><strong>90 €</strong></td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td><span class="season-badge badge-summer">Sommersaison 2026</span></td>
+            <td>10.06 – 15.10.2026</td>
+            <td class="price-tag">+ 35 €</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td><span class="season-badge badge-special">Ferragosto</span></td>
+            <td>10.08 – 23.08.2026</td>
+            <td class="price-tag">+ 10 €</td>
+            <td>4</td>
+          </tr>
+          <tr>
+            <td><span class="season-badge badge-special"><span data-lang="de" class="active">Spez. Feiertage</span><span data-lang="it">Festività spec.</span><span data-lang="en">Special holidays</span></span></td>
+            <td>10.08 – 23.08.2026</td>
+            <td class="price-tag">+ 20 €</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td><span class="season-badge badge-winter">Weihnachten / Natale</span></td>
+            <td>19.12.2026 – 06.01.2027</td>
+            <td class="price-tag">+ 20 €</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td><span class="season-badge badge-summer">Sommersaison 2027</span></td>
+            <td>07.06 – 17.10.2027</td>
+            <td class="price-tag">+ 32 €</td>
+            <td>3</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top:14px; font-size:0.78rem; color:var(--light); line-height:1.7;">
+        <span data-lang="de" class="active">* Aufpreis pro Zusatzgast (ab 3. Person): +30 €/Nacht &nbsp;·&nbsp; Kurtaxe: 2 €/Nacht/Person &nbsp;·&nbsp; Endreinigung: inklusive</span>
+        <span data-lang="it">* Supplemento per ospite aggiuntivo (dal 3°): +30 €/notte &nbsp;·&nbsp; Tassa soggiorno: 2 €/notte/persona &nbsp;·&nbsp; Pulizia finale: inclusa</span>
+        <span data-lang="en">* Extra guest surcharge (from 3rd person): +30 €/night &nbsp;·&nbsp; Tourist tax: 2 €/night/person &nbsp;·&nbsp; Final cleaning: included</span>
+      </p>
+    </div>
+
+    <!-- LIVE SHEETS EMBED -->
+    <div class="sheets-embed-wrap">
+      <div class="sheets-embed-header">
+        <div class="live-dot"></div>
+        <span><span data-lang="de" class="active">Live Preisliste (aktuell aus Google Sheets)</span><span data-lang="it">Listino prezzi live</span><span data-lang="en">Live price list</span></span>
+      </div>
+      <!--
+        ═══ SHEETS AKTIVIEREN (einmalig, 2 Minuten) ═══
+        1. Sheets öffnen → Datei → Im Web veröffentlichen
+        2. "Gesamtes Dokument" + "Webseite" → Veröffentlichen
+        Dann funktioniert der iframe unten automatisch.
+      -->
+      <iframe
+        src="https://docs.google.com/spreadsheets/d/1_XwA9VM0e-B3kBIvmrO6ObXSHnLvca0BzftrhKctwas/pubhtml?gid=0&single=true&widget=true&headers=false"
+        width="100%" height="290" frameborder="0"
+        title="Preisliste Stay in San Zeno">
+      </iframe>
+      <p class="sheets-note">
+        <span data-lang="de" class="active">⚡ Wird automatisch aktualisiert wenn sich die Preisliste in Google Sheets ändert</span>
+        <span data-lang="it">⚡ Si aggiorna automaticamente quando cambiano i prezzi nel foglio</span>
+        <span data-lang="en">⚡ Updates automatically when prices change in the spreadsheet</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     VERFÜGBARKEITSKALENDER
+════════════════════════════════════════ -->
+<section class="calendar-section" id="verfuegbarkeit">
+  <p class="section-label"><span data-lang="de" class="active">Belegungskalender</span><span data-lang="it">Calendario prenotazioni</span><span data-lang="en">Booking calendar</span></p>
+  <h2 class="section-title">
+    <span data-lang="de" class="active">Wann ist die Wohnung<br><em>verfügbar?</em></span>
+    <span data-lang="it">Quando è disponibile<br><em>l'appartamento?</em></span>
+    <span data-lang="en">When is the apartment<br><em>available?</em></span>
+  </h2>
+  <div class="calendar-layout">
+    <div class="calendar-info">
+      <h3><span data-lang="de" class="active">Immer aktuell</span><span data-lang="it">Sempre aggiornato</span><span data-lang="en">Always up to date</span></h3>
+      <p><span data-lang="de" class="active">Der Kalender zeigt alle bestätigten Buchungen in Echtzeit. Freie Zeiträume können direkt über das Formular unten reserviert werden.</span><span data-lang="it">Il calendario mostra tutte le prenotazioni confermate in tempo reale. I periodi liberi si prenotano tramite il modulo sottostante.</span><span data-lang="en">The calendar shows all confirmed bookings in real time. Available periods can be reserved via the form below.</span></p>
+      <div class="legend">
+        <div class="legend-item"><div class="legend-dot dot-booked"></div><span><span data-lang="de" class="active">Belegt / Gebucht</span><span data-lang="it">Occupato</span><span data-lang="en">Occupied / Booked</span></span></div>
+        <div class="legend-item"><div class="legend-dot dot-free"></div><span><span data-lang="de" class="active">Frei / Verfügbar</span><span data-lang="it">Libero / Disponibile</span><span data-lang="en">Free / Available</span></span></div>
+      </div>
+      <br>
+      <a href="#buchen" class="btn-primary" style="margin-top:8px;">
+        <span data-lang="de" class="active">Jetzt anfragen →</span>
+        <span data-lang="it">Richiedi ora →</span>
+        <span data-lang="en">Enquire now →</span>
+      </a>
+    </div>
+    <div class="calendar-embed-wrap">
+      <iframe
+        src="https://calendar.google.com/calendar/u/0/embed?color=%239a9cff&src=971e72c80a0ea3126ebff3a7884011af1d3642495aabd403b0997caf72765171@group.calendar.google.com&mode=MONTH&showTitle=0&showNav=1&showDate=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0"
+        width="100%" height="500" frameborder="0" scrolling="no"
+        title="Buchungskalender Stay in San Zeno">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="lage">
+  <div>
+    <p class="section-label"><span data-lang="de" class="active">Lage &amp; Umgebung</span><span data-lang="it">Posizione &amp; dintorni</span><span data-lang="en">Location &amp; surroundings</span></p>
+    <h2 class="section-title">
+      <span data-lang="de" class="active">Im Herzen von<br><em>San Zeno</em></span>
+      <span data-lang="it">Nel cuore di<br><em>San Zeno</em></span>
+      <span data-lang="en">In the heart of<br><em>San Zeno</em></span>
+    </h2>
+    <p class="section-body">
+      <span data-lang="de" class="active">San Zeno di Montagna liegt auf 550 m am Monte Baldo mit spektakulärem Seeblick — ruhig, authentisch und nah an allen Highlights der Region.</span>
+      <span data-lang="it">San Zeno di Montagna a 550 m sul Monte Baldo con vista spettacolare — tranquilla, autentica, vicina a tutte le attrazioni.</span>
+      <span data-lang="en">San Zeno di Montagna at 550m on Monte Baldo with spectacular views — peaceful, authentic, and close to all regional highlights.</span>
+    </p>
+    <div class="location-tags">
+      <span class="tag">🚡 Malcesine 15 min</span>
+      <span class="tag">⛵ Torri del Benaco 20 min</span>
+      <span class="tag">🏛️ Verona 60 min</span>
+      <span class="tag">🥾 Monte Baldo Trails</span>
+      <span class="tag">🛒 <span data-lang="de" class="active">Supermarkt gegenüber</span><span data-lang="it">Supermercato di fronte</span><span data-lang="en">Supermarket opposite</span></span>
+      <span class="tag">🅿️ <span data-lang="de" class="active">Parkplatz 15 m</span><span data-lang="it">Parcheggio 15 m</span><span data-lang="en">Parking 15 m</span></span>
+    </div>
+  </div>
+  <div class="location-map">
+    <iframe src="https://maps.google.com/maps?q=San+Zeno+di+Montagna,+Verona&output=embed&z=13" title="San Zeno di Montagna" loading="lazy" allowfullscreen></iframe>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BUCHUNGSFORMULAR — 3 SPRACHEN
+════════════════════════════════════════ -->
+<section class="booking" id="buchen">
+  <p class="section-label"><span data-lang="de" class="active">Ihren Urlaub planen</span><span data-lang="it">Pianifica la tua vacanza</span><span data-lang="en">Plan your stay</span></p>
+  <h2 class="section-title">
+    <span data-lang="de" class="active">Anfrage &amp;<br><em>Buchung</em></span>
+    <span data-lang="it">Richiesta &amp;<br><em>Prenotazione</em></span>
+    <span data-lang="en">Enquiry &amp;<br><em>Booking</em></span>
+  </h2>
+  <p class="section-body">
+    <span data-lang="de" class="active">Füllen Sie das Formular aus — wir antworten innerhalb von 24 Stunden auf Deutsch, Italienisch oder Englisch.</span>
+    <span data-lang="it">Compila il modulo — risponderemo entro 24 ore nella tua lingua.</span>
+    <span data-lang="en">Fill in the form — we'll reply within 24 hours in your language.</span>
+  </p>
+
+  <!-- Tab selector -->
+  <div class="booking-tabs">
+    <button class="booking-tab active" onclick="setFormTab('de')">🇩🇪 Deutsch</button>
+    <button class="booking-tab"        onclick="setFormTab('it')">🇮🇹 Italiano</button>
+    <button class="booking-tab"        onclick="setFormTab('en')">🇬🇧 English</button>
+  </div>
+
+  <div class="booking-card">
+    <div class="booking-card-header">
+      <h3 id="form-title">Buchungsanfrage</h3>
+      <span class="lang-flag" id="form-flag">🇩🇪</span>
+    </div>
+
+    <!-- DEUTSCH -->
+    <div class="form-panel active" id="form-de">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc1Od_VSRZSH8U1c2rnUXb8SLTpGhbxguzva_4f4c66Sd9Hog/viewform?embedded=true"
+        width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0" title="Buchungsanfrage Deutsch">Wird geladen…</iframe>
+    </div>
+
+    <!-- ITALIANO -->
+    <div class="form-panel" id="form-it">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSebacaV_Ft3gBjWCtOdZTM0J4E0TyQ573odxuupMeZ9S2lIxg/viewform?embedded=true"
+        width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0" title="Richiesta prenotazione">Caricamento…</iframe>
+    </div>
+
+    <!-- ENGLISH -->
+    <div class="form-panel" id="form-en">
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf9HW0I1zS_g-k99pLqASd7cqigNJBGGr9eZGeqPKxd6bu1zg/viewform?embedded=true"
+        width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0" title="Booking request">Loading…</iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <h2>Stay in San Zeno</h2>
+    <p><span data-lang="de" class="active">Ferienwohnung in San Zeno di Montagna, hoch über dem Gardasee — zwischen See, Bergen und mediterranem Lebensgefühl.</span><span data-lang="it">Appartamento vacanze a San Zeno di Montagna, sopra il Lago di Garda.</span><span data-lang="en">Holiday apartment in San Zeno di Montagna, high above Lake Garda.</span></p>
+  </div>
+  <div class="footer-col">
+    <h4><span data-lang="de" class="active">Navigation</span><span data-lang="it">Navigazione</span><span data-lang="en">Navigation</span></h4>
+    <ul>
+      <li><a href="#unterkunft"><span data-lang="de" class="active">Die Wohnung</span><span data-lang="it">L'alloggio</span><span data-lang="en">The Apartment</span></a></li>
+      <li><a href="#preise"><span data-lang="de" class="active">Preise</span><span data-lang="it">Prezzi</span><span data-lang="en">Prices</span></a></li>
+      <li><a href="#verfuegbarkeit"><span data-lang="de" class="active">Verfügbarkeit</span><span data-lang="it">Disponibilità</span><span data-lang="en">Availability</span></a></li>
+      <li><a href="#buchen"><span data-lang="de" class="active">Buchen</span><span data-lang="it">Prenota</span><span data-lang="en">Book</span></a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Kontakt</h4>
+    <ul>
+      <li>📍 San Zeno di Montagna (VR)</li>
+      <li>✉️ info@stayinsanzeno.com</li>
+      <li>🌐 www.stayinsanzeno.com</li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Stay in San Zeno. Alle Rechte vorbehalten.</p>
+  <p>San Zeno di Montagna · Lago di Garda · Italia</p>
+</div>
+
+<script>
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Language switcher — also syncs the booking form tab
+  function setLang(lang) {
+    document.querySelectorAll('.lang-bar button').forEach(b => b.classList.remove('active'));
+    document.querySelector('.lang-bar button[onclick="setLang(\'' + lang + '\')"]').classList.add('active');
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.classList.toggle('active', el.dataset.lang === lang);
+    });
+    document.documentElement.lang = lang;
+    setFormTab(lang); // auto-switch form language
+  }
+
+  // Form tab switcher
+  const formMeta = {
+    de: { title: 'Buchungsanfrage',       flag: '🇩🇪' },
+    it: { title: 'Richiesta prenotazione', flag: '🇮🇹' },
+    en: { title: 'Booking enquiry',        flag: '🇬🇧' }
+  };
+  const tabOrder = ['de','it','en'];
+
+  function setFormTab(lang) {
+    const tabs = document.querySelectorAll('.booking-tab');
+    tabs.forEach((t, i) => t.classList.toggle('active', tabOrder[i] === lang));
+    document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+    const panel = document.getElementById('form-' + lang);
+    if (panel) panel.classList.add('active');
+    document.getElementById('form-title').textContent = (formMeta[lang] || formMeta.de).title;
+    document.getElementById('form-flag').textContent  = (formMeta[lang] || formMeta.de).flag;
+  }
+</script>
+</body>
+</html>
