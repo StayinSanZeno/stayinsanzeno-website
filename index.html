@@ -144,27 +144,30 @@
  
     /* PRICES */
     .prices { background:var(--cream); }
-    .prices-layout { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; margin-top:52px; }
-    .price-table { width:100%; border-collapse:collapse; font-size:0.88rem; background:var(--white); border-radius:6px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.06); }
+    .price-table-outer { max-width:720px; margin-top:52px; }
+    .price-table { width:100%; border-collapse:collapse; font-size:0.9rem; background:var(--white); border-radius:8px; overflow:hidden; box-shadow:0 6px 32px rgba(0,0,0,0.08); }
     .price-table thead tr { background:var(--lake); color:var(--white); }
-    .price-table th { padding:14px 16px; text-align:left; font-weight:400; font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; }
+    .price-table th { padding:15px 20px; text-align:left; font-weight:400; font-size:0.72rem; letter-spacing:0.12em; text-transform:uppercase; }
     .price-table tbody tr { border-bottom:1px solid var(--warm); transition:background 0.2s; }
     .price-table tbody tr:hover { background:#f0eae0; }
     .price-table tbody tr.base-row { background:var(--lake-light); }
-    .price-table td { padding:13px 16px; color:var(--mid); }
+    .price-table td { padding:15px 20px; color:var(--mid); }
     .price-table td:first-child { color:var(--dark); font-weight:400; }
-    .price-tag { color:var(--terra) !important; font-weight:500 !important; }
-    .season-badge { display:inline-block; padding:3px 10px; border-radius:20px; font-size:0.68rem; letter-spacing:0.06em; font-weight:500; }
+    .price-tag { color:var(--terra) !important; font-weight:600 !important; font-size:1rem !important; }
+    .season-badge { display:inline-block; padding:4px 12px; border-radius:20px; font-size:0.75rem; letter-spacing:0.04em; font-weight:500; }
     .badge-summer { background:#fff0e0; color:#c05a38; }
     .badge-winter { background:#e0eaf5; color:#1c4e6e; }
-    .badge-special { background:#f0f0f0; color:#555; }
-    .sheets-embed-wrap { background:var(--white); border-radius:6px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.06); }
-    .sheets-embed-header { background:var(--lake); color:var(--white); padding:14px 20px; display:flex; align-items:center; gap:10px; }
-    .sheets-embed-header span { font-size:0.75rem; letter-spacing:0.1em; text-transform:uppercase; }
-    .live-dot { width:8px; height:8px; background:#4caf50; border-radius:50%; animation:pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
-    .sheets-embed-wrap iframe { display:block; border:none; }
-    .sheets-note { padding:12px 20px; font-size:0.75rem; color:var(--light); border-top:1px solid var(--warm); background:var(--cream); }
+    .activities-teaser { background:var(--lake); padding:80px 72px; text-align:center; }
+    .activities-teaser .section-label { color:var(--gold); }
+    .activities-teaser .section-title { color:var(--white); margin:0 auto 16px; }
+    .activities-teaser > p { color:rgba(255,255,255,0.72); font-size:1rem; font-weight:300; max-width:560px; margin:0 auto 40px; line-height:1.8; }
+    .activities-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; max-width:900px; margin:0 auto 44px; }
+    .activity-pill { padding:14px 18px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:8px; color:var(--white); font-size:0.82rem; font-weight:300; transition:background 0.3s,transform 0.2s; display:flex; align-items:center; gap:10px; }
+    .activity-pill:hover { background:rgba(255,255,255,0.2); transform:translateY(-2px); }
+    .activity-pill .pill-icon { font-size:1.3rem; }
+    .weather-widget { background:var(--cream); padding:60px 72px; }
+    .weather-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; max-width:960px; }
+    .weather-inner iframe { border-radius:8px; border:none; display:block; box-shadow:0 4px 20px rgba(0,0,0,0.08); }
  
     /* CALENDAR */
     .calendar-section { background:var(--white); }
@@ -225,7 +228,9 @@
     @media (max-width:900px) {
       section,nav,.strip,footer,.footer-bottom { padding-left:24px; padding-right:24px; }
       .hero-content { padding:0 24px 70px; }
-      .about,.location,.prices-layout,.calendar-layout { grid-template-columns:1fr; gap:36px; }
+      .about,.location,.calendar-layout,.weather-inner { grid-template-columns:1fr; gap:36px; }
+      .activities-grid { grid-template-columns:repeat(2,1fr); }
+      .activities-teaser,.weather-widget { padding-left:24px; padding-right:24px; }
       .about-img { height:300px; }
       .features-grid { grid-template-columns:1fr; }
       .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:200px 200px 200px; }
@@ -266,6 +271,11 @@
       <span data-lang="de" class="active">Verfügbarkeit</span>
       <span data-lang="it">Disponibilità</span>
       <span data-lang="en">Availability</span>
+    </a></li>
+    <li><a href="activities.html">
+      <span data-lang="de" class="active">Aktivitäten</span>
+      <span data-lang="it">Attività</span>
+      <span data-lang="en">Activities</span>
     </a></li>
     <li><a href="#buchen" class="nav-cta">
       <span data-lang="de" class="active">Anfragen</span>
@@ -424,8 +434,15 @@
 <!-- ═══════════════════════════════════════
      PREISE
 ════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════
+     PREISE
+════════════════════════════════════════ -->
 <section class="prices" id="preise">
-  <p class="section-label"><span data-lang="de" class="active">Transparente Preise</span><span data-lang="it">Prezzi trasparenti</span><span data-lang="en">Transparent pricing</span></p>
+  <p class="section-label">
+    <span data-lang="de" class="active">Transparente Preise</span>
+    <span data-lang="it">Prezzi trasparenti</span>
+    <span data-lang="en">Transparent pricing</span>
+  </p>
   <h2 class="section-title">
     <span data-lang="de" class="active">Was kostet<br><em>Ihr Urlaub?</em></span>
     <span data-lang="it">Quanto costa<br><em>la vostra vacanza?</em></span>
@@ -437,87 +454,197 @@
     <span data-lang="en">All prices at a glance — no hidden costs. Base price applies off-season; seasonal surcharges are added on top.</span>
   </p>
  
-  <div class="prices-layout">
-    <!-- STATIC TABLE -->
-    <div>
-      <table class="price-table">
-        <thead>
-          <tr>
-            <th><span data-lang="de" class="active">Saison</span><span data-lang="it">Stagione</span><span data-lang="en">Season</span></th>
-            <th><span data-lang="de" class="active">Zeitraum</span><span data-lang="it">Periodo</span><span data-lang="en">Period</span></th>
-            <th>+ € / <span data-lang="de" class="active">Nacht</span><span data-lang="it">notte</span><span data-lang="en">night</span></th>
-            <th><span data-lang="de" class="active">Min. Nächte</span><span data-lang="it">Min. notti</span><span data-lang="en">Min. nights</span></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="base-row">
-            <td><strong><span data-lang="de" class="active">Basispreis</span><span data-lang="it">Prezzo base</span><span data-lang="en">Base price</span></strong></td>
-            <td><span data-lang="de" class="active">Nebensaison</span><span data-lang="it">Bassa stagione</span><span data-lang="en">Off-season</span></td>
-            <td class="price-tag"><strong>90 €</strong></td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td><span class="season-badge badge-summer">Sommersaison 2026</span></td>
-            <td>10.06 – 15.10.2026</td>
-            <td class="price-tag">+ 35 €</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td><span class="season-badge badge-special">Ferragosto</span></td>
-            <td>10.08 – 23.08.2026</td>
-            <td class="price-tag">+ 10 €</td>
-            <td>4</td>
-          </tr>
-          <tr>
-            <td><span class="season-badge badge-special"><span data-lang="de" class="active">Spez. Feiertage</span><span data-lang="it">Festività spec.</span><span data-lang="en">Special holidays</span></span></td>
-            <td>10.08 – 23.08.2026</td>
-            <td class="price-tag">+ 20 €</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td><span class="season-badge badge-winter">Weihnachten / Natale</span></td>
-            <td>19.12.2026 – 06.01.2027</td>
-            <td class="price-tag">+ 20 €</td>
-            <td>3</td>
-          </tr>
-          <tr>
-            <td><span class="season-badge badge-summer">Sommersaison 2027</span></td>
-            <td>07.06 – 17.10.2027</td>
-            <td class="price-tag">+ 32 €</td>
-            <td>3</td>
-          </tr>
-        </tbody>
-      </table>
-      <p style="margin-top:14px; font-size:0.78rem; color:var(--light); line-height:1.7;">
-        <span data-lang="de" class="active">* Aufpreis pro Zusatzgast (ab 3. Person): +30 €/Nacht &nbsp;·&nbsp; Kurtaxe: 2 €/Nacht/Person &nbsp;·&nbsp; Endreinigung: inklusive</span>
-        <span data-lang="it">* Supplemento per ospite aggiuntivo (dal 3°): +30 €/notte &nbsp;·&nbsp; Tassa soggiorno: 2 €/notte/persona &nbsp;·&nbsp; Pulizia finale: inclusa</span>
-        <span data-lang="en">* Extra guest surcharge (from 3rd person): +30 €/night &nbsp;·&nbsp; Tourist tax: 2 €/night/person &nbsp;·&nbsp; Final cleaning: included</span>
-      </p>
-    </div>
+  <div class="price-table-outer">
+    <table class="price-table">
+      <thead>
+        <tr>
+          <!-- Spaltenüberschriften in allen 3 Sprachen -->
+          <th>
+            <span data-lang="de" class="active">Saison</span>
+            <span data-lang="it">Stagione</span>
+            <span data-lang="en">Season</span>
+          </th>
+          <th>
+            <span data-lang="de" class="active">Zeitraum</span>
+            <span data-lang="it">Periodo</span>
+            <span data-lang="en">Period</span>
+          </th>
+          <th>
+            <span data-lang="de" class="active">Preis / Nacht</span>
+            <span data-lang="it">Prezzo / notte</span>
+            <span data-lang="en">Price / night</span>
+          </th>
+          <th>
+            <span data-lang="de" class="active">Min. Nächte</span>
+            <span data-lang="it">Notti minime</span>
+            <span data-lang="en">Min. nights</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- BASISPREIS — immer sichtbar -->
+        <tr class="base-row">
+          <td>
+            <strong>
+              <span data-lang="de" class="active">Basispreis</span>
+              <span data-lang="it">Prezzo base</span>
+              <span data-lang="en">Base price</span>
+            </strong>
+          </td>
+          <td>
+            <span data-lang="de" class="active">Nebensaison</span>
+            <span data-lang="it">Bassa stagione</span>
+            <span data-lang="en">Off-season</span>
+          </td>
+          <td class="price-tag"><strong>90 €</strong></td>
+          <td>2</td>
+        </tr>
  
-    <!-- LIVE SHEETS EMBED -->
-    <div class="sheets-embed-wrap">
-      <div class="sheets-embed-header">
-        <div class="live-dot"></div>
-        <span><span data-lang="de" class="active">Live Preisliste (aktuell aus Google Sheets)</span><span data-lang="it">Listino prezzi live</span><span data-lang="en">Live price list</span></span>
-      </div>
-      <!--
-        ═══ SHEETS AKTIVIEREN (einmalig, 2 Minuten) ═══
-        1. Sheets öffnen → Datei → Im Web veröffentlichen
-        2. "Gesamtes Dokument" + "Webseite" → Veröffentlichen
-        Dann funktioniert der iframe unten automatisch.
-      -->
-      <iframe
-        src="https://docs.google.com/spreadsheets/d/1_XwA9VM0e-B3kBIvmrO6ObXSHnLvca0BzftrhKctwas/pubhtml?gid=0&single=true&widget=true&headers=false"
-        width="100%" height="290" frameborder="0"
-        title="Preisliste Stay in San Zeno">
-      </iframe>
-      <p class="sheets-note">
-        <span data-lang="de" class="active">⚡ Wird automatisch aktualisiert wenn sich die Preisliste in Google Sheets ändert</span>
-        <span data-lang="it">⚡ Si aggiorna automaticamente quando cambiano i prezzi nel foglio</span>
-        <span data-lang="en">⚡ Updates automatically when prices change in the spreadsheet</span>
+        <!-- SOMMER — Name bleibt Sommer in allen Sprachen -->
+        <tr>
+          <td>
+            <span class="season-badge badge-summer">
+              <span data-lang="de" class="active">☀️ Sommer 2026</span>
+              <span data-lang="it">☀️ Estate 2026</span>
+              <span data-lang="en">☀️ Summer 2026</span>
+            </span>
+          </td>
+          <td>10.06 – 15.10.2026</td>
+          <td class="price-tag">125 €</td>
+          <td>3</td>
+        </tr>
+ 
+        <!-- FERRAGOSTO — bleibt Ferragosto (internationaler Begriff) -->
+        <tr>
+          <td>
+            <span class="season-badge badge-summer">🌅 Ferragosto</span>
+          </td>
+          <td>10.08 – 23.08.2026</td>
+          <td class="price-tag">135 €</td>
+          <td>4</td>
+        </tr>
+ 
+        <!-- WEIHNACHTEN — bleibt Weihnachten/Natale/Christmas -->
+        <tr>
+          <td>
+            <span class="season-badge badge-winter">
+              <span data-lang="de" class="active">🎄 Weihnachten / Neujahr</span>
+              <span data-lang="it">🎄 Natale / Capodanno</span>
+              <span data-lang="en">🎄 Christmas / New Year</span>
+            </span>
+          </td>
+          <td>19.12.2026 – 06.01.2027</td>
+          <td class="price-tag">110 €</td>
+          <td>3</td>
+        </tr>
+      </tbody>
+    </table>
+ 
+    <!-- Fussnote -->
+    <p style="margin-top:16px; font-size:0.8rem; color:var(--light); line-height:1.8;">
+      <span data-lang="de" class="active">
+        * Aufpreis ab 3. Person: +30 €/Nacht &nbsp;·&nbsp;
+        Kurtaxe: 2 €/Nacht/Person &nbsp;·&nbsp;
+        Endreinigung: inklusive
+      </span>
+      <span data-lang="it">
+        * Supplemento dal 3° ospite: +30 €/notte &nbsp;·&nbsp;
+        Tassa di soggiorno: 2 €/notte/persona &nbsp;·&nbsp;
+        Pulizia finale: inclusa
+      </span>
+      <span data-lang="en">
+        * Extra guest (from 3rd person): +30 €/night &nbsp;·&nbsp;
+        Tourist tax: 2 €/night/person &nbsp;·&nbsp;
+        Final cleaning: included
+      </span>
+    </p>
+  </div>
+</section>
+ 
+<!-- ═══════════════════════════════════════
+     AKTIVITÄTEN TEASER
+════════════════════════════════════════ -->
+<section class="activities-teaser" id="aktivitaeten">
+  <p class="section-label">
+    <span data-lang="de" class="active">Entdecken &amp; Erleben</span>
+    <span data-lang="it">Scopri &amp; vivi</span>
+    <span data-lang="en">Discover &amp; explore</span>
+  </p>
+  <h2 class="section-title">
+    <span data-lang="de" class="active">Was erwartet Sie<br><em>rund um San Zeno?</em></span>
+    <span data-lang="it">Cosa vi aspetta<br><em>intorno a San Zeno?</em></span>
+    <span data-lang="en">What awaits you<br><em>around San Zeno?</em></span>
+  </h2>
+  <p>
+    <span data-lang="de" class="active">San Zeno di Montagna liegt perfekt zwischen See und Berg — mit unzähligen Möglichkeiten für Aktivitäten, Ausflüge und kulinarische Erlebnisse.</span>
+    <span data-lang="it">San Zeno di Montagna è posizionata perfettamente tra lago e montagna — con infinite possibilità di attività, gite ed esperienze culinarie.</span>
+    <span data-lang="en">San Zeno di Montagna is perfectly placed between lake and mountain — with endless options for activities, day trips and culinary experiences.</span>
+  </p>
+ 
+  <div class="activities-grid">
+    <div class="activity-pill"><span class="pill-icon">🏖️</span>
+      <span data-lang="de" class="active">See &amp; Strand</span><span data-lang="it">Lago &amp; spiaggia</span><span data-lang="en">Lake &amp; beach</span>
+    </div>
+    <div class="activity-pill"><span class="pill-icon">🥾</span>
+      <span data-lang="de" class="active">Wandern</span><span data-lang="it">Escursioni</span><span data-lang="en">Hiking</span>
+    </div>
+    <div class="activity-pill"><span class="pill-icon">🚡</span>
+      <span data-lang="de" class="active">Monte Baldo</span><span data-lang="it">Monte Baldo</span><span data-lang="en">Monte Baldo</span>
+    </div>
+    <div class="activity-pill"><span class="pill-icon">🍷</span>
+      <span data-lang="de" class="active">Restaurants</span><span data-lang="it">Ristoranti</span><span data-lang="en">Restaurants</span>
+    </div>
+    <div class="activity-pill"><span class="pill-icon">⛵</span>
+      <span data-lang="de" class="active">Bootfahren</span><span data-lang="it">Gite in barca</span><span data-lang="en">Boat trips</span>
+    </div>
+    <div class="activity-pill"><span class="pill-icon">🏛️</span>
+      <span data-lang="de" class="active">Verona</span><span data-lang="it">Verona</span><span data-lang="en">Verona</span>
+    </div>
+    <div class="activity-pill"><span class="pill-icon">🛍️</span>
+      <span data-lang="de" class="active">Märkte</span><span data-lang="it">Mercati</span><span data-lang="en">Markets</span>
+    </div>
+    <div class="activity-pill"><span class="pill-icon">👨‍👩‍👧</span>
+      <span data-lang="de" class="active">Familien</span><span data-lang="it">Famiglie</span><span data-lang="en">Families</span>
+    </div>
+  </div>
+ 
+  <!-- Button → verlinkt auf activities.html (kommt als nächstes) -->
+  <a href="activities.html" class="btn-outline" style="border-color:rgba(255,255,255,0.6);">
+    <span data-lang="de" class="active">Alle Aktivitäten entdecken →</span>
+    <span data-lang="it">Scopri tutte le attività →</span>
+    <span data-lang="en">Discover all activities →</span>
+  </a>
+</section>
+ 
+<!-- ═══════════════════════════════════════
+     WETTER-WIDGET
+════════════════════════════════════════ -->
+<section class="weather-widget">
+  <div class="weather-inner">
+    <div>
+      <p class="section-label">
+        <span data-lang="de" class="active">Aktuelles Wetter</span>
+        <span data-lang="it">Meteo attuale</span>
+        <span data-lang="en">Current weather</span>
+      </p>
+      <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.4rem);">
+        <span data-lang="de" class="active">Wie ist das Wetter in<br><em>San Zeno?</em></span>
+        <span data-lang="it">Com'è il tempo a<br><em>San Zeno?</em></span>
+        <span data-lang="en">What's the weather like in<br><em>San Zeno?</em></span>
+      </h2>
+      <p class="section-body">
+        <span data-lang="de" class="active">San Zeno liegt auf 550 m Höhe — angenehm kühl im Sommer, verschneit und malerisch im Winter. Das ideale Klima für aktive Urlauber zu jeder Jahreszeit.</span>
+        <span data-lang="it">San Zeno è a 550 m di altitudine — piacevolmente fresca in estate, innevata e pittoresca in inverno. Il clima ideale per vacanzieri attivi in ogni stagione.</span>
+        <span data-lang="en">San Zeno sits at 550m — pleasantly cool in summer, snowy and picturesque in winter. The ideal climate for active holidaymakers year-round.</span>
       </p>
     </div>
+    <!-- wttr.in Wetter-Widget für San Zeno di Montagna -->
+    <iframe
+      src="https://wttr.in/San+Zeno+di+Montagna?format=4&lang=de"
+      width="100%" height="220"
+      title="Wetter San Zeno di Montagna"
+      style="border-radius:8px; border:none; background:var(--white); box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+    </iframe>
   </div>
 </section>
  
