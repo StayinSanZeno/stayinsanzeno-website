@@ -1,0 +1,439 @@
+cat > /mnt/user-data/outputs/activities.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aktivitäten am Gardasee – Stay in San Zeno</title>
+  <meta name="description" content="Wandern am Monte Baldo, Strände, Verona, Märkte, Restaurants und mehr — alle Aktivitäten rund um San Zeno di Montagna am Gardasee." />
+  <meta name="keywords" content="Aktivitäten Gardasee, Wandern Monte Baldo, Verona Tagesausflug, Strände Gardasee, Malcesine Seilbahn, Märkte Gardasee, San Zeno di Montagna" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.stayinsanzeno.com/activities.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--lake:#1C4E6E;--lake-mid:#2E7096;--lake-light:#B8D8E8;--cream:#F9F5EF;--warm:#E8DFD0;--terra:#C05A38;--gold:#C89B4A;--dark:#1A1A1A;--mid:#5A5A5A;--light:#9A9A9A;--white:#FFFFFF;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Jost',sans-serif;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-sans);color:var(--dark);background:var(--white);overflow-x:hidden;}
+    img{display:block;width:100%;}
+    a{text-decoration:none;color:inherit;}
+    .lang-bar{position:fixed;top:0;right:0;z-index:200;display:flex;background:rgba(28,78,110,0.92);backdrop-filter:blur(8px);border-bottom-left-radius:10px;}
+    .lang-bar button{padding:10px 18px;background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);transition:color 0.3s;}
+    .lang-bar button.active,.lang-bar button:hover{color:var(--white);}
+    .lang-bar button.active{border-bottom:2px solid var(--gold);}
+    .cta-sticky{position:fixed;bottom:24px;right:24px;z-index:999;background:var(--terra);color:var(--white);padding:14px 24px;border-radius:30px;font-family:var(--font-sans);font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 4px 20px rgba(192,90,56,0.45);transition:transform 0.2s,background 0.3s,opacity 0.3s;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;}
+    .cta-sticky:hover{background:#a04a2a;transform:translateY(-2px);}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;transition:background 0.4s,box-shadow 0.4s;}
+    nav.scrolled{background:rgba(249,245,239,0.97);box-shadow:0 1px 20px rgba(0,0,0,0.08);}
+    .nav-logo{font-family:var(--font-serif);font-size:1.45rem;font-weight:600;color:var(--white);letter-spacing:0.02em;transition:color 0.4s;}
+    nav.scrolled .nav-logo{color:var(--lake);}
+    .nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
+    .nav-links a{font-size:0.74rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.85);transition:color 0.3s;padding-bottom:3px;border-bottom:1px solid transparent;}
+    nav.scrolled .nav-links a{color:var(--mid);}
+    .nav-links a:hover,.nav-links a.current{color:var(--white);border-color:rgba(255,255,255,0.6);}
+    nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.current{color:var(--lake);border-color:var(--lake);}
+    .nav-cta{padding:9px 22px!important;background:var(--terra)!important;color:var(--white)!important;border-radius:4px;font-weight:500!important;border-bottom:none!important;}
+    .nav-cta:hover{background:#a04a2a!important;}
+    .nav-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;}
+    .nav-toggle span{display:block;width:26px;height:2px;background:white;border-radius:2px;transition:background 0.4s;}
+    nav.scrolled .nav-toggle span{background:var(--dark);}
+    .page-hero{position:relative;height:52vh;min-height:380px;display:flex;align-items:flex-end;overflow:hidden;}
+    .page-hero-bg{position:absolute;inset:0;background:linear-gradient(155deg,#0d2f45 0%,#1C4E6E 40%,#2E7096 70%,#4d8fad 100%);}
+    .page-hero-photo{position:absolute;inset:0;background-image:url('hero-ausblick.jpg');background-size:cover;background-position:center 40%;opacity:0.6;}
+    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,28,40,0.88) 0%,rgba(10,28,40,0.3) 60%,transparent 100%);}
+    .page-hero-content{position:relative;z-index:10;padding:0 72px 56px;animation:fadeUp 0.9s ease-out both;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    .page-hero-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+    .page-hero h1{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:14px;}
+    .page-hero h1 em{font-style:italic;color:var(--lake-light);}
+    .page-hero-sub{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.72);max-width:540px;line-height:1.7;}
+    .cat-nav{background:var(--dark);padding:0 72px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+    .cat-nav::-webkit-scrollbar{display:none;}
+    .cat-nav a{padding:18px 22px;font-size:0.72rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;border-bottom:2px solid transparent;transition:color 0.3s,border-color 0.3s;}
+    .cat-nav a:hover{color:var(--white);border-color:var(--gold);}
+    .act-section{padding:80px 72px;}
+    .act-section.bg-cream{background:var(--cream);}
+    .act-section.bg-white{background:var(--white);}
+    .act-section.bg-dark{background:var(--lake);}
+    .act-section.bg-dark .section-label{color:var(--gold);}
+    .act-section.bg-dark .section-title{color:var(--white);}
+    .act-section.bg-dark .section-intro{color:rgba(255,255,255,0.72);}
+    .act-section.bg-dark .act-card{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);}
+    .act-section.bg-dark .act-card h3{color:var(--white);}
+    .act-section.bg-dark .act-card p{color:rgba(255,255,255,0.68);}
+    .act-section.bg-dark .act-card .tip{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);border-color:var(--gold);}
+    .section-label{font-size:0.7rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--terra);margin-bottom:12px;}
+    .section-title{font-family:var(--font-serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.15;color:var(--lake);margin-bottom:16px;}
+    .section-title em{font-style:italic;}
+    .section-intro{font-size:0.97rem;font-weight:300;line-height:1.8;color:var(--mid);max-width:680px;margin-bottom:44px;}
+    .act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .act-grid.two-col{grid-template-columns:repeat(2,1fr);}
+    .act-card{background:var(--cream);border:1px solid var(--warm);border-radius:8px;padding:28px 24px;transition:transform 0.25s,box-shadow 0.25s;}
+    .act-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(28,78,110,0.1);}
+    .act-card-icon{font-size:2rem;margin-bottom:14px;}
+    .act-card h3{font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:var(--lake);margin-bottom:10px;}
+    .act-card p{font-size:0.85rem;font-weight:300;line-height:1.75;color:var(--mid);}
+    .act-card .tip{margin-top:12px;padding:9px 13px;background:rgba(28,78,110,0.07);border-radius:6px;font-size:0.78rem;color:var(--lake);font-weight:400;border-left:3px solid var(--gold);}
+    .act-hero-card{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;margin-bottom:44px;}
+    .act-hero-card-img{height:340px;border-radius:8px;overflow:hidden;background:var(--lake-light);}
+    .act-hero-card-img div{width:100%;height:100%;background-size:cover;background-position:center;transition:transform 0.6s;}
+    .act-hero-card-img:hover div{transform:scale(1.04);}
+    .act-hero-card-text h3{font-family:var(--font-serif);font-size:1.6rem;font-weight:400;color:var(--lake);margin-bottom:14px;}
+    .act-hero-card-text p{font-size:0.92rem;font-weight:300;line-height:1.85;color:var(--mid);margin-bottom:12px;}
+    .market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .market-card{background:var(--white);border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);}
+    .market-card-head{background:var(--lake);padding:20px 22px;}
+    .market-card-head h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:400;color:var(--white);margin-bottom:4px;}
+    .market-day{font-size:0.74rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;}
+    .market-card-body{padding:18px 22px;}
+    .market-card-body ul{list-style:none;}
+    .market-card-body li{font-size:0.84rem;font-weight:300;color:var(--mid);padding:5px 0;border-bottom:1px solid var(--warm);display:flex;align-items:center;gap:8px;}
+    .market-card-body li:last-child{border-bottom:none;}
+    .market-card-body li::before{content:'·';color:var(--gold);font-size:1.2rem;}
+    .arrival-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+    .arrival-card{background:var(--white);border-radius:8px;padding:28px 22px;box-shadow:0 4px 20px rgba(0,0,0,0.06);border-top:3px solid var(--lake);}
+    .arrival-card .arr-icon{font-size:2rem;margin-bottom:14px;}
+    .arrival-card h3{font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:var(--lake);margin-bottom:12px;}
+    .arrival-card ul{list-style:none;}
+    .arrival-card li{font-size:0.84rem;font-weight:300;color:var(--mid);padding:6px 0;border-bottom:1px solid var(--warm);display:flex;justify-content:space-between;gap:12px;}
+    .arrival-card li:last-child{border-bottom:none;}
+    .arrival-card li span{color:var(--terra);font-weight:500;white-space:nowrap;}
+    .faq-list{max-width:760px;}
+    .faq-item{border-bottom:1px solid var(--warm);}
+    .faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:22px 0;gap:20px;font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:var(--lake);text-align:left;}
+    .faq-arrow{font-size:0.9rem;color:var(--gold);transition:transform 0.3s;flex-shrink:0;}
+    .faq-q.open .faq-arrow{transform:rotate(180deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+    .faq-a-inner{padding:0 0 20px;font-size:0.9rem;font-weight:300;line-height:1.8;color:var(--mid);}
+    .btn-primary{padding:14px 32px;background:var(--terra);color:var(--white);font-family:var(--font-sans);font-size:0.78rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;border-radius:4px;border:none;cursor:pointer;transition:background 0.3s,transform 0.2s;display:inline-block;}
+    .btn-primary:hover{background:#a04a2a;transform:translateY(-2px);}
+    footer{background:var(--dark);padding:64px 72px 40px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;}
+    .footer-brand h2{font-family:var(--font-serif);font-size:1.55rem;font-weight:300;color:var(--white);margin-bottom:12px;}
+    .footer-brand p{font-size:0.84rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.75;max-width:320px;}
+    .footer-col h4{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+    .footer-col ul{list-style:none;}
+    .footer-col li{font-size:0.84rem;color:rgba(255,255,255,0.48);margin-bottom:10px;font-weight:300;transition:color 0.3s;}
+    .footer-col li:hover{color:rgba(255,255,255,0.85);}
+    .footer-bottom{background:var(--dark);padding:18px 72px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;}
+    .footer-bottom p{font-size:0.74rem;color:rgba(255,255,255,0.22);font-weight:300;}
+    [data-lang]{display:none;}
+    [data-lang].active{display:block;}
+    span[data-lang]{display:none;}
+    span[data-lang].active{display:inline;}
+    @media(max-width:960px){
+      nav{padding:0 24px;}
+      .page-hero-content{padding:0 28px 48px;}
+      .cat-nav{padding:0 16px;}
+      .act-section{padding:60px 28px;}
+      .act-grid,.act-grid.two-col{grid-template-columns:1fr 1fr;}
+      .act-hero-card{grid-template-columns:1fr;gap:28px;}
+      .act-hero-card-img{height:240px;}
+      .market-grid,.arrival-grid{grid-template-columns:1fr;}
+      footer{grid-template-columns:1fr;padding:48px 28px 32px;}
+      .footer-bottom{flex-direction:column;gap:8px;padding:16px 28px;}
+      .nav-links{display:none;}
+      .nav-toggle{display:flex;}
+    }
+    @media(max-width:560px){
+      .act-grid,.act-grid.two-col{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<a href="index.html#buchen" class="cta-sticky" id="stickyCta">
+  <span>📅</span>
+  <span data-lang="de" class="active">Jetzt buchen</span>
+  <span data-lang="it">Prenota ora</span>
+  <span data-lang="en">Book now</span>
+</a>
+
+<div class="lang-bar">
+  <button class="active" onclick="setLang('de')">DE</button>
+  <button onclick="setLang('it')">IT</button>
+  <button onclick="setLang('en')">EN</button>
+</div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Stay in San Zeno</a>
+  <ul class="nav-links">
+    <li><a href="index.html#unterkunft"><span data-lang="de" class="active">Die Wohnung</span><span data-lang="it">L'alloggio</span><span data-lang="en">The Apartment</span></a></li>
+    <li><a href="index.html#preise"><span data-lang="de" class="active">Preise</span><span data-lang="it">Prezzi</span><span data-lang="en">Prices</span></a></li>
+    <li><a href="index.html#verfuegbarkeit"><span data-lang="de" class="active">Verfügbarkeit</span><span data-lang="it">Disponibilità</span><span data-lang="en">Availability</span></a></li>
+    <li><a href="activities.html" class="current"><span data-lang="de" class="active">Aktivitäten</span><span data-lang="it">Attività</span><span data-lang="en">Activities</span></a></li>
+    <li><a href="index.html#buchen" class="nav-cta"><span data-lang="de" class="active">Anfragen</span><span data-lang="it">Prenota</span><span data-lang="en">Book Now</span></a></li>
+  </ul>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-photo"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">San Zeno di Montagna · Gardasee · Monte Baldo</p>
+    <h1><span data-lang="de" class="active">Aktivitäten &amp; <em>Ausflugsziele</em></span><span data-lang="it">Attività &amp; <em>Gite</em></span><span data-lang="en">Activities &amp; <em>Day Trips</em></span></h1>
+    <p class="page-hero-sub">
+      <span data-lang="de" class="active">Wandern, Baden, Städte entdecken, Märkte besuchen — San Zeno di Montagna ist der perfekte Ausgangspunkt für unvergessliche Erlebnisse am Gardasee.</span>
+      <span data-lang="it">Escursioni, nuoto, città da scoprire, mercati — San Zeno di Montagna è il punto di partenza perfetto per esperienze indimenticabili.</span>
+      <span data-lang="en">Hiking, swimming, city exploring, markets — San Zeno di Montagna is the perfect base for unforgettable Lake Garda experiences.</span>
+    </p>
+  </div>
+</section>
+
+<nav class="cat-nav" aria-label="Kategorien">
+  <a href="#see">🏖️ <span data-lang="de" class="active">See</span><span data-lang="it">Lago</span><span data-lang="en">Lake</span></a>
+  <a href="#berg">🥾 <span data-lang="de" class="active">Berg</span><span data-lang="it">Montagna</span><span data-lang="en">Mountain</span></a>
+  <a href="#kultur">🏛️ <span data-lang="de" class="active">Kultur</span><span data-lang="it">Cultura</span><span data-lang="en">Culture</span></a>
+  <a href="#kulinarik">🍷 <span data-lang="de" class="active">Kulinarik</span><span data-lang="it">Gastronomia</span><span data-lang="en">Food &amp; Wine</span></a>
+  <a href="#familien">👨‍👩‍👧 <span data-lang="de" class="active">Familien</span><span data-lang="it">Famiglie</span><span data-lang="en">Families</span></a>
+  <a href="#maerkte">🛍️ <span data-lang="de" class="active">Märkte</span><span data-lang="it">Mercati</span><span data-lang="en">Markets</span></a>
+  <a href="#anreise">✈️ <span data-lang="de" class="active">Anreise</span><span data-lang="it">Come arrivare</span><span data-lang="en">Getting here</span></a>
+  <a href="#faq">❓ FAQ</a>
+</nav>
+
+<!-- SEE & STRAND -->
+<section class="act-section bg-white" id="see">
+  <p class="section-label"><span data-lang="de" class="active">Wasser &amp; Erholung</span><span data-lang="it">Acqua &amp; Relax</span><span data-lang="en">Water &amp; Relaxation</span></p>
+  <h2 class="section-title"><span data-lang="de" class="active">See &amp; Strand am <em>Gardasee</em></span><span data-lang="it">Lago &amp; Spiaggia <em>del Garda</em></span><span data-lang="en">Lake &amp; Beach at <em>Lake Garda</em></span></h2>
+  <p class="section-intro">
+    <span data-lang="de" class="active">Der Gardasee ist nur 15–20 Minuten von San Zeno entfernt. Torri del Benaco und Brenzone sul Garda bieten schöne Strände, kleine Häfen und typische Gardasee-Atmosphäre.</span>
+    <span data-lang="it">Il Lago di Garda dista solo 15–20 minuti da San Zeno. Torri del Benaco e Brenzone sul Garda offrono belle spiagge, piccoli porti e l'atmosfera tipica del lago.</span>
+    <span data-lang="en">Lake Garda is just 15–20 minutes from San Zeno. Torri del Benaco and Brenzone sul Garda offer beautiful beaches, small harbours and a classic lake atmosphere.</span>
+  </p>
+  <div class="act-hero-card">
+    <div class="act-hero-card-img">
+      <div style="background-image:url('see-nahaufnahme.jpg');background-color:var(--lake-light);"></div>
+    </div>
+    <div class="act-hero-card-text">
+      <h3><span data-lang="de" class="active">Torri del Benaco &amp; Brenzone</span><span data-lang="it">Torri del Benaco e Brenzone</span><span data-lang="en">Torri del Benaco &amp; Brenzone</span></h3>
+      <p><span data-lang="de" class="active">Besonders beliebt: die Uferpromenade von Torri del Benaco und die ruhigeren Strände von Brenzone. Schwimmen, Paddeln oder einfach den Blick über das Wasser genießen.</span><span data-lang="it">Molto apprezzati il lungolago di Torri del Benaco e le spiagge più tranquille di Brenzone. Nuotare, fare kayak o semplicemente godersi il panorama.</span><span data-lang="en">Popular spots include Torri del Benaco's lakeside promenade and the quieter beaches of Brenzone — swimming, paddling or simply enjoying the view.</span></p>
+      <p><span data-lang="de" class="active">Vom Hafen starten regelmäßig Bootstouren nach Limone sul Garda oder Malcesine — eine völlig neue Perspektive auf See und Berge. Die mittelalterliche Altstadt von Torri mit dem Castello Scaligero und kleinen Cafés lädt zum Verweilen ein.</span><span data-lang="it">Dal porto partono regolarmente gite in barca verso Limone sul Garda o Malcesine. Il centro medievale di Torri col Castello Scaligero e i caffè invita a una sosta.</span><span data-lang="en">Regular boat tours depart to Limone sul Garda or Malcesine. Torri's medieval old town with Castello Scaligero and small cafés is perfect for a leisurely stroll.</span></p>
+    </div>
+  </div>
+  <div class="act-grid">
+    <div class="act-card"><div class="act-card-icon">🏄</div><h3><span data-lang="de" class="active">Wassersport</span><span data-lang="it">Sport acquatici</span><span data-lang="en">Water sports</span></h3><p><span data-lang="de" class="active">Segeln, Windsurfen, Stand-Up-Paddling — die konstanten Winde machen den Gardasee zu einem der beliebtesten Wassersport-Spots Europas.</span><span data-lang="it">Vela, windsurf e SUP — i venti costanti rendono il Garda uno dei migliori spot d'Europa.</span><span data-lang="en">Sailing, windsurfing, stand-up paddling — the steady winds make Lake Garda one of Europe's top water sports destinations.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">⛵</div><h3><span data-lang="de" class="active">Bootstouren</span><span data-lang="it">Gite in barca</span><span data-lang="en">Boat tours</span></h3><p><span data-lang="de" class="active">Bootsfahrten nach Limone sul Garda oder Malcesine bieten beeindruckende Ausblicke auf Berge und See aus einer völlig neuen Perspektive.</span><span data-lang="it">Gite in barca verso Limone o Malcesine per ammirare montagne e lago da una prospettiva unica.</span><span data-lang="en">Boat trips to Limone sul Garda or Malcesine offer stunning views from a completely new angle.</span></p><div class="tip">💡 <span data-lang="de" class="active">Fähre ab Torri del Benaco — günstiger als private Tour</span><span data-lang="it">Traghetto da Torri — più economico del tour privato</span><span data-lang="en">Ferry from Torri — cheaper than a private tour</span></div></div>
+    <div class="act-card"><div class="act-card-icon">🏊</div><h3><span data-lang="de" class="active">Strände &amp; Badeplätze</span><span data-lang="it">Spiagge &amp; Lidi</span><span data-lang="en">Beaches &amp; bathing spots</span></h3><p><span data-lang="de" class="active">Entlang des Gardasees gibt es zahlreiche schöne Badeplätze. Besonders beliebt sind die klaren, ruhigen Gewässer zwischen Brenzone und Torri del Benaco.</span><span data-lang="it">Lungo il Garda ci sono molte belle spiagge. Particolarmente apprezzate le acque limpide tra Brenzone e Torri del Benaco.</span><span data-lang="en">Along Lake Garda there are many beautiful bathing spots. Especially popular are the clear, calm waters between Brenzone and Torri del Benaco.</span></p></div>
+  </div>
+</section>
+
+<!-- BERG & WANDERN -->
+<section class="act-section bg-cream" id="berg">
+  <p class="section-label"><span data-lang="de" class="active">Natur &amp; Abenteuer</span><span data-lang="it">Natura &amp; Avventura</span><span data-lang="en">Nature &amp; Adventure</span></p>
+  <h2 class="section-title"><span data-lang="de" class="active">Berg &amp; Wandern am <em>Monte Baldo</em></span><span data-lang="it">Montagna &amp; Escursioni <em>sul Monte Baldo</em></span><span data-lang="en">Mountain &amp; Hiking on <em>Monte Baldo</em></span></h2>
+  <p class="section-intro"><span data-lang="de" class="active">San Zeno di Montagna — der „Balkon des Gardasees" — liegt am Hang des Monte Baldo und ist perfekter Ausgangspunkt für Wanderungen, Mountainbike-Touren und Naturerlebnisse aller Art.</span><span data-lang="it">San Zeno di Montagna — il "balcone del Lago di Garda" — si trova sul versante del Monte Baldo ed è il punto di partenza ideale per escursioni, mountain bike e natura.</span><span data-lang="en">San Zeno di Montagna — the "balcony of Lake Garda" — sits on the slopes of Monte Baldo and is the perfect starting point for hikes, mountain biking and nature experiences.</span></p>
+  <div class="act-grid">
+    <div class="act-card"><div class="act-card-icon">🥾</div><h3><span data-lang="de" class="active">Wanderwege</span><span data-lang="it">Sentieri escursionistici</span><span data-lang="en">Hiking trails</span></h3><p><span data-lang="de" class="active">Wenige Minuten oberhalb des Ortes beginnen Wege durch Wälder, Almwiesen und Panoramawege — von leichten Spaziergängen bis zu anspruchsvollen Bergtouren.</span><span data-lang="it">Pochi minuti sopra il paese iniziano sentieri attraverso boschi, alpeggi e panoramici — da facili passeggiate a impegnative escursioni in quota.</span><span data-lang="en">Just minutes above the village, trails wind through forests and mountain meadows — from easy walks to demanding mountain hikes.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🚡</div><h3><span data-lang="de" class="active">Seilbahn Malcesine</span><span data-lang="it">Funivia di Malcesine</span><span data-lang="en">Malcesine cable car</span></h3><p><span data-lang="de" class="active">Die Seilbahn von Malcesine bringt Besucher auf über 1.700 m Höhe — mit atemberaubendem Panorama auf den gesamten Gardasee und die Alpen. Für Wanderer und Tagesausflügler ideal.</span><span data-lang="it">La funivia di Malcesine porta i visitatori a oltre 1.700 m con un panorama mozzafiato sul Garda e le Alpi. Ideale per escursionisti e gite giornaliere.</span><span data-lang="en">The Malcesine cable car reaches over 1,700m — with breathtaking panoramic views over Lake Garda and the Alps. Ideal for hikers and day trippers.</span></p><div class="tip">💡 <span data-lang="de" class="active">Tickets online vorbuchen — spart Wartezeit</span><span data-lang="it">Acquista i biglietti online — evita le code</span><span data-lang="en">Book tickets online — avoids queues</span></div></div>
+    <div class="act-card"><div class="act-card-icon">🚵</div><h3><span data-lang="de" class="active">Mountainbike</span><span data-lang="it">Mountain bike</span><span data-lang="en">Mountain biking</span></h3><p><span data-lang="de" class="active">Abwechslungsreiche Strecken rund um San Zeno — von gemütlichen Waldwegen bis zu anspruchsvollen Downhill-Routen für Fortgeschrittene.</span><span data-lang="it">Percorsi vari intorno a San Zeno — dai tranquilli sentieri boschivi alle impegnative discese downhill per esperti.</span><span data-lang="en">Varied routes around San Zeno — from gentle forest paths to challenging downhill routes for experienced riders.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🪂</div><h3><span data-lang="de" class="active">Paragliding</span><span data-lang="it">Parapendio</span><span data-lang="en">Paragliding</span></h3><p><span data-lang="de" class="active">Am Monte Baldo sehr beliebt — Gleitschirmflieger starten regelmäßig von den Höhen und gleiten spektakulär über den Gardasee. Tandermflüge für Einsteiger möglich.</span><span data-lang="it">Molto popolare sul Monte Baldo — i parapendisti decollano regolarmente dalle cime. Voli in tandem disponibili per i principianti.</span><span data-lang="en">Very popular on Monte Baldo — paragliders regularly take off from the peaks. Tandem flights available for beginners.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🌰</div><h3><span data-lang="de" class="active">Kastanienfest (Herbst)</span><span data-lang="it">Festa delle Castagne</span><span data-lang="en">Chestnut festival (autumn)</span></h3><p><span data-lang="de" class="active">Im Herbst wird San Zeno zum Mittelpunkt der Kastaniensaison — die Festa delle Castagne feiert regionale Spezialitäten, lokale Traditionen und das farbenfrohe Waldkleid des Monte Baldo.</span><span data-lang="it">In autunno San Zeno diventa il centro della stagione delle castagne — la Festa celebra le specialità regionali e le tradizioni locali tra i colori autunnali del Monte Baldo.</span><span data-lang="en">In autumn San Zeno becomes the focus of chestnut season — the Festa delle Castagne celebrates regional specialities and local traditions among the Monte Baldo's autumn colours.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🌿</div><h3><span data-lang="de" class="active">Botanik: Hortus Europae</span><span data-lang="it">Botanica: Hortus Europae</span><span data-lang="en">Botany: Hortus Europae</span></h3><p><span data-lang="de" class="active">Der Monte Baldo ist als „Hortus Europae" bekannt — über 900 Pflanzenarten, viele davon endemisch. Ein botanisches Paradies für Naturliebhaber zu jeder Jahreszeit.</span><span data-lang="it">Il Monte Baldo è noto come "Hortus Europae" — oltre 900 specie vegetali, molte endemiche. Un paradiso botanico per gli amanti della natura.</span><span data-lang="en">Monte Baldo is known as the "Hortus Europae" — over 900 plant species, many endemic. A botanical paradise for nature lovers year-round.</span></p></div>
+  </div>
+</section>
+
+<!-- KULTUR -->
+<section class="act-section bg-white" id="kultur">
+  <p class="section-label"><span data-lang="de" class="active">Kultur &amp; Städte</span><span data-lang="it">Cultura &amp; Città</span><span data-lang="en">Culture &amp; Cities</span></p>
+  <h2 class="section-title"><span data-lang="de" class="active">Auch bei schlechtem Wetter — <em>Highlights der Region</em></span><span data-lang="it">Anche con il brutto tempo — <em>i migliori luoghi</em></span><span data-lang="en">Even in bad weather — <em>regional highlights</em></span></h2>
+  <p class="section-intro"><span data-lang="de" class="active">Die historischen Orte am Gardasee bieten viele kulturelle Sehenswürdigkeiten — unabhängig vom Wetter. Besonders Verona, Sirmione und Malcesine sind jederzeit lohnenswert.</span><span data-lang="it">Le città storiche del Garda offrono molte attrazioni culturali — indipendentemente dal tempo. Verona, Sirmione e Malcesine meritano sempre una visita.</span><span data-lang="en">The historic towns around Lake Garda offer many cultural highlights — regardless of the weather. Verona, Sirmione and Malcesine are always worthwhile.</span></p>
+  <div class="act-grid">
+    <div class="act-card"><div class="act-card-icon">🏛️</div><h3>Verona</h3><p><span data-lang="de" class="active">Nur ca. 55 Min. entfernt — die römische Arena, die historische Altstadt, Julias Balkon und im Sommer Opernaufführungen in der Arena. Eine der schönsten Städte Norditaliens.</span><span data-lang="it">A circa 55 min — l'Arena romana, il centro storico, il balcone di Giulietta e in estate le rappresentazioni d'opera. Una delle più belle città del Nord Italia.</span><span data-lang="en">About 55 min away — the Roman Arena, historic old town, Juliet's balcony and summer opera performances. One of northern Italy's most beautiful cities.</span></p><div class="tip">🚗 ca. 55 Min.</div></div>
+    <div class="act-card"><div class="act-card-icon">🗺️</div><h3>Sirmione</h3><p><span data-lang="de" class="active">Auf einer schmalen Halbinsel im südlichen Gardasee — mittelalterliche Burg Rocca Scaligera, Thermalquellen und eine traumhaft schöne Altstadt mit engen Gassen und Restaurants.</span><span data-lang="it">Su una stretta penisola a sud del Garda — castello medievale Rocca Scaligera, acque termali e un centro storico incantevole con viuzze e ristoranti.</span><span data-lang="en">On a narrow peninsula in southern Lake Garda — medieval Rocca Scaligera castle, thermal springs and an enchanting old town with narrow lanes and restaurants.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🏰</div><h3>Malcesine</h3><p><span data-lang="de" class="active">Der Castello Scaligero thront hoch über dem See mit eindrucksvoller Aussicht. Kombination mit der Seilbahn auf den Monte Baldo für einen unvergesslichen Ausflugstag.</span><span data-lang="it">Il Castello Scaligero domina il lago con vista straordinaria. Da abbinare alla funivia del Monte Baldo per una gita indimenticabile.</span><span data-lang="en">The Castello Scaligero towers above the lake with impressive views. Combine with the Monte Baldo cable car for an unforgettable day trip.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">♨️</div><h3><span data-lang="de" class="active">Thermalbäder Colà</span><span data-lang="it">Terme di Colà</span><span data-lang="en">Thermal baths Colà</span></h3><p><span data-lang="de" class="active">Parco Termale del Garda in Colà: Entspannung in warmen Thermalbecken mitten im Park — ideal bei Regen oder nach aktiven Tagen.</span><span data-lang="it">Parco Termale del Garda a Colà: relax nelle vasche termali calde in mezzo al parco — ideale con la pioggia o dopo giornate attive.</span><span data-lang="en">Parco Termale del Garda in Colà: relaxation in warm thermal pools in a park setting — ideal on rainy days or after active days.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🫒</div><h3><span data-lang="de" class="active">Olivenöl-Museum Cisano</span><span data-lang="it">Museo dell'Olio Cisano</span><span data-lang="en">Olive Oil Museum Cisano</span></h3><p><span data-lang="de" class="active">Das Museo dell'Olio in Cisano sul Garda erklärt die Geschichte des Gardasee-Olivenöls mit Führungen durch die Produktion und Verkostungen des feinen, milden Öls.</span><span data-lang="it">Il Museo dell'Olio a Cisano racconta la storia dell'olio del Garda con visite alla produzione e degustazioni dell'olio delicato e raffinato.</span><span data-lang="en">The Museo dell'Olio in Cisano tells the story of Lake Garda olive oil with production tours and tastings of the fine, mild oil.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🏙️</div><h3>Riva del Garda</h3><p><span data-lang="de" class="active">Am nördlichen Ende des Sees — beeindruckende Kombination aus See, Bergen und mediterranem Flair. Schöne Altstadt, Seepromenade und besonders bei Windsurfern beliebt.</span><span data-lang="it">All'estremità nord del lago — combinazione straordinaria di lago, montagne e atmosfera mediterranea. Bel centro storico e lungolago, molto apprezzata dagli sportivi.</span><span data-lang="en">At the northern lake tip — impressive combination of lake, mountains and Mediterranean flair. Beautiful old town, lakeside promenade and very popular with windsurfers.</span></p></div>
+  </div>
+</section>
+
+<!-- KULINARIK -->
+<section class="act-section bg-dark" id="kulinarik">
+  <p class="section-label"><span data-lang="de" class="active">Genuss &amp; Geschmack</span><span data-lang="it">Gusto &amp; Sapori</span><span data-lang="en">Food &amp; Flavour</span></p>
+  <h2 class="section-title"><span data-lang="de" class="active">Restaurants &amp; <em>Kulinarik</em></span><span data-lang="it">Ristoranti &amp; <em>Gastronomia</em></span><span data-lang="en">Restaurants &amp; <em>Food &amp; Wine</em></span></h2>
+  <p class="section-intro"><span data-lang="de" class="active">Die Gardasee-Küche verbindet Mittelmeer und Alpen — frischer Fisch, hausgemachte Pasta, Kastanienspezialitäten aus San Zeno und exzellente Weine aus der Valpolicella.</span><span data-lang="it">La cucina del Garda unisce Mediterraneo e Alpi — pesce fresco, pasta fatta in casa, specialità di castagne di San Zeno ed eccellenti vini della Valpolicella.</span><span data-lang="en">Lake Garda cuisine blends Mediterranean and Alpine — fresh fish, handmade pasta, San Zeno chestnut specialities and excellent wines from the Valpolicella.</span></p>
+  <div class="act-grid">
+    <div class="act-card"><div class="act-card-icon">🐟</div><h3><span data-lang="de" class="active">Gardasee-Fisch</span><span data-lang="it">Pesce del Garda</span><span data-lang="en">Lake Garda fish</span></h3><p><span data-lang="de" class="active">Lavarello, Sarde in Saor oder Carpa — frischer Fisch aus dem Gardasee ist ein Muss. Viele Restaurants in Torri del Benaco bieten hervorragende Fischgerichte direkt am Wasser.</span><span data-lang="it">Lavarello, sarde in saor o carpa — il pesce fresco del Garda è un must. Molti ristoranti a Torri del Benaco offrono ottimi piatti di pesce sull'acqua.</span><span data-lang="en">Lavarello, sarde in saor or carp — fresh lake fish is a must. Many restaurants in Torri del Benaco serve excellent fish dishes right on the waterfront.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🍷</div><h3><span data-lang="de" class="active">Valpolicella &amp; Bardolino</span><span data-lang="it">Valpolicella &amp; Bardolino</span><span data-lang="en">Valpolicella &amp; Bardolino</span></h3><p><span data-lang="de" class="active">Die Region rund um Verona gehört zu den bekanntesten Weinregionen Norditaliens. Valpolicella, Bardolino und Amarone — viele Weingüter bieten Führungen und Verkostungen an.</span><span data-lang="it">La regione veronese è tra le più note d'Italia. Valpolicella, Bardolino e Amarone — molte cantine offrono visite e degustazioni.</span><span data-lang="en">The Verona region is one of northern Italy's most renowned wine areas. Valpolicella, Bardolino and Amarone — many wineries offer tours and tastings.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🫒</div><h3><span data-lang="de" class="active">Gardasee-Olivenöl</span><span data-lang="it">Olio d'oliva del Garda</span><span data-lang="en">Lake Garda olive oil</span></h3><p><span data-lang="de" class="active">Das milde Mikroklima ermöglicht Olivenanbau am Gardasee. Das lokale Öl ist für seinen besonders feinen, milden Geschmack bekannt — in vielen Läden und Märkten erhältlich.</span><span data-lang="it">Il microclima mite permette la coltivazione degli ulivi. L'olio locale è noto per il sapore delicato — disponibile in molti negozi e mercati.</span><span data-lang="en">The mild microclimate allows olive growing around Lake Garda. The local oil is known for its particularly fine, mild flavour — available in many shops and markets.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🌰</div><h3><span data-lang="de" class="active">Kastanien aus San Zeno</span><span data-lang="it">Castagne di San Zeno</span><span data-lang="en">Chestnuts from San Zeno</span></h3><p><span data-lang="de" class="active">San Zeno ist bekannt für seine Kastanien — Kastanienhonig, Kastanienbrot und Marroni. Beim Kastanienfest im Oktober kann man alle regionalen Spezialitäten probieren.</span><span data-lang="it">San Zeno è famosa per le sue castagne — miele, pane alle castagne e marron. Alla Festa delle Castagne in ottobre si assaggiano tutte le specialità regionali.</span><span data-lang="en">San Zeno is known for its chestnuts — honey, chestnut bread and marrons. At the October chestnut festival you can try all the regional specialities.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🍝</div><h3><span data-lang="de" class="active">Lokale Trattorias</span><span data-lang="it">Trattorie locali</span><span data-lang="en">Local trattorias</span></h3><p><span data-lang="de" class="active">Bigoli con le sarde, Pastissada de caval, Risotto all'Amarone — die regionalen Pasta- und Reisgerichte der Gardasee-Küche sind einzigartig. In San Zeno selbst gibt es Restaurants direkt im Ortszentrum.</span><span data-lang="it">Bigoli con le sarde, Pastissada de caval, Risotto all'Amarone — i piatti della cucina del Garda sono unici. A San Zeno ci sono ristoranti nel centro del paese.</span><span data-lang="en">Bigoli con le sarde, Pastissada de caval, Risotto all'Amarone — Lake Garda cuisine is unique. San Zeno itself has restaurants right in the village centre.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">☕</div><h3><span data-lang="de" class="active">Cafés in San Zeno</span><span data-lang="it">Bar a San Zeno</span><span data-lang="en">Cafés in San Zeno</span></h3><p><span data-lang="de" class="active">Im Dorfzentrum von San Zeno gibt es gemütliche Bars mit typisch italienischem Frühstück, frischem Espresso und lokalen Mittagsgerichten — alles bequem zu Fuß erreichbar.</span><span data-lang="it">Nel centro di San Zeno bar accoglienti con colazione italiana, espresso fresco e piatti locali — tutto raggiungibile a piedi.</span><span data-lang="en">In San Zeno's village centre there are cosy bars with Italian breakfast, fresh espresso and local lunch dishes — all within easy walking distance.</span></p></div>
+  </div>
+</section>
+
+<!-- FAMILIEN -->
+<section class="act-section bg-cream" id="familien">
+  <p class="section-label"><span data-lang="de" class="active">Für die ganze Familie</span><span data-lang="it">Per tutta la famiglia</span><span data-lang="en">For the whole family</span></p>
+  <h2 class="section-title"><span data-lang="de" class="active">Familienaktivitäten <em>am Gardasee</em></span><span data-lang="it">Attività per famiglie <em>al Lago di Garda</em></span><span data-lang="en">Family activities <em>at Lake Garda</em></span></h2>
+  <p class="section-intro"><span data-lang="de" class="active">Der Gardasee ist eines der beliebtesten Familienziele Europas — mit Freizeitparks, Stränden, Seilbahnen und Naturerlebnissen für alle Altersgruppen.</span><span data-lang="it">Il Lago di Garda è una delle mete familiari più amate d'Europa — con parchi divertimento, spiagge, funivie ed esperienze naturali per tutte le età.</span><span data-lang="en">Lake Garda is one of Europe's most popular family destinations — with theme parks, beaches, cable cars and nature experiences for all ages.</span></p>
+  <div class="act-grid">
+    <div class="act-card"><div class="act-card-icon">🎢</div><h3>Gardaland</h3><p><span data-lang="de" class="active">Einer der größten Freizeitparks Italiens mit Attraktionen und Shows für Kinder und Erwachsene — ein ganztägiges Erlebnis am südlichen Gardasee.</span><span data-lang="it">Uno dei più grandi parchi divertimento d'Italia con attrazioni e spettacoli per grandi e piccoli — un'esperienza per l'intera giornata.</span><span data-lang="en">One of Italy's largest theme parks with rides and shows for children and adults — a full-day experience on the southern lake.</span></p><div class="tip">🚗 ca. 45 Min. von San Zeno</div></div>
+    <div class="act-card"><div class="act-card-icon">🦈</div><h3>SEA LIFE Aquarium</h3><p><span data-lang="de" class="active">Das Gardaland SEA LIFE Aquarium direkt neben Gardaland — spannende Unterwasserwelten, ideal für Kinder und perfekt bei Schlechtwetter.</span><span data-lang="it">L'acquario SEA LIFE di Gardaland — affascinanti mondi sottomarini, ideale per i bambini e perfetto anche col brutto tempo.</span><span data-lang="en">The Gardaland SEA LIFE Aquarium — exciting underwater worlds, great for children and perfect even in bad weather.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🎡</div><h3>Canevaworld</h3><p><span data-lang="de" class="active">Movieland Park und Aqua Paradise in Canevaworld bieten Action für die ganze Familie — Film-Stunts, Wasserrutschen und Shows für ein unvergessliches Erlebnis.</span><span data-lang="it">Movieland Park e Aqua Paradise di Canevaworld — stunt cinematografici, scivoli d'acqua e spettacoli per tutta la famiglia.</span><span data-lang="en">Movieland Park and Aqua Paradise at Canevaworld — film stunts, water slides and shows for the whole family.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🦁</div><h3>Parco Natura Viva</h3><p><span data-lang="de" class="active">Safari-Zoo und Artenschutzzentrum in Bussolengo mit über 1.500 Tieren auf weitläufigem Gelände — unvergesslich für die ganze Familie.</span><span data-lang="it">Safari zoo e centro di conservazione a Bussolengo con oltre 1.500 animali — indimenticabile per tutta la famiglia.</span><span data-lang="en">Safari zoo and conservation centre in Bussolengo with over 1,500 animals — unforgettable for the whole family.</span></p><div class="tip">🚗 ca. 50 Min.</div></div>
+    <div class="act-card"><div class="act-card-icon">🚡</div><h3><span data-lang="de" class="active">Seilbahn Malcesine</span><span data-lang="it">Funivia Malcesine</span><span data-lang="en">Malcesine cable car</span></h3><p><span data-lang="de" class="active">Die Seilbahn auf den Monte Baldo ist für Kinder ein besonderes Erlebnis. Oben warten Panoramawege, Almwiesen — im Winter gibt es Schnee zum Spielen.</span><span data-lang="it">La funivia sul Monte Baldo è un'esperienza speciale per i bambini. In cima sentieri panoramici e alpeggi — in inverno la neve per giocare.</span><span data-lang="en">The Monte Baldo cable car is a special experience for children. At the top: panoramic paths, mountain meadows — and snow to play in during winter.</span></p></div>
+    <div class="act-card"><div class="act-card-icon">🏖️</div><h3><span data-lang="de" class="active">Familienstrand Brenzone</span><span data-lang="it">Spiaggia Brenzone</span><span data-lang="en">Brenzone family beach</span></h3><p><span data-lang="de" class="active">Die Strände von Brenzone sul Garda sind besonders familienfreundlich — flaches, klares Wasser, Liegewiesen und entspannte Atmosphäre für alle Altersgruppen.</span><span data-lang="it">Le spiagge di Brenzone sono particolarmente adatte alle famiglie — acque basse e limpide, prati e atmosfera rilassata per tutte le età.</span><span data-lang="en">Brenzone's beaches are especially family-friendly — shallow, clear water, lawns and a relaxed atmosphere for all ages.</span></p></div>
+  </div>
+</section>
+
+<!-- MÄRKTE -->
+<section class="act-section bg-white" id="maerkte">
+  <p class="section-label"><span data-lang="de" class="active">Tradition &amp; Einkaufen</span><span data-lang="it">Tradizione &amp; Shopping</span><span data-lang="en">Tradition &amp; Shopping</span></p>
+  <h2 class="section-title"><span data-lang="de" class="active">Wochenmärkte <em>am Gardasee</em></span><span data-lang="it">Mercati settimanali <em>del Garda</em></span><span data-lang="en">Weekly markets <em>at Lake Garda</em></span></h2>
+  <p class="section-intro"><span data-lang="de" class="active">Die traditionellen Wochenmärkte sind ein wichtiger Teil des italienischen Lebens — frische Lebensmittel, regionale Spezialitäten, Kleidung und Kunsthandwerk.</span><span data-lang="it">I mercati settimanali tradizionali sono parte importante della vita italiana — prodotti freschi, specialità regionali, abbigliamento e artigianato.</span><span data-lang="en">Traditional weekly markets are an important part of Italian life — fresh produce, regional specialities, clothing and crafts.</span></p>
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="market-card-head"><h3>Lazise</h3><div class="market-day"><span data-lang="de" class="active">🗓 Mittwoch, 8–13 Uhr</span><span data-lang="it">🗓 Mercoledì, 8–13</span><span data-lang="en">🗓 Wednesday, 8am–1pm</span></div></div>
+      <div class="market-card-body"><ul>
+        <li><span data-lang="de" class="active">Frisches Obst &amp; Gemüse</span><span data-lang="it">Frutta e verdura fresca</span><span data-lang="en">Fresh fruit &amp; vegetables</span></li>
+        <li><span data-lang="de" class="active">Käse, Salami &amp; regionale Produkte</span><span data-lang="it">Formaggi, salumi e prodotti locali</span><span data-lang="en">Cheese, salami &amp; regional products</span></li>
+        <li><span data-lang="de" class="active">Kleidung &amp; Lederwaren</span><span data-lang="it">Abbigliamento e pelletteria</span><span data-lang="en">Clothing &amp; leather goods</span></li>
+        <li><span data-lang="de" class="active">Kunsthandwerk &amp; Souvenirs</span><span data-lang="it">Artigianato e souvenir</span><span data-lang="en">Crafts &amp; souvenirs</span></li>
+      </ul></div>
+    </div>
+    <div class="market-card">
+      <div class="market-card-head"><h3>Peschiera del Garda</h3><div class="market-day"><span data-lang="de" class="active">🗓 Montag, 8–13 Uhr</span><span data-lang="it">🗓 Lunedì, 8–13</span><span data-lang="en">🗓 Monday, 8am–1pm</span></div></div>
+      <div class="market-card-body"><ul>
+        <li><span data-lang="de" class="active">Regionale Lebensmittel</span><span data-lang="it">Prodotti alimentari locali</span><span data-lang="en">Regional food products</span></li>
+        <li><span data-lang="de" class="active">Wein &amp; Olivenöl</span><span data-lang="it">Vino e olio d'oliva</span><span data-lang="en">Wine &amp; olive oil</span></li>
+        <li><span data-lang="de" class="active">Kleidung &amp; Schuhe</span><span data-lang="it">Abbigliamento e scarpe</span><span data-lang="en">Clothing &amp; shoes</span></li>
+        <li><span data-lang="de" class="active">Haushaltsartikel</span><span data-lang="it">Articoli per la casa</span><span data-lang="en">Household items</span></li>
+      </ul></div>
+    </div>
+    <div class="market-card">
+      <div class="market-card-head"><h3>Malcesine</h3><div class="market-day"><span data-lang="de" class="active">🗓 Samstag, 8–13 Uhr</span><span data-lang="it">🗓 Sabato, 8–13</span><span data-lang="en">🗓 Saturday, 8am–1pm</span></div></div>
+      <div class="market-card-body"><ul>
+        <li><span data-lang="de" class="active">Frisches Obst &amp; Gemüse</span><span data-lang="it">Frutta e verdura fresca</span><span data-lang="en">Fresh fruit &amp; vegetables</span></li>
+        <li><span data-lang="de" class="active">Regionale Spezialitäten</span><span data-lang="it">Specialità regionali</span><span data-lang="en">Regional specialities</span></li>
+        <li><span data-lang="de" class="active">Kleidung &amp; Accessoires</span><span data-lang="it">Abbigliamento e accessori</span><span data-lang="en">Clothing &amp; accessories</span></li>
+        <li><span data-lang="de" class="active">Kunsthandwerk</span><span data-lang="it">Artigianato</span><span data-lang="en">Arts &amp; crafts</span></li>
+      </ul></div>
+    </div>
+  </div>
+  <p style="margin-top:18px;font-size:0.8rem;color:var(--light);font-weight:300;">
+    <span data-lang="de" class="active">💡 Tipp: Den Marktbesuch in Malcesine gut mit der Seilbahn auf den Monte Baldo oder einem Spaziergang zur Burg kombinieren.</span>
+    <span data-lang="it">💡 Consiglio: A Malcesine abbinate la visita al mercato con la funivia o una passeggiata al castello.</span>
+    <span data-lang="en">💡 Tip: In Malcesine, combine the market with the cable car up Monte Baldo or a walk to the castle.</span>
+  </p>
+</section>
+
+<!-- ANREISE -->
+<section class="act-section bg-cream" id="anreise">
+  <p class="section-label"><span data-lang="de" class="active">Anreise &amp; Parken</span><span data-lang="it">Come arrivare &amp; parcheggio</span><span data-lang="en">Getting here &amp; parking</span></p>
+  <h2 class="section-title"><span data-lang="de" class="active">Anreise nach <em>San Zeno di Montagna</em></span><span data-lang="it">Come arrivare a <em>San Zeno di Montagna</em></span><span data-lang="en">Getting to <em>San Zeno di Montagna</em></span></h2>
+  <p class="section-intro"><span data-lang="de" class="active">San Zeno di Montagna ist gut erreichbar — die Region liegt an der Autobahn A22 und ist von mehreren internationalen Flughäfen bequem anzureisen. Die ruhige Höhenlage macht den Ort besonders angenehm als Ausgangspunkt für die gesamte Gardasee-Region.</span><span data-lang="it">San Zeno di Montagna è facilmente raggiungibile — la regione è vicina all'autostrada A22 e accessibile da diversi aeroporti internazionali. La tranquilla posizione in quota lo rende ideale come base per tutta la regione del Garda.</span><span data-lang="en">San Zeno di Montagna is easy to reach — the region is near the A22 motorway and accessible from several international airports. Its peaceful elevated position makes it an ideal base for the entire Lake Garda region.</span></p>
+  <div class="arrival-grid">
+    <div class="arrival-card"><div class="arr-icon">✈️</div><h3><span data-lang="de" class="active">Flughäfen</span><span data-lang="it">Aeroporti</span><span data-lang="en">Airports</span></h3>
+      <ul>
+        <li>Verona (VRN) <span>~40 Min.</span></li>
+        <li>Brescia (VBS) <span>~60 Min.</span></li>
+        <li>Bergamo (BGY) <span>~90 Min.</span></li>
+        <li>Mailand MXP <span>~2 Std.</span></li>
+        <li>Venedig (VCE) <span>~2 Std.</span></li>
+      </ul>
+    </div>
+    <div class="arrival-card"><div class="arr-icon">🚗</div><h3><span data-lang="de" class="active">Mit dem Auto</span><span data-lang="it">In auto</span><span data-lang="en">By car</span></h3>
+      <ul>
+        <li><span data-lang="de" class="active">Autobahn</span><span data-lang="it">Autostrada</span><span data-lang="en">Motorway</span> <span>A22</span></li>
+        <li><span data-lang="de" class="active">Ausfahrt Affi</span><span data-lang="it">Uscita Affi</span><span data-lang="en">Exit Affi</span> <span>~10 Min.</span></li>
+        <li><span data-lang="de" class="active">Von Verona</span><span data-lang="it">Da Verona</span><span data-lang="en">From Verona</span> <span>~45 Min.</span></li>
+        <li><span data-lang="de" class="active">Von Malcesine</span><span data-lang="it">Da Malcesine</span><span data-lang="en">From Malcesine</span> <span>~20 Min.</span></li>
+      </ul>
+    </div>
+    <div class="arrival-card"><div class="arr-icon">🅿️</div><h3><span data-lang="de" class="active">Parken in San Zeno</span><span data-lang="it">Parcheggio a San Zeno</span><span data-lang="en">Parking in San Zeno</span></h3>
+      <ul>
+        <li><span data-lang="de" class="active">Öffentliche Parkplätze</span><span data-lang="it">Parcheggi pubblici</span><span data-lang="en">Public parking</span></li>
+        <li><span data-lang="de" class="active">Nur wenige Meter entfernt</span><span data-lang="it">A pochi metri</span><span data-lang="en">Just metres away</span></li>
+        <li><span data-lang="de" class="active">Kostenlos verfügbar</span><span data-lang="it">Gratuito</span><span data-lang="en">Free of charge</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="act-section bg-white" id="faq">
+  <p class="section-label">FAQ</p>
+  <h2 class="section-title"><span data-lang="de" class="active">Häufige Fragen <em>zur Unterkunft</em></span><span data-lang="it">Domande frequenti <em>sull'appartamento</em></span><span data-lang="en">Frequently asked questions <em>about the apartment</em></span></h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q"><span data-lang="de" class="active">Wie weit ist der Gardasee entfernt?</span><span data-lang="it">Quanto dista il Lago di Garda?</span><span data-lang="en">How far is Lake Garda?</span><span class="faq-arrow">▼</span></button>
+      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Der Gardasee ist in etwa 15–20 Minuten mit dem Auto erreichbar. Die nächsten Orte am Ufer sind Torri del Benaco und Brenzone sul Garda — beide mit schönen Stränden und kleinem Hafen.</span><span data-lang="it">Il Lago di Garda si raggiunge in circa 15–20 minuti in auto. I paesi più vicini sono Torri del Benaco e Brenzone sul Garda — entrambi con belle spiagge e piccolo porto.</span><span data-lang="en">Lake Garda is approximately 15–20 minutes by car. The nearest lakeside towns are Torri del Benaco and Brenzone sul Garda — both with beautiful beaches and a small harbour.</span></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-lang="de" class="active">Gibt es Parkplätze?</span><span data-lang="it">Ci sono parcheggi?</span><span data-lang="en">Is there parking available?</span><span class="faq-arrow">▼</span></button>
+      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Ja — öffentliche Parkplätze befinden sich nur wenige Meter von der Unterkunft entfernt und sind kostenlos nutzbar.</span><span data-lang="it">Sì — parcheggi pubblici a pochi metri dall'appartamento, disponibili gratuitamente.</span><span data-lang="en">Yes — public parking is available just a few metres from the apartment, free of charge.</span></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-lang="de" class="active">Sind Haustiere erlaubt?</span><span data-lang="it">Sono ammessi gli animali domestici?</span><span data-lang="en">Are pets allowed?</span><span class="faq-arrow">▼</span></button>
+      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Haustiere sind auf Anfrage möglich — bitte bei der Buchungsanfrage angeben, damit wir individuell antworten können.</span><span data-lang="it">Gli animali sono possibili su richiesta — indicatelo nella richiesta di prenotazione per una risposta personalizzata.</span><span data-lang="en">Pets are possible on request — please mention this in your booking enquiry so we can respond individually.</span></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-lang="de" class="active">Gibt es WLAN?</span><span data-lang="it">C'è il WiFi?</span><span data-lang="en">Is there WiFi?</span><span class="faq-arrow">▼</span></button>
+      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Ja — die Wohnung ist mit schnellem WLAN ausgestattet. Die Zugangsdaten erhalten Sie bei der Ankunft.</span><span data-lang="it">Sì — l'appartamento è dotato di WiFi veloce. I dati di accesso vi verranno forniti all'arrivo.</span><span data-lang="en">Yes — the apartment has fast WiFi. Access details are provided on arrival.</span></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-lang="de" class="active">Wie funktioniert die Buchung?</span><span data-lang="it">Come funziona la prenotazione?</span><span data-lang="en">How does booking work?</span><span class="faq-arrow">▼</span></button>
+      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Das Buchungsformular auf der Startseite in Ihrer Sprache ausfüllen — wir antworten innerhalb von 24 Stunden mit Verfügbarkeitsbestätigung und allen weiteren Details.</span><span data-lang="it">Compilate il modulo di prenotazione nella vostra lingua sulla pagina principale — risponderemo entro 24 ore con conferma e tutti i dettagli.</span><span data-lang="en">Fill in the booking form on the main page in your language — we'll reply within 24 hours with availability confirmation and all further details.</span></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-lang="de" class="active">Check-in &amp; Check-out Zeiten?</span><span data-lang="it">Orari di check-in e check-out?</span><span data-lang="en">Check-in &amp; check-out times?</span><span class="faq-arrow">▼</span></button>
+      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Check-in ab 15:00 Uhr, Check-out bis 10:00 Uhr. Bei Anfragen für früheren Einzug oder späteren Auszug sprechen Sie uns gerne direkt an.</span><span data-lang="it">Check-in dalle 15:00, check-out entro le 10:00. Per orari diversi contattateci direttamente — faremo del nostro meglio.</span><span data-lang="en">Check-in from 3:00 PM, check-out by 10:00 AM. For early arrival or late departure please contact us directly.</span></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q"><span data-lang="de" class="active">Gibt es eine Mindestaufenthaltsdauer?</span><span data-lang="it">C'è un soggiorno minimo?</span><span data-lang="en">Is there a minimum stay?</span><span class="faq-arrow">▼</span></button>
+      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Nebensaison: 2 Nächte. Sommer, Ferragosto, Weihnachten: 3–4 Nächte. Alle Details auf der Preisseite der Hauptwebsite.</span><span data-lang="it">Bassa stagione: 2 notti. Estate, Ferragosto, Natale: 3–4 notti. Tutti i dettagli nella pagina prezzi del sito principale.</span><span data-lang="en">Off-season: 2 nights. Summer, Ferragosto, Christmas: 3–4 nights. Full details on the prices page of the main website.</span></div></div>
+    </div>
+  </div>
+  <div style="margin-top:40px;">
+    <a href="index.html#buchen" class="btn-primary"><span data-lang="de" class="active">Jetzt Anfrage senden →</span><span data-lang="it">Invia richiesta ora →</span><span data-lang="en">Send enquiry now →</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand"><h2>Stay in San Zeno</h2>
+    <p><span data-lang="de" class="active">Ferienwohnung in San Zeno di Montagna, hoch über dem Gardasee.</span><span data-lang="it">Appartamento vacanze a San Zeno di Montagna, sopra il Lago di Garda.</span><span data-lang="en">Holiday apartment in San Zeno di Montagna, high above Lake Garda.</span></p>
+  </div>
+  <div class="footer-col">
+    <h4><span data-lang="de" class="active">Navigation</span><span data-lang="it">Navigazione</span><span data-lang="en">Navigation</span></h4>
+    <ul>
+      <li><a href="index.html#unterkunft"><span data-lang="de" class="active">Die Wohnung</span><span data-lang="it">L'alloggio</span><span data-lang="en">The Apartment</span></a></li>
+      <li><a href="index.html#preise"><span data-lang="de" class="active">Preise</span><span data-lang="it">Prezzi</span><span data-lang="en">Prices</span></a></li>
+      <li><a href="index.html#verfuegbarkeit"><span data-lang="de" class="active">Verfügbarkeit</span><span data-lang="it">Disponibilità</span><span data-lang="en">Availability</span></a></li>
+      <li><a href="activities.html"><span data-lang="de" class="active">Aktivitäten</span><span data-lang="it">Attività</span><span data-lang="en">Activities</span></a></li>
+      <li><a href="index.html#buchen"><span data-lang="de" class="active">Buchen</span><span data-lang="it">Prenota</span><span data-lang="en">Book</span></a></li>
+    </ul>
+  </div>
+  <div class="footer-col"><h4>Kontakt</h4><ul><li>📍 San Zeno di Montagna (VR)</li><li>✉️ stayinsanzeno@gmail.com</li><li>🌐 www.stayinsanzeno.com</li></ul></div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Stay in San Zeno. Alle Rechte vorbehalten.</p>
+  <p>San Zeno di Montagna · Lago di Garda · Italia</p>
+</div>
+
+<script>
+  window.addEventListener('scroll',()=>{
+    document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
+    const b=document.getElementById('stickyCta');
+    b.style.opacity=window.scrollY>300?'1':'0';
+    b.style.pointerEvents=window.scrollY>300?'auto':'none';
+  });
+  function setLang(lang){
+    document.querySelectorAll('.lang-bar button').forEach(b=>b.classList.remove('active'));
+    document.querySelector('.lang-bar button[onclick="setLang(\''+lang+'\')"]').classList.add('active');
+    document.querySelectorAll('[data-lang]').forEach(el=>{el.classList.toggle('active',el.dataset.lang===lang);});
+    document.documentElement.lang=lang;
+  }
+  document.querySelectorAll('.faq-q').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const isOpen=btn.classList.contains('open');
+      document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.nextElementSibling.style.maxHeight='0';});
+      if(!isOpen){btn.classList.add('open');btn.nextElementSibling.style.maxHeight=btn.nextElementSibling.scrollHeight+'px';}
+    });
+  });
+</script>
+</body>
+</html>
+HTMLEOF
