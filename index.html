@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
@@ -298,13 +298,14 @@
     }
     <style-snippet>
     /* ═══ LIGHTBOX ═══ */
-    .lightbox {
-      position:fixed; inset:0; z-index:1000;
-      background:rgba(0,0,0,0.94);
-      display:flex; align-items:center; justify-content:center;
-      opacity:0; pointer-events:none;
-      transition:opacity 0.3s ease;
+   .lightbox {
+    position:fixed; inset:0; z-index:1000;
+    background:rgba(0,0,0,0.94);
+    display:none; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none;
+    transition:opacity 0.3s ease;
     }
+    .lightbox.open { display:flex; }
     .lightbox.open { opacity:1; pointer-events:all; }
  
     .lb-img {
@@ -1032,7 +1033,8 @@ loadWeather();
       const dot=document.getElementById('syncDot');
       const txt=document.getElementById('syncText');
       if(dot)dot.classList.remove('loading');
-      if(txt){const m={de:'Preise statisch',it:'Prezzi statici',en:'Prices static'};txt.textContent=m[getCurrentLang()]||m.de;}
+      if(txt){const m={de:'Preise statisch',it:'Prezzi statici',en:'Prices static'};
+      txt.textContent=m[currentLang()]||m.de;}
     }
   }
  
@@ -1085,20 +1087,26 @@ loadWeather();
     lbDots.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === lbIndex));
   }
  
-  function lbOpen(index) {
-    lbIndex = index;
-    lbImg.src = GALLERY_IMAGES[lbIndex].src;
-    lbImg.alt = GALLERY_IMAGES[lbIndex].label;
-    lbCount.textContent = (lbIndex + 1) + ' / ' + GALLERY_IMAGES.length;
-    lbDots.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === lbIndex));
+ function lbOpen(index) {
+  lbIndex = index;
+  lbImg.src = GALLERY_IMAGES[lbIndex].src;
+  lbImg.alt = GALLERY_IMAGES[lbIndex].label;
+  lbCount.textContent = (lbIndex + 1) + ' / ' + GALLERY_IMAGES.length;
+  lbDots.querySelectorAll('.lb-dot').forEach((d, i) => d.classList.toggle('active', i === lbIndex));
+  lb.style.display = 'flex';
+  // kleines Timeout damit der Browser display:flex rendert bevor opacity animiert
+  requestAnimationFrame(() => {
     lb.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
- 
-  function lbClose() {
-    lb.classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  });
+  document.body.style.overflow = 'hidden';
+}
+
+function lbClose() {
+  lb.classList.remove('open');
+  // Nach Animation verstecken
+  setTimeout(() => { lb.style.display = 'none'; }, 300);
+  document.body.style.overflow = '';
+}
  
   // Galerie-Items klickbar machen
   document.querySelectorAll('.gallery-item').forEach((item, index) => {
