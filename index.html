@@ -360,11 +360,13 @@
     /* Galerie-Items klickbar machen */
     .gallery-item { cursor:pointer; }
     .gallery-item::after {
-      content:'🔍';
-      position:absolute; top:12px; right:12px;
-      font-size:1rem; opacity:0;
-      transition:opacity 0.3s;
-    }
+  content:'🔍';
+  position:absolute; top:12px; right:12px;
+  font-size:1rem; opacity:0;
+  transition:opacity 0.3s;
+  z-index:10;  /* ← das war das Problem */
+  pointer-events:none;
+}
     .gallery-item:hover::after { opacity:1; }
 </style-snippet>
  
