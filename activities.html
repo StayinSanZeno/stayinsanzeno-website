@@ -26,8 +26,8 @@ cat > /mnt/user-data/outputs/activities.html << 'HTMLEOF'
     .cta-sticky:hover{background:#a04a2a;transform:translateY(-2px);}
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;transition:background 0.4s,box-shadow 0.4s;}
     nav.scrolled{background:rgba(249,245,239,0.97);box-shadow:0 1px 20px rgba(0,0,0,0.08);}
-    .nav-logo{font-family:var(--font-serif);font-size:1.45rem;font-weight:600;color:var(--white);letter-spacing:0.02em;transition:color 0.4s;}
-    nav.scrolled .nav-logo{color:var(--lake);}
+    .nav-logo{display:flex;align-items:center;transition:opacity 0.3s;}
+    .nav-logo:hover{opacity:0.85;}
     .nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
     .nav-links a{font-size:0.74rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.85);transition:color 0.3s;padding-bottom:3px;border-bottom:1px solid transparent;}
     nav.scrolled .nav-links a{color:var(--mid);}
@@ -156,7 +156,9 @@ cat > /mnt/user-data/outputs/activities.html << 'HTMLEOF'
 </div>
 
 <nav id="nav">
-  <a href="index.html" class="nav-logo">Stay in San Zeno</a>
+  <a href="index.html" class="nav-logo">
+  <img src="logo.JPG" alt="Stay in San Zeno" style="height:42px;width:auto;display:block;">
+</a>
   <ul class="nav-links">
     <li><a href="index.html#unterkunft"><span data-lang="de" class="active">Die Wohnung</span><span data-lang="it">L'alloggio</span><span data-lang="en">The Apartment</span></a></li>
     <li><a href="index.html#preise"><span data-lang="de" class="active">Preise</span><span data-lang="it">Prezzi</span><span data-lang="en">Prices</span></a></li>
