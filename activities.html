@@ -1,4 +1,3 @@
-cat > /mnt/user-data/outputs/activities.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -9,136 +8,13 @@ cat > /mnt/user-data/outputs/activities.html << 'HTMLEOF'
   <meta name="keywords" content="Aktivitäten Gardasee, Wandern Monte Baldo, Verona Tagesausflug, Strände Gardasee, Malcesine Seilbahn, Märkte Gardasee, San Zeno di Montagna" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.stayinsanzeno.com/activities.html" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    :root{--lake:#1C4E6E;--lake-mid:#2E7096;--lake-light:#B8D8E8;--cream:#F9F5EF;--warm:#E8DFD0;--terra:#C05A38;--gold:#C89B4A;--dark:#1A1A1A;--mid:#5A5A5A;--light:#9A9A9A;--white:#FFFFFF;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Jost',sans-serif;}
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    html{scroll-behavior:smooth;}
-    body{font-family:var(--font-sans);color:var(--dark);background:var(--white);overflow-x:hidden;}
-    img{display:block;width:100%;}
-    a{text-decoration:none;color:inherit;}
-    .lang-bar{position:fixed;top:0;right:0;z-index:200;display:flex;background:rgba(28,78,110,0.92);backdrop-filter:blur(8px);border-bottom-left-radius:10px;}
-    .lang-bar button{padding:10px 18px;background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);transition:color 0.3s;}
-    .lang-bar button.active,.lang-bar button:hover{color:var(--white);}
-    .lang-bar button.active{border-bottom:2px solid var(--gold);}
-    .cta-sticky{position:fixed;bottom:24px;right:24px;z-index:999;background:var(--terra);color:var(--white);padding:14px 24px;border-radius:30px;font-family:var(--font-sans);font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 4px 20px rgba(192,90,56,0.45);transition:transform 0.2s,background 0.3s,opacity 0.3s;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;}
-    .cta-sticky:hover{background:#a04a2a;transform:translateY(-2px);}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:72px;transition:background 0.4s,box-shadow 0.4s;}
-    nav.scrolled{background:rgba(249,245,239,0.97);box-shadow:0 1px 20px rgba(0,0,0,0.08);}
-    .nav-logo{display:flex;align-items:center;transition:opacity 0.3s;}
-    .nav-logo:hover{opacity:0.85;}
-    .nav-links{display:flex;gap:32px;list-style:none;align-items:center;}
-    .nav-links a{font-size:0.74rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.85);transition:color 0.3s;padding-bottom:3px;border-bottom:1px solid transparent;}
-    nav.scrolled .nav-links a{color:var(--mid);}
-    .nav-links a:hover,.nav-links a.current{color:var(--white);border-color:rgba(255,255,255,0.6);}
-    nav.scrolled .nav-links a:hover,nav.scrolled .nav-links a.current{color:var(--lake);border-color:var(--lake);}
-    .nav-cta{padding:9px 22px!important;background:var(--terra)!important;color:var(--white)!important;border-radius:4px;font-weight:500!important;border-bottom:none!important;}
-    .nav-cta:hover{background:#a04a2a!important;}
-    .nav-toggle{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;}
-    .nav-toggle span{display:block;width:26px;height:2px;background:white;border-radius:2px;transition:background 0.4s;}
-    nav.scrolled .nav-toggle span{background:var(--dark);}
-    .page-hero{position:relative;height:52vh;min-height:380px;display:flex;align-items:flex-end;overflow:hidden;}
-    .page-hero-bg{position:absolute;inset:0;background:linear-gradient(155deg,#0d2f45 0%,#1C4E6E 40%,#2E7096 70%,#4d8fad 100%);}
-    .page-hero-photo{position:absolute;inset:0;background-image:url('hero-ausblick.jpg');background-size:cover;background-position:center 40%;opacity:0.6;}
-    .page-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,28,40,0.88) 0%,rgba(10,28,40,0.3) 60%,transparent 100%);}
-    .page-hero-content{position:relative;z-index:10;padding:0 72px 56px;animation:fadeUp 0.9s ease-out both;}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-    .page-hero-eyebrow{font-size:0.7rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-    .page-hero h1{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:var(--white);line-height:1.1;margin-bottom:14px;}
-    .page-hero h1 em{font-style:italic;color:var(--lake-light);}
-    .page-hero-sub{font-size:0.95rem;font-weight:300;color:rgba(255,255,255,0.72);max-width:540px;line-height:1.7;}
-    .cat-nav{background:var(--dark);padding:0 72px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
-    .cat-nav::-webkit-scrollbar{display:none;}
-    .cat-nav a{padding:18px 22px;font-size:0.72rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);white-space:nowrap;border-bottom:2px solid transparent;transition:color 0.3s,border-color 0.3s;}
-    .cat-nav a:hover{color:var(--white);border-color:var(--gold);}
-    .act-section{padding:80px 72px;}
-    .act-section.bg-cream{background:var(--cream);}
-    .act-section.bg-white{background:var(--white);}
-    .act-section.bg-dark{background:var(--lake);}
-    .act-section.bg-dark .section-label{color:var(--gold);}
-    .act-section.bg-dark .section-title{color:var(--white);}
-    .act-section.bg-dark .section-intro{color:rgba(255,255,255,0.72);}
-    .act-section.bg-dark .act-card{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);}
-    .act-section.bg-dark .act-card h3{color:var(--white);}
-    .act-section.bg-dark .act-card p{color:rgba(255,255,255,0.68);}
-    .act-section.bg-dark .act-card .tip{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.85);border-color:var(--gold);}
-    .section-label{font-size:0.7rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--terra);margin-bottom:12px;}
-    .section-title{font-family:var(--font-serif);font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:300;line-height:1.15;color:var(--lake);margin-bottom:16px;}
-    .section-title em{font-style:italic;}
-    .section-intro{font-size:0.97rem;font-weight:300;line-height:1.8;color:var(--mid);max-width:680px;margin-bottom:44px;}
-    .act-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-    .act-grid.two-col{grid-template-columns:repeat(2,1fr);}
-    .act-card{background:var(--cream);border:1px solid var(--warm);border-radius:8px;padding:28px 24px;transition:transform 0.25s,box-shadow 0.25s;}
-    .act-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(28,78,110,0.1);}
-    .act-card-icon{font-size:2rem;margin-bottom:14px;}
-    .act-card h3{font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:var(--lake);margin-bottom:10px;}
-    .act-card p{font-size:0.85rem;font-weight:300;line-height:1.75;color:var(--mid);}
-    .act-card .tip{margin-top:12px;padding:9px 13px;background:rgba(28,78,110,0.07);border-radius:6px;font-size:0.78rem;color:var(--lake);font-weight:400;border-left:3px solid var(--gold);}
-    .act-hero-card{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;margin-bottom:44px;}
-    .act-hero-card-img{height:340px;border-radius:8px;overflow:hidden;background:var(--lake-light);}
-    .act-hero-card-img div{width:100%;height:100%;background-size:cover;background-position:center;transition:transform 0.6s;}
-    .act-hero-card-img:hover div{transform:scale(1.04);}
-    .act-hero-card-text h3{font-family:var(--font-serif);font-size:1.6rem;font-weight:400;color:var(--lake);margin-bottom:14px;}
-    .act-hero-card-text p{font-size:0.92rem;font-weight:300;line-height:1.85;color:var(--mid);margin-bottom:12px;}
-    .market-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-    .market-card{background:var(--white);border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);}
-    .market-card-head{background:var(--lake);padding:20px 22px;}
-    .market-card-head h3{font-family:var(--font-serif);font-size:1.2rem;font-weight:400;color:var(--white);margin-bottom:4px;}
-    .market-day{font-size:0.74rem;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;}
-    .market-card-body{padding:18px 22px;}
-    .market-card-body ul{list-style:none;}
-    .market-card-body li{font-size:0.84rem;font-weight:300;color:var(--mid);padding:5px 0;border-bottom:1px solid var(--warm);display:flex;align-items:center;gap:8px;}
-    .market-card-body li:last-child{border-bottom:none;}
-    .market-card-body li::before{content:'·';color:var(--gold);font-size:1.2rem;}
-    .arrival-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-    .arrival-card{background:var(--white);border-radius:8px;padding:28px 22px;box-shadow:0 4px 20px rgba(0,0,0,0.06);border-top:3px solid var(--lake);}
-    .arrival-card .arr-icon{font-size:2rem;margin-bottom:14px;}
-    .arrival-card h3{font-family:var(--font-serif);font-size:1.15rem;font-weight:600;color:var(--lake);margin-bottom:12px;}
-    .arrival-card ul{list-style:none;}
-    .arrival-card li{font-size:0.84rem;font-weight:300;color:var(--mid);padding:6px 0;border-bottom:1px solid var(--warm);display:flex;justify-content:space-between;gap:12px;}
-    .arrival-card li:last-child{border-bottom:none;}
-    .arrival-card li span{color:var(--terra);font-weight:500;white-space:nowrap;}
-    .faq-list{max-width:760px;}
-    .faq-item{border-bottom:1px solid var(--warm);}
-    .faq-q{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:22px 0;gap:20px;font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:var(--lake);text-align:left;}
-    .faq-arrow{font-size:0.9rem;color:var(--gold);transition:transform 0.3s;flex-shrink:0;}
-    .faq-q.open .faq-arrow{transform:rotate(180deg);}
-    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
-    .faq-a-inner{padding:0 0 20px;font-size:0.9rem;font-weight:300;line-height:1.8;color:var(--mid);}
-    .btn-primary{padding:14px 32px;background:var(--terra);color:var(--white);font-family:var(--font-sans);font-size:0.78rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;border-radius:4px;border:none;cursor:pointer;transition:background 0.3s,transform 0.2s;display:inline-block;}
-    .btn-primary:hover{background:#a04a2a;transform:translateY(-2px);}
-    footer{background:var(--dark);padding:64px 72px 40px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;}
-    .footer-brand h2{font-family:var(--font-serif);font-size:1.55rem;font-weight:300;color:var(--white);margin-bottom:12px;}
-    .footer-brand p{font-size:0.84rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.75;max-width:320px;}
-    .footer-col h4{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
-    .footer-col ul{list-style:none;}
-    .footer-col li{font-size:0.84rem;color:rgba(255,255,255,0.48);margin-bottom:10px;font-weight:300;transition:color 0.3s;}
-    .footer-col li:hover{color:rgba(255,255,255,0.85);}
-    .footer-bottom{background:var(--dark);padding:18px 72px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;}
-    .footer-bottom p{font-size:0.74rem;color:rgba(255,255,255,0.22);font-weight:300;}
-    [data-lang]{display:none;}
-    [data-lang].active{display:block;}
-    span[data-lang]{display:none;}
-    span[data-lang].active{display:inline;}
-    @media(max-width:960px){
-      nav{padding:0 24px;}
-      .page-hero-content{padding:0 28px 48px;}
-      .cat-nav{padding:0 16px;}
-      .act-section{padding:60px 28px;}
-      .act-grid,.act-grid.two-col{grid-template-columns:1fr 1fr;}
-      .act-hero-card{grid-template-columns:1fr;gap:28px;}
-      .act-hero-card-img{height:240px;}
-      .market-grid,.arrival-grid{grid-template-columns:1fr;}
-      footer{grid-template-columns:1fr;padding:48px 28px 32px;}
-      .footer-bottom{flex-direction:column;gap:8px;padding:16px 28px;}
-      .nav-links{display:none;}
-      .nav-toggle{display:flex;}
-    }
-    @media(max-width:560px){
-      .act-grid,.act-grid.two-col{grid-template-columns:1fr;}
-    }
-  </style>
+  
+  <!-- Externe CSS und JS Dateien -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -157,8 +33,8 @@ cat > /mnt/user-data/outputs/activities.html << 'HTMLEOF'
 
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-  <img src="logo.JPG" alt="Stay in San Zeno" style="height:42px;width:auto;display:block;">
-</a>
+    <img src="logo.JPG" alt="Stay in San Zeno" style="height:42px;width:auto;display:block;">
+  </a>
   <ul class="nav-links">
     <li><a href="index.html#unterkunft"><span data-lang="de" class="active">Die Wohnung</span><span data-lang="it">L'alloggio</span><span data-lang="en">The Apartment</span></a></li>
     <li><a href="index.html#preise"><span data-lang="de" class="active">Preise</span><span data-lang="it">Prezzi</span><span data-lang="en">Prices</span></a></li>
@@ -361,32 +237,81 @@ cat > /mnt/user-data/outputs/activities.html << 'HTMLEOF'
   <h2 class="section-title"><span data-lang="de" class="active">Häufige Fragen <em>zur Unterkunft</em></span><span data-lang="it">Domande frequenti <em>sull'appartamento</em></span><span data-lang="en">Frequently asked questions <em>about the apartment</em></span></h2>
   <div class="faq-list">
     <div class="faq-item">
-      <button class="faq-q"><span data-lang="de" class="active">Wie weit ist der Gardasee entfernt?</span><span data-lang="it">Quanto dista il Lago di Garda?</span><span data-lang="en">How far is Lake Garda?</span><span class="faq-arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Der Gardasee ist in etwa 15–20 Minuten mit dem Auto erreichbar. Die nächsten Orte am Ufer sind Torri del Benaco und Brenzone sul Garda — beide mit schönen Stränden und kleinem Hafen.</span><span data-lang="it">Il Lago di Garda si raggiunge in circa 15–20 minuti in auto. I paesi più vicini sono Torri del Benaco e Brenzone sul Garda — entrambi con belle spiagge e piccolo porto.</span><span data-lang="en">Lake Garda is approximately 15–20 minutes by car. The nearest lakeside towns are Torri del Benaco and Brenzone sul Garda — both with beautiful beaches and a small harbour.</span></div></div>
+      <button class="faq-q">
+        <span><span data-lang="de" class="active">Wie weit ist der Gardasee entfernt?</span><span data-lang="it">Quanto dista il Lago di Garda?</span><span data-lang="en">How far is Lake Garda?</span></span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        <span data-lang="de" class="active">Der Gardasee ist in etwa 15–20 Minuten mit dem Auto erreichbar. Die nächsten Orte am Ufer sind Torri del Benaco und Brenzone sul Garda — beide mit schönen Stränden und kleinem Hafen.</span>
+        <span data-lang="it">Il Lago di Garda si raggiunge in circa 15–20 minuti in auto. I paesi più vicini sono Torri del Benaco e Brenzone sul Garda — entrambi con belle spiagge e piccolo porto.</span>
+        <span data-lang="en">Lake Garda is approximately 15–20 minutes by car. The nearest lakeside towns are Torri del Benaco and Brenzone sul Garda — both with beautiful beaches and a small harbour.</span>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q"><span data-lang="de" class="active">Gibt es Parkplätze?</span><span data-lang="it">Ci sono parcheggi?</span><span data-lang="en">Is there parking available?</span><span class="faq-arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Ja — öffentliche Parkplätze befinden sich nur wenige Meter von der Unterkunft entfernt und sind kostenlos nutzbar.</span><span data-lang="it">Sì — parcheggi pubblici a pochi metri dall'appartamento, disponibili gratuitamente.</span><span data-lang="en">Yes — public parking is available just a few metres from the apartment, free of charge.</span></div></div>
+      <button class="faq-q">
+        <span><span data-lang="de" class="active">Gibt es Parkplätze?</span><span data-lang="it">Ci sono parcheggi?</span><span data-lang="en">Is there parking available?</span></span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        <span data-lang="de" class="active">Ja — öffentliche Parkplätze befinden sich nur wenige Meter von der Unterkunft entfernt und sind kostenlos nutzbar.</span>
+        <span data-lang="it">Sì — parcheggi pubblici a pochi metri dall'appartamento, disponibili gratuitamente.</span>
+        <span data-lang="en">Yes — public parking is available just a few metres from the apartment, free of charge.</span>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q"><span data-lang="de" class="active">Sind Haustiere erlaubt?</span><span data-lang="it">Sono ammessi gli animali domestici?</span><span data-lang="en">Are pets allowed?</span><span class="faq-arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Haustiere sind auf Anfrage möglich — bitte bei der Buchungsanfrage angeben, damit wir individuell antworten können.</span><span data-lang="it">Gli animali sono possibili su richiesta — indicatelo nella richiesta di prenotazione per una risposta personalizzata.</span><span data-lang="en">Pets are possible on request — please mention this in your booking enquiry so we can respond individually.</span></div></div>
+      <button class="faq-q">
+        <span><span data-lang="de" class="active">Sind Haustiere erlaubt?</span><span data-lang="it">Sono ammessi gli animali domestici?</span><span data-lang="en">Are pets allowed?</span></span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        <span data-lang="de" class="active">Haustiere sind auf Anfrage möglich — bitte bei der Buchungsanfrage angeben, damit wir individuell antworten können.</span>
+        <span data-lang="it">Gli animali sono possibili su richiesta — indicatelo nella richiesta di prenotazione per una risposta personalizzata.</span>
+        <span data-lang="en">Pets are possible on request — please mention this in your booking enquiry so we can respond individually.</span>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q"><span data-lang="de" class="active">Gibt es WLAN?</span><span data-lang="it">C'è il WiFi?</span><span data-lang="en">Is there WiFi?</span><span class="faq-arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Ja — die Wohnung ist mit schnellem WLAN ausgestattet. Die Zugangsdaten erhalten Sie bei der Ankunft.</span><span data-lang="it">Sì — l'appartamento è dotato di WiFi veloce. I dati di accesso vi verranno forniti all'arrivo.</span><span data-lang="en">Yes — the apartment has fast WiFi. Access details are provided on arrival.</span></div></div>
+      <button class="faq-q">
+        <span><span data-lang="de" class="active">Gibt es WLAN?</span><span data-lang="it">C'è il WiFi?</span><span data-lang="en">Is there WiFi?</span></span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        <span data-lang="de" class="active">Ja — die Wohnung ist mit schnellem WLAN ausgestattet. Die Zugangsdaten erhalten Sie bei der Ankunft.</span>
+        <span data-lang="it">Sì — l'appartamento è dotato di WiFi veloce. I dati di accesso vi verranno forniti all'arrivo.</span>
+        <span data-lang="en">Yes — the apartment has fast WiFi. Access details are provided on arrival.</span>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q"><span data-lang="de" class="active">Wie funktioniert die Buchung?</span><span data-lang="it">Come funziona la prenotazione?</span><span data-lang="en">How does booking work?</span><span class="faq-arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Das Buchungsformular auf der Startseite in Ihrer Sprache ausfüllen — wir antworten innerhalb von 24 Stunden mit Verfügbarkeitsbestätigung und allen weiteren Details.</span><span data-lang="it">Compilate il modulo di prenotazione nella vostra lingua sulla pagina principale — risponderemo entro 24 ore con conferma e tutti i dettagli.</span><span data-lang="en">Fill in the booking form on the main page in your language — we'll reply within 24 hours with availability confirmation and all further details.</span></div></div>
+      <button class="faq-q">
+        <span><span data-lang="de" class="active">Wie funktioniert die Buchung?</span><span data-lang="it">Come funziona la prenotazione?</span><span data-lang="en">How does booking work?</span></span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        <span data-lang="de" class="active">Das Buchungsformular auf der Startseite in Ihrer Sprache ausfüllen — wir antworten innerhalb von 24 Stunden mit Verfügbarkeitsbestätigung und allen weiteren Details.</span>
+        <span data-lang="it">Compilate il modulo di prenotazione nella vostra lingua sulla pagina principale — risponderemo entro 24 ore con conferma e tutti i dettagli.</span>
+        <span data-lang="en">Fill in the booking form on the main page in your language — we'll reply within 24 hours with availability confirmation and all further details.</span>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q"><span data-lang="de" class="active">Check-in &amp; Check-out Zeiten?</span><span data-lang="it">Orari di check-in e check-out?</span><span data-lang="en">Check-in &amp; check-out times?</span><span class="faq-arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Check-in ab 15:00 Uhr, Check-out bis 10:00 Uhr. Bei Anfragen für früheren Einzug oder späteren Auszug sprechen Sie uns gerne direkt an.</span><span data-lang="it">Check-in dalle 15:00, check-out entro le 10:00. Per orari diversi contattateci direttamente — faremo del nostro meglio.</span><span data-lang="en">Check-in from 3:00 PM, check-out by 10:00 AM. For early arrival or late departure please contact us directly.</span></div></div>
+      <button class="faq-q">
+        <span><span data-lang="de" class="active">Check-in &amp; Check-out Zeiten?</span><span data-lang="it">Orari di check-in e check-out?</span><span data-lang="en">Check-in &amp; check-out times?</span></span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        <span data-lang="de" class="active">Check-in ab 15:00 Uhr, Check-out bis 10:00 Uhr. Bei Anfragen für früheren Einzug oder späteren Auszug sprechen Sie uns gerne direkt an.</span>
+        <span data-lang="it">Check-in dalle 15:00, check-out entro le 10:00. Per orari diversi contattateci direttamente — faremo del nostro meglio.</span>
+        <span data-lang="en">Check-in from 3:00 PM, check-out by 10:00 AM. For early arrival or late departure please contact us directly.</span>
+      </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q"><span data-lang="de" class="active">Gibt es eine Mindestaufenthaltsdauer?</span><span data-lang="it">C'è un soggiorno minimo?</span><span data-lang="en">Is there a minimum stay?</span><span class="faq-arrow">▼</span></button>
-      <div class="faq-a"><div class="faq-a-inner"><span data-lang="de" class="active">Nebensaison: 2 Nächte. Sommer, Ferragosto, Weihnachten: 3–4 Nächte. Alle Details auf der Preisseite der Hauptwebsite.</span><span data-lang="it">Bassa stagione: 2 notti. Estate, Ferragosto, Natale: 3–4 notti. Tutti i dettagli nella pagina prezzi del sito principale.</span><span data-lang="en">Off-season: 2 nights. Summer, Ferragosto, Christmas: 3–4 nights. Full details on the prices page of the main website.</span></div></div>
+      <button class="faq-q">
+        <span><span data-lang="de" class="active">Gibt es eine Mindestaufenthaltsdauer?</span><span data-lang="it">C'è un soggiorno minimo?</span><span data-lang="en">Is there a minimum stay?</span></span>
+        <span class="faq-icon">＋</span>
+      </button>
+      <div class="faq-a">
+        <span data-lang="de" class="active">Nebensaison: 2 Nächte. Sommer, Ferragosto, Weihnachten: 3–4 Nächte. Alle Details auf der Preisseite der Hauptwebsite.</span>
+        <span data-lang="it">Bassa stagione: 2 notti. Estate, Ferragosto, Natale: 3–4 notti. Tutti i dettagli nella pagina prezzi del sito principale.</span>
+        <span data-lang="en">Off-season: 2 nights. Summer, Ferragosto, Christmas: 3–4 nights. Full details on the prices page of the main website.</span>
+      </div>
     </div>
   </div>
   <div style="margin-top:40px;">
@@ -408,34 +333,36 @@ cat > /mnt/user-data/outputs/activities.html << 'HTMLEOF'
       <li><a href="index.html#buchen"><span data-lang="de" class="active">Buchen</span><span data-lang="it">Prenota</span><span data-lang="en">Book</span></a></li>
     </ul>
   </div>
-  <div class="footer-col"><h4>Kontakt</h4><ul><li>📍 San Zeno di Montagna (VR)</li><li>✉️ stayinsanzeno@gmail.com</li><li>🌐 www.stayinsanzeno.com</li></ul></div>
+  <div class="footer-col">
+    <h4>Kontakt</h4>
+    <ul>
+      <li>
+        <a href="https://www.google.com/maps/search/?api=1&query=San+Zeno+di+Montagna,+Verona,+Italy" target="_blank" rel="noopener noreferrer">
+          📍 San Zeno di Montagna (VR)
+        </a>
+      </li>
+      <li>
+        <a href="mailto:stayinsanzeno@gmail.com">
+          ✉️ stayinsanzeno@gmail.com
+        </a>
+      </li>
+      <li>
+        <a href="https://www.stayinsanzeno.com" target="_blank" rel="noopener noreferrer">
+          🌐 www.stayinsanzeno.com
+        </a>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/stayinsanzeno" target="_blank" rel="noopener noreferrer">
+          📸 stayinsanzeno
+        </a>
+      </li>
+    </ul>
+  </div>
 </footer>
 <div class="footer-bottom">
   <p>© 2026 Stay in San Zeno. Alle Rechte vorbehalten.</p>
   <p>San Zeno di Montagna · Lago di Garda · Italia</p>
 </div>
 
-<script>
-  window.addEventListener('scroll',()=>{
-    document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60);
-    const b=document.getElementById('stickyCta');
-    b.style.opacity=window.scrollY>300?'1':'0';
-    b.style.pointerEvents=window.scrollY>300?'auto':'none';
-  });
-  function setLang(lang){
-    document.querySelectorAll('.lang-bar button').forEach(b=>b.classList.remove('active'));
-    document.querySelector('.lang-bar button[onclick="setLang(\''+lang+'\')"]').classList.add('active');
-    document.querySelectorAll('[data-lang]').forEach(el=>{el.classList.toggle('active',el.dataset.lang===lang);});
-    document.documentElement.lang=lang;
-  }
-  document.querySelectorAll('.faq-q').forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const isOpen=btn.classList.contains('open');
-      document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.nextElementSibling.style.maxHeight='0';});
-      if(!isOpen){btn.classList.add('open');btn.nextElementSibling.style.maxHeight=btn.nextElementSibling.scrollHeight+'px';}
-    });
-  });
-</script>
 </body>
 </html>
-HTMLEOF
