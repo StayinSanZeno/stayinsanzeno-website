@@ -51,24 +51,26 @@
   <span data-lang="en">Book now</span>
 </a>
  
-<div class="lang-bar">
-  <button class="active" onclick="setLang('de')">DE</button>
-  <button onclick="setLang('it')">IT</button>
-  <button onclick="setLang('en')">EN</button>
-</div>
- 
 <nav id="nav">
- <a href="index.html" class="nav-logo">
-  <img src="logo.JPG" alt="Stay in San Zeno" style="height:42px;width:auto;display:block;">
-</a>
+  <a href="index.html" class="nav-logo">
+    <img src="logo.JPG" alt="Stay in San Zeno">
+  </a>
+  
   <ul class="nav-links">
     <li><a href="#unterkunft"><span data-lang="de" class="active">Die Wohnung</span><span data-lang="it">L'alloggio</span><span data-lang="en">The Apartment</span></a></li>
     <li><a href="#preise"><span data-lang="de" class="active">Preise</span><span data-lang="it">Prezzi</span><span data-lang="en">Prices</span></a></li>
     <li><a href="#verfuegbarkeit"><span data-lang="de" class="active">Verfügbarkeit</span><span data-lang="it">Disponibilità</span><span data-lang="en">Availability</span></a></li>
     <li><a href="activities.html"><span data-lang="de" class="active">Aktivitäten</span><span data-lang="it">Attività</span><span data-lang="en">Activities</span></a></li>
-    <li><a href="#buchen" class="nav-cta"><span data-lang="de" class="active">Anfragen</span><span data-lang="it">Prenota</span><span data-lang="en">Book Now</span></a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+
+  <div class="nav-controls">
+    <div class="lang-bar">
+      <button class="active" onclick="setLang('de')">DE</button>
+      <button onclick="setLang('it')">IT</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
 </nav>
  
 <!-- HERO -->
@@ -102,7 +104,16 @@
   </div>
   <div class="scroll-hint">Scroll</div>
 </section>
- 
+
+  <nav class="cat-nav" aria-label="Kategorien">
+  <a href="#unterkunft">🛏️ <span data-lang="de" class="active">Wohnung</span><span data-lang="it">Appartamento</span><span data-lang="en">Apartment</span></a>
+  <a href="#ausstattung">✨ <span data-lang="de" class="active">Ausstattung</span><span data-lang="it">Dotazioni</span><span data-lang="en">Amenities</span></a>
+  <a href="#galerie">📸 <span data-lang="de" class="active">Bilder</span><span data-lang="it">Immagini</span><span data-lang="en">Gallery</span></a>
+  <a href="#preise">💶 <span data-lang="de" class="active">Preise</span><span data-lang="it">Prezzi</span><span data-lang="en">Prices</span></a>
+  <a href="#verfuegbarkeit">📅 <span data-lang="de" class="active">Kalender</span><span data-lang="it">Calendario</span><span data-lang="en">Calendar</span></a>
+  <a href="#lage">📍 <span data-lang="de" class="active">Lage</span><span data-lang="it">Posizione</span><span data-lang="en">Location</span></a>
+</nav>
+  
 <!-- STRIP -->
 <div class="strip">
   <div class="strip-item"><span class="strip-icon">🛏️</span>
@@ -153,7 +164,7 @@
 </section>
  
 <!-- FEATURES -->
-<section class="features">
+<section class="features" id="ausstattung">
   <div style="max-width:680px;">
     <p class="section-label"><span data-lang="de" class="active">Ausstattung</span><span data-lang="it">Dotazioni</span><span data-lang="en">Amenities</span></p>
     <h2 class="section-title"><span data-lang="de" class="active">Alles was Sie<br><em>brauchen</em></span><span data-lang="it">Tutto ciò<br><em>che vi serve</em></span><span data-lang="en">Everything<br><em>you need</em></span></h2>
