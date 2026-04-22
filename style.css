@@ -26,7 +26,7 @@ a{text-decoration:none;color:inherit;}
    ========================================= */
 #nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  height: 64px; /* Feste Höhe für die Kopfzeile */
+  height: 50px; /* Feste Höhe für die Kopfzeile */
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px;
   background: rgba(28,78,110,0.95); /* Dunkler Hintergrund für gute Lesbarkeit */
@@ -40,7 +40,7 @@ a{text-decoration:none;color:inherit;}
 
 /* Logo anpassen */
 .nav-logo img {
-  height: 36px; /* Gleiche Höhe wie die Sprachauswahl */
+  height: 30px; /* Gleiche Höhe wie die Sprachauswahl */
   width: auto;
   border-radius: 4px;
   display: block;
@@ -277,7 +277,7 @@ span[data-lang].active{display:inline;}
 @media(max-width:960px){
   section{padding:72px 28px;}
   #nav{padding:0 24px;}
-  .hero-content{padding:110px 28px 60px;}
+  .hero-content{padding:160px 28px 60px;}
   .strip{padding:24px 28px;gap:24px;}
   .about,.location,.calendar-layout,.weather-inner{grid-template-columns:1fr;gap:32px;}
   .about-img{height:300px;}
@@ -338,11 +338,11 @@ span[data-lang].active{display:inline;}
   overflow-x:auto; 
   scrollbar-width:none; 
   position: sticky; 
-  top: 64px; /* Exakt die Höhe der Kopfzeile */
+  top: 50px; /* Exakt die Höhe der Kopfzeile WICHTIG: Hier auf 50px ändern, passend zum neuen #nav */
   z-index: 150; 
 }
 .cat-nav::-webkit-scrollbar { display:none; }
-.cat-nav a { padding:18px 22px; font-size:0.72rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap; border-bottom:2px solid transparent; transition:color 0.3s,border-color 0.3s; }
+.cat-nav a { padding:12px 22px; font-size:0.72rem; font-weight:400; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.5); white-space:nowrap; border-bottom:2px solid transparent; transition:color 0.3s,border-color 0.3s; }
 .cat-nav a:hover { color:var(--white); border-color:var(--gold); }
 
 .act-section { padding:80px 72px; }
@@ -396,7 +396,7 @@ span[data-lang].active{display:inline;}
 
 /* Responsive Anpassungen für Activities */
 @media(max-width:960px){
-  .page-hero-content { padding:0 28px 48px; }
+  .page-hero-content { padding: 140px 28px 48px; } 
   .cat-nav { padding:0 16px; }
   .act-section { padding:60px 28px; }
   .act-grid, .act-grid.two-col { grid-template-columns:1fr 1fr; }
