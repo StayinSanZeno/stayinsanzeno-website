@@ -25,24 +25,26 @@
   <span data-lang="en">Book now</span>
 </a>
 
-<div class="lang-bar">
-  <button class="active" onclick="setLang('de')">DE</button>
-  <button onclick="setLang('it')">IT</button>
-  <button onclick="setLang('en')">EN</button>
-</div>
-
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="logo.JPG" alt="Stay in San Zeno" style="height:42px;width:auto;display:block;">
+    <img src="logo.JPG" alt="Stay in San Zeno">
   </a>
+  
   <ul class="nav-links">
     <li><a href="index.html#unterkunft"><span data-lang="de" class="active">Die Wohnung</span><span data-lang="it">L'alloggio</span><span data-lang="en">The Apartment</span></a></li>
     <li><a href="index.html#preise"><span data-lang="de" class="active">Preise</span><span data-lang="it">Prezzi</span><span data-lang="en">Prices</span></a></li>
     <li><a href="index.html#verfuegbarkeit"><span data-lang="de" class="active">Verfügbarkeit</span><span data-lang="it">Disponibilità</span><span data-lang="en">Availability</span></a></li>
     <li><a href="activities.html" class="current"><span data-lang="de" class="active">Aktivitäten</span><span data-lang="it">Attività</span><span data-lang="en">Activities</span></a></li>
-    <li><a href="index.html#buchen" class="nav-cta"><span data-lang="de" class="active">Anfragen</span><span data-lang="it">Prenota</span><span data-lang="en">Book Now</span></a></li>
   </ul>
-  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+
+  <div class="nav-controls">
+    <div class="lang-bar">
+      <button class="active" onclick="setLang('de')">DE</button>
+      <button onclick="setLang('it')">IT</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <section class="page-hero">
