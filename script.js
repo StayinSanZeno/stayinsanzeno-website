@@ -1,15 +1,29 @@
 /* ── GLOBALS ── */
 let currentLang = 'de';
 let weatherData = null;
-
-const ALL_IMAGES =[
-  'hero-ausblick.jpg',
-  'wohnzimmer-ausblick.jpg',
-  'see-nahaufnahme.jpg',
-  'dorf-san-zeno.jpg',
-  'gebaeude-aussen.jpg'
-];
+let ALL_IMAGES =[]; // Wird jetzt automatisch befüllt!
 let lbIdx = 0;
+
+/* ── GALERIE AUTOMATIK (NEU) ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const galleryItems = document.querySelectorAll('.gallery-item[data-image]');
+  
+  galleryItems.forEach((item, index) => {
+    const imgUrl = item.getAttribute('data-image');
+    
+    // 1. Bild zur Lightbox-Liste hinzufügen
+    ALL_IMAGES.push(imgUrl); 
+    
+    // 2. Hintergrundbild für die Box automatisch setzen
+    const innerDiv = item.querySelector('.gallery-item-inner');
+    if (innerDiv) {
+      innerDiv.style.backgroundImage = `url('${imgUrl}')`;
+    }
+    
+    // 3. Klick-Event für die Lightbox hinzufügen
+    item.addEventListener('click', () => openLightbox(index));
+  });
+});
 
 /* ── NAVBAR & STICKY ── */
 window.addEventListener('scroll', () => {
