@@ -4,27 +4,41 @@ let weatherData = null;
 let ALL_IMAGES =[]; // Wird jetzt automatisch befüllt!
 let lbIdx = 0;
 
-/* ── GALERIE AUTOMATIK (NEU) ── */
+/* ── BILDER AUTOMATIK (Galerie & Hero) ── */
 document.addEventListener('DOMContentLoaded', () => {
-  const galleryItems = document.querySelectorAll('.gallery-item[data-image]');
   
+  // 1. Hero-Bild auf der Startseite automatisch setzen
+  const heroPhoto = document.querySelector('.hero-photo[data-image]');
+  if (heroPhoto) {
+    heroPhoto.style.backgroundImage = `url('${heroPhoto.getAttribute('data-image')}')`;
+  }
+
+  // 2. Hero-Bild auf der Aktivitäten-Seite automatisch setzen
+  const pageHeroPhoto = document.querySelector('.page-hero-photo[data-image]');
+  if (pageHeroPhoto) {
+    pageHeroPhoto.style.backgroundImage = `url('${pageHeroPhoto.getAttribute('data-image')}')`;
+  }
+
+  // 3. Galerie automatisch aufbauen (Sichtbare + Unsichtbare)
+  const galleryItems = document.querySelectorAll('.gallery-item[data-image]');
   galleryItems.forEach((item, index) => {
     const imgUrl = item.getAttribute('data-image');
     
-    // 1. Bild zur Lightbox-Liste hinzufügen
+    // Bild zur Lightbox-Liste hinzufügen
     ALL_IMAGES.push(imgUrl); 
     
-    // 2. Hintergrundbild für die Box automatisch setzen
+    // Hintergrundbild setzen (nur bei den sichtbaren Bildern, die ein inner-div haben)
     const innerDiv = item.querySelector('.gallery-item-inner');
     if (innerDiv) {
       innerDiv.style.backgroundImage = `url('${imgUrl}')`;
     }
     
-    // 3. Klick-Event für die Lightbox hinzufügen
+    // Klick-Event für die Lightbox
     item.addEventListener('click', () => openLightbox(index));
   });
 });
 
+/* ── NAVBAR & STICKY ── */
 /* ── NAVBAR & STICKY ── */
 window.addEventListener('scroll', () => {
   document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
