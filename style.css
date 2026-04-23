@@ -150,12 +150,6 @@ section{padding:100px 72px;}
 .gallery-item:hover .gallery-item-inner{transform:scale(1.04);}
 .gallery-label{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.55) 0%,transparent 60%);display:flex;align-items:flex-end;padding:20px;}
 .gallery-label span{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.8);font-weight:300;}
-/* Galerie Bilder den Boxen zuweisen */
-.g1 .gallery-item-inner { background-image: url('hero-ausblick.jpg'); }
-.g2 .gallery-item-inner { background-image: url('wohnzimmer-ausblick.jpg'); }
-.g3 .gallery-item-inner { background-image: url('see-nahaufnahme.jpg'); }
-.g4 .gallery-item-inner { background-image: url('dorf-san-zeno.jpg'); }
-.g5 .gallery-item-inner { background-image: url('gebaeude-aussen.jpg'); }
 
 /* PRICES */
 .prices{background:var(--cream);}
