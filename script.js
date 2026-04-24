@@ -1,39 +1,38 @@
 /* ── GLOBALS ── */
 let currentLang = 'de';
 let weatherData = null;
-let ALL_IMAGES =[]; // Wird automatisch befüllt!
+let ALL_IMAGES =[]; 
 let lbIdx = 0;
 
-/* ── BILDER AUTOMATIK (Galerie & Hero) ── */
+/* ── INITIALISIERUNG (Bilder & Sprache) ── */
 document.addEventListener('DOMContentLoaded', () => {
   
-  // 1. Hero-Bild auf der Startseite automatisch setzen
+  // 1. Gespeicherte Sprache abrufen (Memory-Funktion)
+  const savedLang = localStorage.getItem('preferredLang') || 'de';
+  setLang(savedLang);
+
+  // 2. Hero-Bild auf der Startseite automatisch setzen
   const heroPhoto = document.querySelector('.hero-photo[data-image]');
   if (heroPhoto) {
     heroPhoto.style.backgroundImage = `url('${heroPhoto.getAttribute('data-image')}')`;
   }
 
-  // 2. Hero-Bild auf der Aktivitäten-Seite automatisch setzen
+  // 3. Hero-Bild auf der Aktivitäten-Seite automatisch setzen
   const pageHeroPhoto = document.querySelector('.page-hero-photo[data-image]');
   if (pageHeroPhoto) {
     pageHeroPhoto.style.backgroundImage = `url('${pageHeroPhoto.getAttribute('data-image')}')`;
   }
 
-  // 3. Galerie automatisch aufbauen (Sichtbare + Unsichtbare)
+  // 4. Galerie automatisch aufbauen
   const galleryItems = document.querySelectorAll('.gallery-item[data-image]');
   galleryItems.forEach((item, index) => {
     const imgUrl = item.getAttribute('data-image');
-    
-    // Bild zur Lightbox-Liste hinzufügen
     ALL_IMAGES.push(imgUrl); 
     
-    // Hintergrundbild setzen (nur bei den sichtbaren Bildern, die ein inner-div haben)
     const innerDiv = item.querySelector('.gallery-item-inner');
     if (innerDiv) {
       innerDiv.style.backgroundImage = `url('${imgUrl}')`;
     }
-    
-    // Klick-Event für die Lightbox
     item.addEventListener('click', () => openLightbox(index));
   });
 });
@@ -50,16 +49,25 @@ window.addEventListener('scroll', () => {
   }
 });
 
-/* ── LANGUAGE SWITCHER ── */
+/* ── LANGUAGE SWITCHER (Mit Memory) ── */
 function setLang(lang) {
   currentLang = lang;
   document.documentElement.lang = lang;
+  
+  // Sprache im Browser speichern
+  localStorage.setItem('preferredLang', lang);
+
+  // Buttons in der Leiste anpassen
   document.querySelectorAll('.lang-bar button').forEach(b => {
-    b.classList.toggle('active', b.getAttribute('onclick').includes("'" + lang + "'"));
+    b.classList.toggle('active', b.textContent.toLowerCase() === lang);
   });
+
+  // Texte auf der Seite umschalten
   document.querySelectorAll('[data-lang]').forEach(el => {
     el.classList.toggle('active', el.dataset.lang === lang);
   });
+  
+  // Formular und Wetter aktualisieren
   switchFormByIndex({de:0, it:1, en:2}[lang] ?? 0);
   renderWeatherWidget();
 }
