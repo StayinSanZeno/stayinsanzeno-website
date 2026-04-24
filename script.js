@@ -1,7 +1,7 @@
 /* ── GLOBALS ── */
 let currentLang = 'de';
 let weatherData = null;
-let ALL_IMAGES =[]; // Wird jetzt automatisch befüllt!
+let ALL_IMAGES =[]; // Wird automatisch befüllt!
 let lbIdx = 0;
 
 /* ── BILDER AUTOMATIK (Galerie & Hero) ── */
@@ -39,9 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* ── NAVBAR & STICKY ── */
-/* ── NAVBAR & STICKY ── */
 window.addEventListener('scroll', () => {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+  const nav = document.getElementById('nav');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+  
   const btn = document.getElementById('stickyCta');
   if (btn) {
     btn.style.opacity = window.scrollY > 300 ? '1' : '0';
@@ -165,26 +166,53 @@ async function loadWeather() {
   }
 }
 
-/* ── PREIS-SYNC aus Google Sheets (1x täglich) ── */
+/* ── PREIS-SYNC aus Google Sheets (Additions-Logik) ── */
 async function syncPrices() {
   const SHEETS_CSV = 'https://docs.google.com/spreadsheets/d/1_XwA9VM0e-B3kBIvmrO6ObXSHnLvca0BzftrhKctwas/export?format=csv&gid=0';
-  const KEY = 'szn_prices_v1';
+  const KEY = 'szn_prices_v2'; 
   const TTL = 24 * 60 * 60 * 1000;
 
   function applyRows(rows) {
-    // Basispreis (keine Datumsspalte)
-    const base = rows.find(r => !r[1] || r[1] === '');
-    if (base) {
-      const baseTd = document.querySelector('.base-row .price-tag strong');
-      if (baseTd) { const v = base[3].replace(/[^0-9]/g,''); if (v) baseTd.textContent = v + ' €'; }
-    }
-    // Saisonpreise
-    const seasons = rows.filter(r => r[1] && r[1] !== '');
-    const tags = document.querySelectorAll('.price-table tbody tr:not(.base-row) .price-tag');
-    seasons.forEach((row, i) => {
-      if (tags[i]) { const v = row[3].replace(/[^0-9]/g,''); if (v) tags[i].textContent = v + ' €'; }
+    if (rows.length < 4) return; 
+
+    const getVal = (row) => row && row[3] ? parseInt(row[3].replace(/[^0-9]/g, ''), 10) : 0;
+
+    const baseVal       = getVal(rows[0]); 
+    const summerAdd     = getVal(rows[1]); 
+    const ferragostoAdd = getVal(rows[2]); 
+    const xmasAdd       = getVal(rows[3]); 
+    const extraPerson   = rows.length > 4 ? getVal(rows[4]) : 30; 
+
+    const summerTotal     = baseVal + summerAdd;               
+    const ferragostoTotal = baseVal + summerAdd + ferragostoAdd; 
+    const xmasTotal       = baseVal + xmasAdd;                 
+
+    const dateSummer     = rows[1] && rows[1][1] ? rows[1][1] : '';
+    const dateFerragosto = rows[2] && rows[2][1] ? rows[2][1] : '';
+    const dateXmas       = rows[3] && rows[3][1] ? rows[3][1] : '';
+
+    const elBase = document.getElementById('price-base');
+    const elSummer = document.getElementById('price-summer');
+    const elFerragosto = document.getElementById('price-ferragosto');
+    const elXmas = document.getElementById('price-xmas');
+
+    if (elBase && baseVal) elBase.innerHTML = `<strong>${baseVal} €</strong>`;
+    if (elSummer && summerTotal) elSummer.textContent = `${summerTotal} €`;
+    if (elFerragosto && ferragostoTotal) elFerragosto.textContent = `${ferragostoTotal} €`;
+    if (elXmas && xmasTotal) elXmas.textContent = `${xmasTotal} €`;
+
+    const elDateSummer = document.getElementById('date-summer');
+    const elDateFerragosto = document.getElementById('date-ferragosto');
+    const elDateXmas = document.getElementById('date-xmas');
+
+    if (elDateSummer && dateSummer) elDateSummer.textContent = dateSummer;
+    if (elDateFerragosto && dateFerragosto) elDateFerragosto.textContent = dateFerragosto;
+    if (elDateXmas && dateXmas) elDateXmas.textContent = dateXmas;
+
+    document.querySelectorAll('.price-extra').forEach(el => {
+      if (extraPerson) el.textContent = extraPerson;
     });
-    // Status-Anzeige
+
     const dot = document.getElementById('syncDot');
     const txt = document.getElementById('syncText');
     if (dot) { dot.classList.remove('loading'); dot.classList.add('synced'); }
@@ -195,7 +223,6 @@ async function syncPrices() {
     }
   }
 
-  // Cache prüfen
   try {
     const cached = sessionStorage.getItem(KEY);
     if (cached) {
@@ -204,7 +231,6 @@ async function syncPrices() {
     }
   } catch(e) {}
 
-  // Fetch
   try {
     const res = await fetch(SHEETS_CSV);
     const csv = await res.text();
@@ -227,58 +253,74 @@ async function syncPrices() {
   }
 }
 
-/* ── LIGHTBOX ── */
+/* ── LIGHTBOX (Absturzsicher) ── */
 function openLightbox(index) {
   lbIdx = index;
   updateLightbox();
-  document.getElementById('lightbox').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  const lb = document.getElementById('lightbox');
+  if (lb) {
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 }
 
 function closeLightbox() {
-  document.getElementById('lightbox').classList.remove('open');
-  document.body.style.overflow = 'auto';
+  const lb = document.getElementById('lightbox');
+  if (lb) {
+    lb.classList.remove('open');
+    document.body.style.overflow = 'auto';
+  }
 }
 
 function updateLightbox() {
-  document.getElementById('lbImg').src = ALL_IMAGES[lbIdx];
-  document.getElementById('lbCounter').textContent = (lbIdx + 1) + ' / ' + ALL_IMAGES.length;
+  const lbImg = document.getElementById('lbImg');
+  const lbCounter = document.getElementById('lbCounter');
+  if (lbImg) lbImg.src = ALL_IMAGES[lbIdx];
+  if (lbCounter) lbCounter.textContent = (lbIdx + 1) + ' / ' + ALL_IMAGES.length;
 }
 
-document.getElementById('lbClose').addEventListener('click', closeLightbox);
-document.getElementById('lbNext').addEventListener('click', () => {
+// Event Listener sicher hinzufügen
+const btnClose = document.getElementById('lbClose');
+const btnNext = document.getElementById('lbNext');
+const btnPrev = document.getElementById('lbPrev');
+const lbElement = document.getElementById('lightbox');
+
+if (btnClose) btnClose.addEventListener('click', closeLightbox);
+if (btnNext) btnNext.addEventListener('click', () => {
   lbIdx = (lbIdx + 1) % ALL_IMAGES.length;
   updateLightbox();
 });
-document.getElementById('lbPrev').addEventListener('click', () => {
+if (btnPrev) btnPrev.addEventListener('click', () => {
   lbIdx = (lbIdx - 1 + ALL_IMAGES.length) % ALL_IMAGES.length;
   updateLightbox();
 });
-document.getElementById('lightbox').addEventListener('click', e => {
-  if (e.target.id === 'lightbox') closeLightbox();
-});
+if (lbElement) {
+  lbElement.addEventListener('click', e => {
+    if (e.target.id === 'lightbox') closeLightbox();
+  });
+  
+  // Wischen auf Mobilgeräten (sicher eingebunden)
+  let touchStartX = 0;
+  lbElement.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+  
+  lbElement.addEventListener('touchend', e => {
+    const diff = touchStartX - e.changedTouches[0].screenX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) { lbIdx = (lbIdx + 1) % ALL_IMAGES.length; }
+      else          { lbIdx = (lbIdx - 1 + ALL_IMAGES.length) % ALL_IMAGES.length; }
+      updateLightbox();
+    }
+  }, { passive: true });
+}
 
-// Tastatur: Pfeiltasten + Escape
 document.addEventListener('keydown', e => {
-  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (!lbElement || !lbElement.classList.contains('open')) return;
   if (e.key === 'ArrowRight') { lbIdx = (lbIdx + 1) % ALL_IMAGES.length; updateLightbox(); }
   if (e.key === 'ArrowLeft')  { lbIdx = (lbIdx - 1 + ALL_IMAGES.length) % ALL_IMAGES.length; updateLightbox(); }
   if (e.key === 'Escape') closeLightbox();
 });
-
-// Wischen auf Mobilgeräten
-let touchStartX = 0;
-document.getElementById('lightbox').addEventListener('touchstart', e => {
-  touchStartX = e.changedTouches[0].screenX;
-}, { passive: true });
-document.getElementById('lightbox').addEventListener('touchend', e => {
-  const diff = touchStartX - e.changedTouches[0].screenX;
-  if (Math.abs(diff) > 50) {
-    if (diff > 0) { lbIdx = (lbIdx + 1) % ALL_IMAGES.length; }
-    else          { lbIdx = (lbIdx - 1 + ALL_IMAGES.length) % ALL_IMAGES.length; }
-    updateLightbox();
-  }
-}, { passive: true });
 
 /* ── INIT ── */
 loadWeather();
