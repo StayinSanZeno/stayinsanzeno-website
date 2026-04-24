@@ -105,7 +105,7 @@
   <div class="scroll-hint">Scroll</div>
 </section>
 
-  <nav class="cat-nav" aria-label="Kategorien">
+<nav class="cat-nav" aria-label="Kategorien">
   <a href="#unterkunft">🛏️ <span data-lang="de" class="active">Wohnung</span><span data-lang="it">Appartamento</span><span data-lang="en">Apartment</span></a>
   <a href="#ausstattung">✨ <span data-lang="de" class="active">Ausstattung</span><span data-lang="it">Dotazioni</span><span data-lang="en">Amenities</span></a>
   <a href="#galerie">📸 <span data-lang="de" class="active">Bilder</span><span data-lang="it">Immagini</span><span data-lang="en">Gallery</span></a>
@@ -206,36 +206,36 @@
   
   <div class="gallery-grid">
     <!-- === DIE 6 SICHTBAREN BILDER === -->
-    <div class="gallery-item" data-image="hero-ausblick.jpg">                <!-- Bilder Link wechseln  -->
+    <div class="gallery-item" data-image="hero-ausblick.jpg">
       <div class="gallery-item-inner"></div>  
-      <div class="gallery-label"><span>Panorama · Gardasee</span></div>       <!-- Bilder Name wechseln  -->
+      <div class="gallery-label"><span>Panorama · Gardasee</span></div>
     </div>
-    <div class="gallery-item" data-image="wohnzimmer-ausblick.jpg">          <!-- Bilder Link wechseln  -->
+    <div class="gallery-item" data-image="wohnzimmer-ausblick.jpg">
       <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>Wohnzimmer mit Seeblick</span></div>   <!-- Bilder Name wechseln  -->
+      <div class="gallery-label"><span>Wohnzimmer mit Seeblick</span></div>
     </div>
-    <div class="gallery-item" data-image="balkon-sitzplatz.jpg">              <!-- Bilder Link wechseln  -->
+    <div class="gallery-item" data-image="balkon-sitzplatz.jpg">
       <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>Balkon</span></div>                   <!-- Bilder Name wechseln  -->
+      <div class="gallery-label"><span>Balkon</span></div>
     </div>
-     <div class="gallery-item" data-image="dorf-san-zeno.jpg">              <!-- Bilder Link wechseln  -->
+     <div class="gallery-item" data-image="dorf-san-zeno.jpg">
       <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>dorf-san-zeno</span></div>            <!-- Bilder Name wechseln  -->
+      <div class="gallery-label"><span>San Zeno di Montagna</span></div>
     </div>
-    <div class="gallery-item" data-image="wohnzimmer-ausblick.jpg">          <!-- Bilder Link wechseln  -->
+    <div class="gallery-item" data-image="wohnzimmer.jpg">
       <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>wohnzimmer</span></div>                <!-- Bilder Name wechseln  -->
+      <div class="gallery-label"><span>Wohnzimmer</span></div>
     </div>
-    <div class="gallery-item" data-image="gebaeude-aussen.jpg">              <!-- Bilder Link wechseln  -->
+    <div class="gallery-item" data-image="gebaeude-aussen.jpg">
       <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>Die Unterkunft</span></div>            <!-- Bilder Name wechseln  -->
+      <div class="gallery-label"><span>Die Unterkunft</span></div>
     </div>
 
     <!-- === DIE UNSICHTBAREN BILDER (Nur für die Lightbox) === -->
-    <div class="gallery-item hidden-gallery-item" data-image="dorf-san-zeno.jpg"></div>
-    <div class="gallery-item hidden-gallery-item" data-image="gebaeude-aussen.jpg"></div>
+    <div class="gallery-item hidden-gallery-item" data-image="kueche.jpg"></div>
     <div class="gallery-item hidden-gallery-item" data-image="see-nahaufnahme.jpg"></div>
-    <div class="gallery-item hidden-gallery-item" data-image="wohnzimmer.jpg"></div>
+    <div class="gallery-item hidden-gallery-item" data-image="zimmer1-haupt.jpg"></div>
+    <div class="gallery-item hidden-gallery-item" data-image="zimmer2-bett.jpg"></div>
     <div class="gallery-item hidden-gallery-item" data-image="zimmer2.jpg"></div>
   </div>
 </section>
@@ -245,6 +245,7 @@
   <p class="section-label"><span data-lang="de" class="active">Transparente Preise</span><span data-lang="it">Prezzi trasparenti</span><span data-lang="en">Transparent pricing</span></p>
   <h2 class="section-title"><span data-lang="de" class="active">Preise in<br><em>San Zeno di Montagna</em></span><span data-lang="it">Prezzi a<br><em>San Zeno di Montagna</em></span><span data-lang="en">Prices at<br><em>San Zeno di Montagna</em></span></h2>
   <p class="section-body"><span data-lang="de" class="active">Alle Preise auf einen Blick — keine versteckten Kosten. Der Basispreis gilt außerhalb der Saison; saisonale Aufschläge kommen dazu.</span><span data-lang="it">Tutti i prezzi in uno sguardo — nessun costo nascosto. Il prezzo base vale fuori stagione; i supplementi stagionali si aggiungono.</span><span data-lang="en">All prices at a glance — no hidden costs. Base price applies off-season; seasonal surcharges are added on top.</span></p>
+  
   <div class="price-table-outer">
     <table class="price-table">
       <thead>
@@ -259,33 +260,33 @@
         <tr class="base-row">
           <td><strong><span data-lang="de" class="active">Basispreis</span><span data-lang="it">Prezzo base</span><span data-lang="en">Base price</span></strong></td>
           <td><span data-lang="de" class="active">Nebensaison</span><span data-lang="it">Bassa stagione</span><span data-lang="en">Off-season</span></td>
-          <td class="price-tag"><strong>90 €</strong></td>
+          <td class="price-tag" id="price-base"><strong>90 €</strong></td>
           <td>2</td>
         </tr>
         <tr>
-          <td><span class="season-badge badge-summer">☀️ <span data-lang="de" class="active">Sommer 2026</span><span data-lang="it">Estate 2026</span><span data-lang="en">Summer 2026</span></span></td>
-          <td>10.06 – 15.10.2026</td>
-          <td class="price-tag">125 €</td>
+          <td><span class="season-badge badge-summer">☀️ <span data-lang="de" class="active">Sommer</span><span data-lang="it">Estate</span><span data-lang="en">Summer</span></span></td>
+          <td id="date-summer">10.06 – 15.10.2026</td>
+          <td class="price-tag" id="price-summer">120 €</td>
           <td>3</td>
         </tr>
         <tr>
           <td><span class="season-badge badge-summer">🌅 Ferragosto</span></td>
-          <td>10.08 – 23.08.2026</td>
-          <td class="price-tag">135 €</td>
+          <td id="date-ferragosto">10.08 – 23.08.2026</td>
+          <td class="price-tag" id="price-ferragosto">140 €</td>
           <td>4</td>
         </tr>
         <tr>
           <td><span class="season-badge badge-winter">🎄 <span data-lang="de" class="active">Weihnachten / Neujahr</span><span data-lang="it">Natale / Capodanno</span><span data-lang="en">Christmas / New Year</span></span></td>
-          <td>19.12.2026 – 06.01.2027</td>
-          <td class="price-tag">110 €</td>
+          <td id="date-xmas">19.12.2026 – 06.01.2027</td>
+          <td class="price-tag" id="price-xmas">100 €</td>
           <td>3</td>
         </tr>
       </tbody>
     </table>
     <p style="margin-top:14px;font-size:0.78rem;color:var(--light);line-height:1.8;">
-      <span data-lang="de" class="active">* Aufpreis ab 3. Person: +30 €/Nacht &nbsp;·&nbsp; Kurtaxe: 2 €/Nacht/Person &nbsp;·&nbsp; Endreinigung: inklusive</span>
-      <span data-lang="it">* Supplemento dal 3° ospite: +30 €/notte &nbsp;·&nbsp; Tassa soggiorno: 2 €/notte/persona &nbsp;·&nbsp; Pulizia finale: inclusa</span>
-      <span data-lang="en">* Extra guest from 3rd person: +30 €/night &nbsp;·&nbsp; Tourist tax: 2 €/night/person &nbsp;·&nbsp; Final cleaning: included</span>
+      <span data-lang="de" class="active">* Aufpreis ab 3. Person: +<span class="price-extra">30</span> €/Nacht &nbsp;·&nbsp; Kurtaxe: 2 €/Nacht/Person &nbsp;·&nbsp; Endreinigung: inklusive</span>
+      <span data-lang="it">* Supplemento dal 3° ospite: +<span class="price-extra">30</span> €/notte &nbsp;·&nbsp; Tassa soggiorno: 2 €/notte/persona &nbsp;·&nbsp; Pulizia finale: inclusa</span>
+      <span data-lang="en">* Extra guest from 3rd person: +<span class="price-extra">30</span> €/night &nbsp;·&nbsp; Tourist tax: 2 €/night/person &nbsp;·&nbsp; Final cleaning: included</span>
     </p>
     <!-- Sheets-Sync Statusanzeige -->
     <div class="price-sync-note" id="priceSyncStatus" style="margin-top:16px;">
