@@ -169,13 +169,21 @@ async function loadWeather() {
 /* ── PREIS-SYNC aus Google Sheets (Additions-Logik) ── */
 async function syncPrices() {
   const SHEETS_CSV = 'https://docs.google.com/spreadsheets/d/1_XwA9VM0e-B3kBIvmrO6ObXSHnLvca0BzftrhKctwas/export?format=csv&gid=0';
-  const KEY = 'szn_prices_v2'; 
+  const KEY = 'szn_prices_v3'; 
   const TTL = 24 * 60 * 60 * 1000;
 
   function applyRows(rows) {
     if (rows.length < 4) return; 
 
+    // Hilfsfunktion: Holt die Zahl aus der Preis-Spalte
     const getVal = (row) => row && row[3] ? parseInt(row[3].replace(/[^0-9]/g, ''), 10) : 0;
+    
+    // NEU: Hilfsfunktion: Holt Start- und Enddatum und verbindet sie
+    const getDate = (row) => {
+      if (!row) return '';
+      if (row[1] && row[2]) return `${row[1]} – ${row[2]}`; // Spalte B und C verbinden
+      return row[1] || ''; // Falls nur Spalte B existiert
+    };
 
     const baseVal       = getVal(rows[0]); 
     const summerAdd     = getVal(rows[1]); 
@@ -187,9 +195,10 @@ async function syncPrices() {
     const ferragostoTotal = baseVal + summerAdd + ferragostoAdd; 
     const xmasTotal       = baseVal + xmasAdd;                 
 
-    const dateSummer     = rows[1] && rows[1][1] ? rows[1][1] : '';
-    const dateFerragosto = rows[2] && rows[2][1] ? rows[2][1] : '';
-    const dateXmas       = rows[3] && rows[3][1] ? rows[3][1] : '';
+    // DATUM auslesen (jetzt mit der neuen Funktion)
+    const dateSummer     = getDate(rows[1]);
+    const dateFerragosto = getDate(rows[2]);
+    const dateXmas       = getDate(rows[3]);
 
     const elBase = document.getElementById('price-base');
     const elSummer = document.getElementById('price-summer');
