@@ -11,22 +11,12 @@ body{font-family:var(--font-sans);color:var(--dark);background:var(--white);over
 img{display:block;width:100%;}
 a{text-decoration:none;color:inherit;}
 
-/* LANGUAGE BAR */
-.lang-bar{position:fixed;top:0;right:0;z-index:200;display:flex;background:rgba(28,78,110,0.92);backdrop-filter:blur(8px);border-bottom-left-radius:10px;}
-.lang-bar button{padding:10px 18px;background:none;border:none;cursor:pointer;font-family:var(--font-sans);font-size:0.75rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.55);transition:color 0.3s;}
-.lang-bar button.active,.lang-bar button:hover{color:var(--white);}
-.lang-bar button.active{border-bottom:2px solid var(--gold);}
-
-/* STICKY BUTTON */
-.cta-sticky{position:fixed;bottom:24px;right:24px;z-index:999;background:var(--terra);color:var(--white);padding:14px 24px;border-radius:30px;font-family:var(--font-sans);font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;box-shadow:0 4px 20px rgba(192,90,56,0.45);transition:transform 0.2s,background 0.3s,opacity 0.3s;display:flex;align-items:center;gap:8px;opacity:0;pointer-events:none;}
-.cta-sticky:hover{background:#a04a2a;transform:translateY(-2px);}
-
 /* =========================================
    KOPFZEILE (HEADER & SPRACHAUSWAHL)
    ========================================= */
 #nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  height: 50px; /* Feste Höhe für die Kopfzeile */
+  height: 54px; /* Feste Höhe für die Kopfzeile */
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px;
   background: rgba(28,78,110,0.95); /* Dunkler Hintergrund für gute Lesbarkeit */
@@ -40,10 +30,16 @@ a{text-decoration:none;color:inherit;}
 
 /* Logo anpassen */
 .nav-logo img {
-  height: 30px; /* Gleiche Höhe wie die Sprachauswahl */
+  height: 28px; /* Etwas kleiner für die schmale Leiste */
   width: auto;
-  border-radius: 4px;
   display: block;
+  transform: translateY(-2px); /* Schiebt das Logo minimal nach oben */
+  transition: filter 0.4s; /* Weicher Übergang für den Farbwechsel */
+}
+
+/* MAGIC TRICK: Färbt das weiße Logo dunkel, wenn die Leiste beige wird! */
+#nav.scrolled .nav-logo img {
+  filter: brightness(0) opacity(0.7); /* Macht das Logo dunkelgrau */
 }
 
 /* Container für Sprache & Menü-Button */
@@ -80,7 +76,6 @@ a{text-decoration:none;color:inherit;}
 .nav-toggle { display: none; background: none; border: none; cursor: pointer; flex-direction: column; gap: 5px; }
 .nav-toggle span { display: block; width: 26px; height: 2px; background: var(--white); border-radius: 2px; transition: background 0.4s; }
 #nav.scrolled .nav-toggle span { background: var(--dark); }
-
 /* HERO */
 .hero{position:relative;height:100vh;min-height:680px;display:flex;align-items:center;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;background:linear-gradient(165deg,#0d2f45 0%,#1C4E6E 35%,#2E7096 60%,#7ab0c8 100%);transform:scale(1.04);animation:heroZoom 12s ease-out forwards;}
@@ -276,34 +271,57 @@ footer{background:var(--dark);padding:64px 72px 40px;display:grid;grid-template-
 span[data-lang]{display:none;}
 span[data-lang].active{display:inline;}
 
-/* RESPONSIVE */
+/* RESPONSIVE (Handy & Tablet) */
 @media(max-width:960px){
-  section{padding:72px 28px;}
-  #nav{padding:0 24px;}
-  .hero-content{padding:160px 28px 60px;}
-  .strip{padding:24px 28px;gap:24px;}
-  .about,.location,.calendar-layout,.weather-inner{grid-template-columns:1fr;gap:32px;}
-  .about-img{height:300px;}
-  .features-grid{grid-template-columns:1fr 1fr;}
-  .gallery-grid {grid-template-columns: 1fr 1fr;grid-template-rows: 200px 200px 200px;}
-  .gallery-item.tall{grid-row:span 1;}
-  .gallery-header{padding:0 28px 36px;}
-  footer{grid-template-columns:1fr;padding:48px 28px 32px;}
-  .footer-bottom{flex-direction:column;gap:8px;padding:16px 28px;}
-  .nav-links{display:none;}
-  .nav-toggle{display:flex;}
-  .activities-grid{grid-template-columns:repeat(2,1fr);}
-  .activities-teaser,.weather-widget{padding-left:28px;padding-right:28px;}
-  .booking{padding:72px 20px;}
-  .booking-tabs{flex-wrap:wrap;gap:4px;}
-  .booking-tab{border-radius:4px !important;}
-  .price-table-outer{overflow-x:auto;}
-  .cta-sticky{padding:12px 20px;font-size:0.76rem;bottom:16px;right:16px;}
+  section { padding:72px 24px; }
+  
+  /* Kopfzeile auf dem Handy noch schmaler */
+  #nav { padding:0 24px; height: 48px; }
+  .cat-nav { top: 48px; padding: 0 16px; } /* Passt sich der 48px Leiste an */
+  
+  /* Hero-Texte dynamisch anpassen, damit nichts überlappt */
+  .hero-content { padding: 100px 24px 40px; width: 100%; }
+  .page-hero-content { padding: 100px 24px 40px; width: 100%; }
+  .hero h1, .page-hero h1 { font-size: clamp(2rem, 6vw, 2.8rem); } /* Verhindert zu viele Zeilenumbrüche */
+  
+  .strip { padding:24px; gap:24px; }
+  .about, .location, .calendar-layout, .weather-inner { grid-template-columns:1fr; gap:32px; }
+  .about-img { height:300px; }
+  .features-grid { grid-template-columns:1fr 1fr; }
+  
+  .gallery-grid { grid-template-columns:1fr 1fr; grid-template-rows:200px 200px 200px; }
+  .gallery-header { padding:0 24px 36px; }
+  
+  footer { grid-template-columns:1fr; padding:48px 24px 32px; }
+  .footer-bottom { flex-direction:column; gap:8px; padding:16px 24px; }
+  
+  .nav-links { display:none; }
+  .nav-toggle { display:flex; }
+  
+  .activities-grid { grid-template-columns:repeat(2,1fr); }
+  .activities-teaser, .weather-widget { padding-left:24px; padding-right:24px; }
+  .act-section { padding:60px 24px; }
+  .act-grid, .act-grid.two-col { grid-template-columns:1fr 1fr; }
+  .act-hero-card { grid-template-columns:1fr; gap:28px; }
+  .act-hero-card-img { height:240px; }
+  .market-grid, .arrival-grid { grid-template-columns:1fr; }
+  
+  .booking { padding:72px 20px; }
+  .booking-tabs { flex-wrap:wrap; gap:4px; }
+  .booking-tab { border-radius:4px !important; }
+  .price-table-outer { overflow-x:auto; }
+  .cta-sticky { padding:12px 20px; font-size:0.76rem; bottom:16px; right:16px; }
 }
+
+/* Sehr kleine Handys */
 @media(max-width:560px){
-  .features-grid{grid-template-columns:1fr;}
-  .activities-grid{grid-template-columns:repeat(2,1fr);}
-  .hero-trust{gap:12px;}
+  .features-grid { grid-template-columns:1fr; }
+  .activities-grid { grid-template-columns:1fr; }
+  .act-grid, .act-grid.two-col { grid-template-columns:1fr; }
+  
+  /* Checkliste enger zusammenrücken, damit sie nicht in die Navi rutscht */
+  .hero-trust { gap: 8px; margin-top: 20px; }
+  .hero-trust-item { font-size: 0.72rem; }
 }
 
 /* LIGHTBOX */
@@ -341,7 +359,7 @@ span[data-lang].active{display:inline;}
   overflow-x:auto; 
   scrollbar-width:none; 
   position: sticky; 
-  top: 50px; /* Exakt die Höhe der Kopfzeile WICHTIG: Hier auf 50px ändern, passend zum neuen #nav */
+  top: 54px; /* Exakt die Höhe der neuen Kopfzeile */
   z-index: 150; 
 }
 .cat-nav::-webkit-scrollbar { display:none; }
