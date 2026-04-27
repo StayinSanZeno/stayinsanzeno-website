@@ -43,7 +43,7 @@
       <button onclick="setLang('it')">IT</button>
       <button onclick="setLang('en')">EN</button>
     </div>
-    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  
   </div>
 </nav>
 
@@ -317,7 +317,19 @@
     </div>
   </div>
   <div style="margin-top:40px;">
-    <a href="index.html#buchen" class="btn-primary"><span data-lang="de" class="active">Jetzt Anfrage senden →</span><span data-lang="it">Invia richiesta ora →</span><span data-lang="en">Send enquiry now →</span></a>
+  <div style="margin-top:40px; display:flex; gap:16px; flex-wrap:wrap;">
+    <a href="index.html#buchen" class="btn-primary">
+      <span data-lang="de" class="active">Jetzt Anfrage senden →</span>
+      <span data-lang="it">Invia richiesta ora →</span>
+      <span data-lang="en">Send enquiry now →</span>
+    </a>
+    
+    <!-- NEUER BUTTON: Zurück zur Startseite -->
+    <a href="index.html" class="btn-outline" style="color:var(--lake); border-color:var(--lake);">
+      <span data-lang="de" class="active">← Zurück zur Startseite</span>
+      <span data-lang="it">← Torna alla home</span>
+      <span data-lang="en">← Back to home</span>
+    </a>
   </div>
 </section>
 
