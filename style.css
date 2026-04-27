@@ -5,6 +5,7 @@
   --font-serif:'Cormorant Garamond',Georgia,serif;
   --font-sans:'Jost',sans-serif;
 }
+html, body { margin: 0 !important; padding: 0 !important; }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--font-sans);color:var(--dark);background:var(--white);overflow-x:hidden;}
@@ -258,7 +259,7 @@ span[data-lang].active{display:inline;}
   
   /* Kopfzeile auf dem Handy noch schmaler */
   #nav { padding:0 24px; height: 48px; }
-  .cat-nav { top: 48px; padding: 0 16px; } /* Klebt exakt an der Unterkante! */
+  .cat-nav { top: 50px; padding: 0 16px; } /* Klebt exakt an der Unterkante! */
   
   /* Hero-Texte dynamisch anpassen, damit nichts überlappt */
   .hero-content { padding: 160px 24px 40px; width: 100%; }
