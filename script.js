@@ -35,6 +35,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     item.addEventListener('click', () => openLightbox(index));
   });
+
+  // 5. INFO POPUP (Renovierung)
+  const popup = document.getElementById('infoPopup');
+  const closeBtns = document.querySelectorAll('#closePopupBtn, #closePopupBtn2');
+  
+  if (popup) {
+    // Prüfen, ob das Popup in dieser Sitzung schon gezeigt wurde
+    if (!sessionStorage.getItem('renovationPopupShown')) {
+      // Kleine Verzögerung (1 Sekunde), damit es elegant einfliegt
+      setTimeout(() => {
+        popup.classList.add('show');
+      }, 1000);
+    }
+
+    // Funktion zum Schließen und Speichern
+    const closePopup = () => {
+      popup.classList.remove('show');
+      sessionStorage.setItem('renovationPopupShown', 'true'); // Merkt sich, dass es weggeklickt wurde
+    };
+
+    // Klick auf das X oder den "Verstanden" Button
+    closeBtns.forEach(btn => btn.addEventListener('click', closePopup));
+    
+    // Klick auf den dunklen Hintergrund schließt das Popup ebenfalls
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) closePopup();
+    });
+  }
+  
 });
 
 /* ── NAVBAR & STICKY ── */
