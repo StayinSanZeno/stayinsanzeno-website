@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Willkommen – Stay in San Zeno</title>
+  <meta name="description" content="Entdecken Sie unsere exklusive Ferienwohnung hoch über dem Gardasee. Panoramablick, modernes Design und absolute Ruhe." />
+  <meta name="robots" content="noindex, nofollow" /> <!-- Verhindert, dass Google diese geheime Seite in den Suchergebnissen anzeigt -->
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  
+  <!-- Wir nutzen exakt dasselbe Design und Skript! -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- REDUZIERTE KOPFZEILE (Nur Logo & Sprache, kein Menü) -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.JPG" alt="Stay in San Zeno">
+  </a>
+  <div class="nav-controls">
+    <div class="lang-bar">
+      <button class="active" onclick="setLang('de')">DE</button>
+      <button onclick="setLang('it')">IT</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+ 
+<!-- HERO BEREICH (Der emotionale Einstieg) -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <!-- Das Skript lädt das Bild automatisch -->
+  <div class="hero-photo" data-image="hero-ausblick.jpg"></div>
+  <div class="hero-overlay"></div>
+  
+  <div class="hero-content">
+    <p class="hero-eyebrow">San Zeno di Montagna · Lago di Garda</p>
+    <h1>
+      <span data-lang="de" class="active">Willkommen im<br><em>Paradies</em></span>
+      <span data-lang="it">Benvenuti in<br><em>Paradiso</em></span>
+      <span data-lang="en">Welcome to<br><em>Paradise</em></span>
+    </h1>
+    <p class="hero-sub">
+      <span data-lang="de" class="active">Ihre exklusive Auszeit hoch über dem Gardasee. Genießen Sie absolute Ruhe, modernes Design und einen unvergesslichen Panoramablick.</span>
+      <span data-lang="it">La vostra pausa esclusiva sopra il Lago di Garda. Godetevi pace assoluta, design moderno e una vista panoramica indimenticabile.</span>
+      <span data-lang="en">Your exclusive getaway high above Lake Garda. Enjoy absolute peace, modern design, and an unforgettable panoramic view.</span>
+    </p>
+    
+    <!-- DIE ZWEI WICHTIGSTEN BUTTONS -->
+    <div class="hero-actions" style="margin-top: 40px;">
+      <a href="index.html#buchen" class="btn-primary">
+        <span data-lang="de" class="active">Jetzt anfragen</span>
+        <span data-lang="it">Richiedi ora</span>
+        <span data-lang="en">Enquire now</span>
+      </a>
+      <a href="index.html" class="btn-outline">
+        <span data-lang="de" class="active">Wohnung entdecken</span>
+        <span data-lang="it">Scopri l'appartamento</span>
+        <span data-lang="en">Discover the apartment</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 3 SCHNELLE HIGHLIGHTS -->
+<section class="features" style="padding-top: 80px; padding-bottom: 80px;">
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🌅</div>
+      <h3>
+        <span data-lang="de" class="active">Traumhafter Seeblick</span>
+        <span data-lang="it">Vista lago da sogno</span>
+        <span data-lang="en">Dreamy lake view</span>
+      </h3>
+      <p>
+        <span data-lang="de" class="active">Jeden Morgen mit Blick auf das glitzernde Wasser des Gardasees aufwachen.</span>
+        <span data-lang="it">Svegliarsi ogni mattina con vista sulle acque scintillanti del Lago di Garda.</span>
+        <span data-lang="en">Wake up every morning overlooking the sparkling waters of Lake Garda.</span>
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">✨</div>
+      <h3>
+        <span data-lang="de" class="active">Neu renoviert</span>
+        <span data-lang="it">Appena ristrutturato</span>
+        <span data-lang="en">Newly renovated</span>
+      </h3>
+      <p>
+        <span data-lang="de" class="active">Modernster Komfort, Klimaanlage und eine voll ausgestattete Küche warten auf Sie.</span>
+        <span data-lang="it">Comfort all'avanguardia, aria condizionata e cucina completamente attrezzata.</span>
+        <span data-lang="en">State-of-the-art comfort, air conditioning, and a fully equipped kitchen await you.</span>
+      </p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏔️</div>
+      <h3>
+        <span data-lang="de" class="active">Natur pur</span>
+        <span data-lang="it">Natura incontaminata</span>
+        <span data-lang="en">Pure nature</span>
+      </h3>
+      <p>
+        <span data-lang="de" class="active">Direkt am Monte Baldo gelegen – der perfekte Ausgangspunkt für Wanderungen.</span>
+        <span data-lang="it">Situato direttamente sul Monte Baldo – perfetto per escursioni e relax.</span>
+        <span data-lang="en">Located right on Monte Baldo – the perfect starting point for hiking.</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- REDUZIERTER FOOTER -->
+<div class="footer-bottom" style="background: var(--dark); border-top: none;">
+  <p>© 2026 Stay in San Zeno. Alle Rechte vorbehalten.</p>
+  <p>San Zeno di Montagna · Lago di Garda · Italia</p>
+</div>
+
+</body>
+</html>
