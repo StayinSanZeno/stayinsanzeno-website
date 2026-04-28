@@ -4,7 +4,13 @@
   --dark:#1A1A1A; --mid:#5A5A5A; --light:#9A9A9A; --white:#FFFFFF;
   --font-serif:'Cormorant Garamond',Georgia,serif;
   --font-sans:'Jost',sans-serif;
+
+  /* NEU: Nav-Höhen zentral definiert */
+  --nav-height: 54px;
+  --subnav-height: 44px; /* Höhe der Kategorie-Leiste */
+  --total-nav: calc(var(--nav-height) + var(--subnav-height));
 }
+
 html, body { margin: 0 !important; padding: 0 !important; }
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -12,6 +18,24 @@ body{font-family:var(--font-sans);color:var(--dark);background:var(--white);over
 img{display:block;width:100%;}
 a{text-decoration:none;color:inherit;}
 
+/* =========================================
+   BARRIEREFREIHEIT (ACCESSIBILITY)
+   ========================================= */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero-bg,
+  .scroll-hint,
+  .gallery-item-inner {
+    animation: none !important;
+    transition: none !important;
+  }
+}
 /* STICKY BUTTON */
 .cta-sticky {
   position: fixed; bottom: 24px; right: 24px; z-index: 999;
@@ -33,7 +57,7 @@ a{text-decoration:none;color:inherit;}
    ========================================= */
 #nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  height: 54px; /* Feste Höhe für die Kopfzeile */
+  height: var(--nav-height); /* HIER DIE VARIABLE */
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 48px;
   background: transparent; /* Startet komplett durchsichtig! */
@@ -99,7 +123,7 @@ a{text-decoration:none;color:inherit;}
 @keyframes bounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
 
 /* SECTIONS COMMON */
-section { padding: 100px 72px; scroll-margin-top: 110px; }
+section { padding: 100px 72px; scroll-margin-top: var(--total-nav); }
 .section-label{font-size:0.7rem;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--terra);margin-bottom:14px;}
 .section-title{font-family:var(--font-serif);font-size:clamp(1.9rem,4vw,3.1rem);font-weight:300;line-height:1.15;color:var(--lake);margin-bottom:22px;}
 .section-title em{font-style:italic;}
@@ -277,7 +301,7 @@ span[data-lang].active{display:inline;}
   overflow-x:auto; 
   scrollbar-width:none; 
   position: sticky; 
-  top: 54px; 
+  top: var(--nav-height); /* HIER DIE VARIABLE */
   z-index: 150; 
 }
 .cat-nav::-webkit-scrollbar { display:none; }
@@ -286,11 +310,14 @@ span[data-lang].active{display:inline;}
 
 /* RESPONSIVE */
 @media(max-width:960px){
-  section { padding:72px 24px; scroll-margin-top: 100px; }
+  :root {
+    --nav-height: 48px; /* Überschreibt die Variable für Handys */
+  }
   
-  /* Kopfzeile auf dem Handy noch schmaler */
-  #nav { padding:0 24px; height: 48px; }
-  .cat-nav { top: 50px; padding: 0 16px; } /* Klebt exakt an der Unterkante! */
+  section { padding:72px 24px; } /* scroll-margin-top berechnet sich automatisch neu! */
+  
+  #nav { padding:0 24px; } /* height berechnet sich automatisch neu! */
+  .cat-nav { padding: 0 16px; } /* top berechnet sich automatisch neu! */
   
   /* Hero-Texte dynamisch anpassen, damit nichts überlappt */
   .hero-content { padding: 160px 24px 40px; width: 100%; }
