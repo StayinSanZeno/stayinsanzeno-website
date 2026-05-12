@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gäste-Handbuch – Stay in San Zeno</title>
+  <meta name="robots" content="noindex, nofollow" /> <!-- Bleibt geheim! -->
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.png" type="image/png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  
+  <!-- Wir nutzen unser bestehendes Design und Skript -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- REDUZIERTE KOPFZEILE -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="logo.JPG" alt="Stay in San Zeno">
+  </a>
+  <div class="nav-controls">
+    <div class="lang-bar">
+      <button class="active" onclick="setLang('de')">DE</button>
+      <button onclick="setLang('it')">IT</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO BEREICH (Schmaler als normal) -->
+<section class="page-hero" style="height: 40vh; min-height: 300px;">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-photo" data-image="wohnzimmer-ausblick.jpg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content" style="padding-bottom: 40px;">
+    <h1>
+      <span data-lang="de" class="active">Gäste-Handbuch</span>
+      <span data-lang="it">Guida per gli ospiti</span>
+      <span data-lang="en">Guest Directory</span>
+    </h1>
+    <p class="page-hero-sub">
+      <span data-lang="de" class="active">Alle wichtigen Infos für Ihren perfekten Aufenthalt.</span>
+      <span data-lang="it">Tutte le informazioni importanti per un soggiorno perfetto.</span>
+      <span data-lang="en">All the important info for your perfect stay.</span>
+    </p>
+  </div>
+</section>
+
+<!-- INFO KACHELN -->
+<section class="features" style="padding-top: 80px; padding-bottom: 80px;">
+  <div class="features-grid">
+    
+    <!-- WLAN -->
+    <div class="feature-card">
+      <div class="feature-icon">📶</div>
+      <h3>WLAN / Wi-Fi</h3>
+      <p>
+        <strong>Netzwerk / Rete / Network:</strong><br>
+        StayInSanZeno<br><br>
+        <strong>Passwort / Password:</strong><br>
+        <code style="background: var(--warm); padding: 4px 8px; border-radius: 4px; font-size: 1.1rem; color: var(--lake); display: inline-block; margin-top: 4px;">SanZeno2026!</code>
+      </p>
+    </div>
+
+    <!-- MÜLLTRENNUNG -->
+    <div class="feature-card">
+      <div class="feature-icon">♻️</div>
+      <h3>
+        <span data-lang="de" class="active">Mülltrennung</span>
+        <span data-lang="it">Raccolta differenziata</span>
+        <span data-lang="en">Waste separation</span>
+      </h3>
+      <p>
+        <span data-lang="de" class="active">Bitte trennen Sie Plastik, Papier, Glas und Restmüll. Die entsprechenden Tonnen finden Sie direkt vor dem Haus.</span>
+        <span data-lang="it">Si prega di separare plastica, carta, vetro e secco. I bidoni si trovano direttamente davanti la casa.</span>
+        <span data-lang="en">Please separate plastic, paper, glass, and general waste. The trash cans are right in front of the house.</span>
+      </p>
+    </div>
+
+    <!-- KLIMAANLAGE -->
+    <div class="feature-card">
+      <div class="feature-icon">❄️</div>
+      <h3>
+        <span data-lang="de" class="active">Klimaanlage</span>
+        <span data-lang="it">Aria condizionata</span>
+        <span data-lang="en">Air conditioning</span>
+      </h3>
+      <p>
+        <span data-lang="de" class="active">Die Fernbedienung liegt auf dem Tisch. Der Umwelt zuliebe bitten wir Sie, die Anlage auszuschalten, wenn Sie das Haus verlassen.</span>
+        <span data-lang="it">Il telecomando è sul tavolo. Per rispetto dell'ambiente, vi preghiamo di spegnere l'impianto quando uscite di casa.</span>
+        <span data-lang="en">The remote is on the table. For the sake of the environment, please turn off the AC when leaving the house.</span>
+      </p>
+    </div>
+
+    <!-- RESTAURANTS -->
+    <div class="feature-card">
+      <div class="feature-icon">🍕</div>
+      <h3>
+        <span data-lang="de" class="active">Restaurant-Tipps</span>
+        <span data-lang="it">Consigli sui ristoranti</span>
+        <span data-lang="en">Restaurant tips</span>
+      </h3>
+      <p>
+        <span data-lang="de" class="active">Hungrig? Entdecken Sie unsere persönlichen Empfehlungen für die besten Pizzerien und Trattorien in der Umgebung.</span>
+        <span data-lang="it">Affamati? Scoprite i nostri consigli personali per le migliori pizzerie e trattorie della zona.</span>
+        <span data-lang="en">Hungry? Discover our personal recommendations for the best pizzerias and trattorias in the area.</span>
+      </p>
+      <a href="activities.html#kulinarik" class="btn-outline" style="margin-top: 15px; border-color: var(--lake); color: var(--lake); padding: 8px 16px; font-size: 0.7rem;">
+        <span data-lang="de" class="active">Zu den Tipps →</span>
+        <span data-lang="it">Ai consigli →</span>
+        <span data-lang="en">To the tips →</span>
+      </a>
+    </div>
+    
+    <!-- CHECK-OUT -->
+    <div class="feature-card">
+      <div class="feature-icon">🔑</div>
+      <h3>Check-out</h3>
+      <p>
+        <span data-lang="de" class="active">Der Check-out ist bis <strong>10:00 Uhr</strong>. Bitte lassen Sie den Schlüssel einfach auf dem Küchentisch liegen und ziehen Sie die Tür hinter sich zu.</span>
+        <span data-lang="it">Il check-out è entro le <strong>10:00</strong>. Lasciate semplicemente la chiave sul tavolo della cucina e chiudete la porta dietro di voi.</span>
+        <span data-lang="en">Check-out is by <strong>10:00 AM</strong>. Please just leave the key on the kitchen table and pull the door shut behind you.</span>
+      </p>
+    </div>
+
+    <!-- KONTAKT -->
+    <div class="feature-card">
+      <div class="feature-icon">📞</div>
+      <h3>
+        <span data-lang="de" class="active">Kontakt</span>
+        <span data-lang="it">Contatto</span>
+        <span data-lang="en">Contact</span>
+      </h3>
+      <p>
+        <span data-lang="de" class="active">Bei Fragen oder Problemen sind wir jederzeit für Sie erreichbar:</span>
+        <span data-lang="it">Per domande o problemi siamo sempre a vostra disposizione:</span>
+        <span data-lang="en">If you have any questions or problems, we are always available:</span><br><br>
+        <strong style="font-size: 1.1rem; color: var(--lake);">+39 338 995 0655</strong><br>
+        stayinsanzeno@gmail.com
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- REDUZIERTER FOOTER -->
+<div class="footer-bottom" style="background: var(--dark); border-top: none;">
+  <p>© 2026 Stay in San Zeno. Alle Rechte vorbehalten.</p>
+  <p>San Zeno di Montagna · Lago di Garda · Italia</p>
+</div>
+
+</body>
+</html>
