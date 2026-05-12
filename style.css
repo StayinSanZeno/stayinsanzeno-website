@@ -493,4 +493,50 @@ span[data-lang].active{display:inline;}
   font-size: 0.95rem; color: var(--mid); line-height: 1.6;
   margin-bottom: 24px; font-weight: 300;
 }
-
+/* =========================================
+   AUFKLAPPBARE KACHELN (ACTIVITIES)
+   ========================================= */
+.act-card.expandable {
+  cursor: pointer;
+  position: relative;
+}
+.act-card-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: opacity 0.3s;
+}
+.act-card.expandable.expanded .act-card-more {
+  display: none; /* Versteckt den "Tipp anzeigen" Text, wenn offen */
+}
+.act-card-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.5s ease, margin-top 0.5s ease, opacity 0.5s ease;
+}
+.act-card.expandable.expanded .act-card-details {
+  max-height: 600px; /* Genug Platz für den Text */
+  margin-top: 16px;
+  padding-top: 16px;
+  opacity: 1;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+.bg-dark .act-card.expandable.expanded .act-card-details {
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.act-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--lake);
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+.bg-dark .act-link {
+  color: var(--lake-light);
+}
