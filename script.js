@@ -371,3 +371,14 @@ document.addEventListener('keydown', e => {
 /* ── INIT ── */
 loadWeather();
 syncPrices();
+/* ── AUFKLAPPBARE KACHELN (Aktivitäten) ── */
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.act-card.expandable').forEach(card => {
+    card.addEventListener('click', function(e) {
+      // Verhindert, dass die Kachel zuklappt, wenn man auf den Link klickt!
+      if(e.target.tagName.toLowerCase() === 'a') return; 
+      
+      this.classList.toggle('expanded');
+    });
+  });
+});
