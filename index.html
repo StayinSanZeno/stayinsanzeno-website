@@ -43,15 +43,6 @@
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
   
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-DS3HVX35ZB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-DS3HVX35ZB');
-</script>
 </head>
 <body>
 
@@ -622,6 +613,29 @@
 <div class="footer-bottom">
   <p>© 2026 Stay in San Zeno. Alle Rechte vorbehalten.</p>
   <p>San Zeno di Montagna · Lago di Garda · Italia</p>
+</div>
+
+  <!-- COOKIE BANNER -->
+<div id="cookieBanner" class="cookie-banner">
+  <div class="cookie-content">
+    <p>
+      <span data-lang="de" class="active">Wir nutzen Cookies (Google Analytics), um unsere Website zu verbessern. Stimmen Sie der Erfassung von anonymen Statistiken zu?</span>
+      <span data-lang="it">Utilizziamo i cookie (Google Analytics) per migliorare il nostro sito web. Acconsenti alla raccolta di statistiche anonime?</span>
+      <span data-lang="en">We use cookies (Google Analytics) to improve our website. Do you consent to the collection of anonymous statistics?</span>
+    </p>
+    <div class="cookie-buttons">
+      <button id="acceptCookies" class="btn-primary" style="padding: 10px 20px; font-size: 0.7rem;">
+        <span data-lang="de" class="active">Akzeptieren</span>
+        <span data-lang="it">Accetta</span>
+        <span data-lang="en">Accept</span>
+      </button>
+      <button id="declineCookies" class="btn-outline" style="padding: 10px 20px; font-size: 0.7rem; border-color: var(--lake); color: var(--lake);">
+        <span data-lang="de" class="active">Ablehnen</span>
+        <span data-lang="it">Rifiuta</span>
+        <span data-lang="en">Decline</span>
+      </button>
+    </div>
+  </div>
 </div>
 </body>
 </html>
