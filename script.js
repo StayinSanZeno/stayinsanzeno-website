@@ -381,7 +381,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cookieConsent = localStorage.getItem('cookieConsent');
   
   if (!cookieConsent && cookieBanner) {
-    // Banner anzeigen, wenn noch keine Entscheidung vorliegt (mit leichter Verzögerung)
+    // Banner anzeigen, wenn noch keine Entscheidung vorliegt
     setTimeout(() => { cookieBanner.classList.add('show'); }, 1500);
   } else if (cookieConsent === 'accepted') {
     // Analytics laden, wenn bereits früher akzeptiert wurde
@@ -406,17 +406,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Funktion, die Google Analytics nur bei Zustimmung lädt
 function loadGoogleAnalytics() {
-  // Verhindert doppeltes Laden
-  if (document.getElementById('ga-script')) return;
+  if (document.getElementById('ga-script')) return; // Verhindert doppeltes Laden
   
   const script = document.createElement('script');
   script.id = 'ga-script';
   script.async = true;
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-DS3HVX35ZB'; // Deine Google ID
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-DS3HVX35ZB'; 
   document.head.appendChild(script);
   
-  window.dataLayer = window.dataLayer ||
-
+  window.dataLayer = window.dataLayer ||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  
+  // WICHTIG: IP-Anonymisierung für den europäischen Datenschutz!
+  gtag('config', 'G-DS3HVX35ZB', { 'anonymize_ip': true });
+}
 /* ── AUFKLAPPBARE KACHELN (Aktivitäten) ── */
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.act-card.expandable').forEach(card => {
