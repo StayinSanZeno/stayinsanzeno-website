@@ -371,6 +371,52 @@ document.addEventListener('keydown', e => {
 /* ── INIT ── */
 loadWeather();
 syncPrices();
+/* ── COOKIE BANNER & GOOGLE ANALYTICS (DSGVO-konform) ── */
+document.addEventListener('DOMContentLoaded', () => {
+  const cookieBanner = document.getElementById('cookieBanner');
+  const btnAccept = document.getElementById('acceptCookies');
+  const btnDecline = document.getElementById('declineCookies');
+  
+  // Prüfen, ob schon eine Entscheidung getroffen wurde
+  const cookieConsent = localStorage.getItem('cookieConsent');
+  
+  if (!cookieConsent && cookieBanner) {
+    // Banner anzeigen, wenn noch keine Entscheidung vorliegt (mit leichter Verzögerung)
+    setTimeout(() => { cookieBanner.classList.add('show'); }, 1500);
+  } else if (cookieConsent === 'accepted') {
+    // Analytics laden, wenn bereits früher akzeptiert wurde
+    loadGoogleAnalytics();
+  }
+  
+  if (btnAccept) {
+    btnAccept.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      cookieBanner.classList.remove('show');
+      loadGoogleAnalytics();
+    });
+  }
+  
+  if (btnDecline) {
+    btnDecline.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'declined');
+      cookieBanner.classList.remove('show');
+    });
+  }
+});
+
+// Funktion, die Google Analytics nur bei Zustimmung lädt
+function loadGoogleAnalytics() {
+  // Verhindert doppeltes Laden
+  if (document.getElementById('ga-script')) return;
+  
+  const script = document.createElement('script');
+  script.id = 'ga-script';
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-DS3HVX35ZB'; // Deine Google ID
+  document.head.appendChild(script);
+  
+  window.dataLayer = window.dataLayer ||
+
 /* ── AUFKLAPPBARE KACHELN (Aktivitäten) ── */
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.act-card.expandable').forEach(card => {
