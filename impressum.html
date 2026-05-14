@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum & Datenschutz – Stay in San Zeno</title>
+  <meta name="robots" content="noindex, follow" /> <!-- Muss nicht bei Google ranken -->
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- KOPFZEILE -->
+<nav id="nav">
+  <a href="index.html" class="nav-logo"><img src="logo.JPG" alt="Stay in San Zeno"></a>
+  <div class="nav-controls">
+    <div class="lang-bar">
+      <button class="active" onclick="setLang('de')">DE</button>
+      <button onclick="setLang('it')">IT</button>
+      <button onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- INHALT -->
+<section style="padding-top: 120px; max-width: 800px; margin: 0 auto; min-height: 70vh;">
+  
+  <h1 class="section-title" style="font-size: 2.5rem; margin-bottom: 40px;">
+    <span data-lang="de" class="active">Impressum & Datenschutz</span>
+    <span data-lang="it">Note Legali & Privacy</span>
+    <span data-lang="en">Legal Notice & Privacy Policy</span>
+  </h1>
+
+  <!-- IMPRESSUM -->
+  <h2 style="color: var(--lake); margin-bottom: 15px; font-family: var(--font-serif); font-size: 1.8rem;">
+    <span data-lang="de" class="active">Impressum</span>
+    <span data-lang="it">Note Legali</span>
+    <span data-lang="en">Legal Notice</span>
+  </h2>
+  <p class="section-body" style="margin-bottom: 30px;">
+    <strong>Verantwortlich für den Inhalt / Responsabile / Responsible:</strong><br>
+    [DEIN VORNAME & NACHNAME HIER EINTRAGEN]<br><br>
+    
+    <strong>Adresse der Unterkunft / Indirizzo / Address:</strong><br>
+    Via Giusto Arturo 5<br>
+    37010 San Zeno di Montagna (VR)<br>
+    Italia<br><br>
+    
+    <strong>Kontakt / Contatto / Contact:</strong><br>
+    Tel: +39 338 995 0655<br>
+    E-Mail: stayinsanzeno@gmail.com<br><br>
+
+    <!-- SEHR WICHTIG FÜR ITALIEN: -->
+    <strong>Codice Identificativo (CIR / CIN):</strong><br>
+    [DEINEN OFFIZIELLEN CODE HIER EINTRAGEN]<br><br>
+
+    <strong>EU-Streitschlichtung:</strong><br>
+    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" style="color: var(--terra); text-decoration: underline;">https://ec.europa.eu/consumers/odr/</a>. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+  </p>
+
+  <hr style="border: none; border-top: 1px solid var(--warm); margin: 40px 0;">
+
+  <!-- DATENSCHUTZ -->
+  <h2 style="color: var(--lake); margin-bottom: 15px; font-family: var(--font-serif); font-size: 1.8rem;">
+    <span data-lang="de" class="active">Datenschutzerklärung</span>
+    <span data-lang="it">Informativa sulla Privacy</span>
+    <span data-lang="en">Privacy Policy</span>
+  </h2>
+  <p class="section-body">
+    <span data-lang="de" class="active">
+      <strong>1. Buchungsanfragen:</strong> Wenn Sie uns eine Anfrage über Google Forms senden, werden Ihre eingegebenen Daten (Name, E-Mail, Telefon, Reisedaten) ausschließlich zur Bearbeitung Ihrer Anfrage und für die gesetzlich vorgeschriebene Buchhaltung gespeichert. Eine Weitergabe an Dritte erfolgt nicht.<br><br>
+      <strong>2. Google Analytics & Cookies:</strong> Diese Website nutzt Google Analytics, einen Webanalysedienst von Google. Dies geschieht <strong>nur</strong>, wenn Sie im Cookie-Banner ausdrücklich auf "Akzeptieren" geklickt haben. Wir haben die IP-Anonymisierung aktiviert, sodass Ihre IP-Adresse von Google innerhalb der EU zuvor gekürzt wird.<br><br>
+      <strong>3. Widerruf:</strong> Sie können Ihre Cookie-Einwilligung jederzeit widerrufen, indem Sie die Browser-Daten/Cookies für diese Website löschen.
+    </span>
+    <span data-lang="it">
+      <strong>1. Richieste di prenotazione:</strong> Se ci inviate una richiesta tramite Google Forms, i vostri dati (nome, e-mail, telefono, date) saranno salvati esclusivamente per elaborare la richiesta e per la contabilità obbligatoria per legge. Non verranno ceduti a terzi.<br><br>
+      <strong>2. Google Analytics e Cookie:</strong> Questo sito utilizza Google Analytics solo se avete esplicitamente cliccato su "Accetta" nel banner dei cookie. Abbiamo attivato l'anonimizzazione dell'IP per proteggere la vostra privacy.<br><br>
+      <strong>3. Revoca:</strong> Potete revocare il consenso ai cookie in qualsiasi momento cancellando i dati di navigazione/cookie per questo sito.
+    </span>
+    <span data-lang="en">
+      <strong>1. Booking Enquiries:</strong> If you send us an enquiry via Google Forms, your entered data (name, email, phone, travel dates) will be saved exclusively for processing your request and for legally required accounting. It will not be passed on to third parties.<br><br>
+      <strong>2. Google Analytics & Cookies:</strong> This website uses Google Analytics only if you have explicitly clicked "Accept" in the cookie banner. We have activated IP anonymization to protect your privacy.<br><br>
+      <strong>3. Revocation:</strong> You can revoke your cookie consent at any time by clearing your browser data/cookies for this website.
+    </span>
+  </p>
+
+</section>
+
+<!-- FOOTER -->
+<div class="footer-bottom" style="background: var(--dark); border-top: none;">
+  <p>© 2026 Stay in San Zeno. Alle Rechte vorbehalten.</p>
+  <p>San Zeno di Montagna · Lago di Garda · Italia</p>
+</div>
+
+</body>
+</html>
