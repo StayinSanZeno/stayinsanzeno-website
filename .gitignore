@@ -1,0 +1,8 @@
+# Private operational configuration and secrets
+docs/01_PROJECT_CONFIG.md
+docs/*_PRIVATE.md
+.env
+.env.*
+!.env.example
+*.pem
+*.key

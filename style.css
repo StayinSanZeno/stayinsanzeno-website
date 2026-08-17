@@ -2,8 +2,8 @@
   --lake:#1C4E6E; --lake-mid:#2E7096; --lake-light:#B8D8E8;
   --cream:#F9F5EF; --warm:#E8DFD0; --terra:#C05A38; --gold:#C89B4A;
   --dark:#1A1A1A; --mid:#5A5A5A; --light:#9A9A9A; --white:#FFFFFF;
-  --font-serif:'Cormorant Garamond',Georgia,serif;
-  --font-sans:'Jost',sans-serif;
+  --font-serif:Georgia,'Times New Roman',serif;
+  --font-sans:system-ui,-apple-system,'Segoe UI',sans-serif;
 
   /* NEU: Nav-Höhen zentral definiert */
   --nav-height: 54px;
@@ -17,6 +17,14 @@ html{scroll-behavior:smooth;}
 body{font-family:var(--font-sans);color:var(--dark);background:var(--white);overflow-x:hidden;}
 img{display:block;width:100%;}
 a{text-decoration:none;color:inherit;}
+.skip-link{position:fixed;left:12px;top:-80px;z-index:3000;background:var(--white);color:var(--lake);padding:12px 16px;border-radius:4px;}
+.skip-link:focus{top:12px;}
+.nav-toggle{display:none;background:transparent;border:1px solid rgba(255,255,255,.7);color:#fff;border-radius:4px;padding:6px 10px;font-size:1.2rem;}
+.privacy-settings{border:0;background:transparent;color:rgba(255,255,255,.7);text-decoration:underline;cursor:pointer;margin-top:8px;}
+.embed-placeholder{min-height:180px;display:grid;place-content:center;text-align:center;padding:24px;background:var(--cream);color:var(--mid);}
+.embed-placeholder button{justify-self:center;margin-top:12px;border:0;background:var(--lake);color:#fff;padding:10px 16px;border-radius:4px;cursor:pointer;}
+.embed-placeholder.loaded{display:none;}
+@media (max-width:959px){#nav{padding:0 16px;background:rgba(28,78,110,.98)}.nav-toggle{display:block}#nav .nav-links{display:none;position:absolute;top:var(--nav-height);left:0;right:0;flex-direction:column;align-items:stretch;background:var(--lake);padding:12px 20px 20px;box-shadow:0 8px 16px rgba(0,0,0,.2)}#nav.menu-open .nav-links{display:flex}#nav .nav-links a{display:block;padding:12px 4px}}
 
 /* =========================================
    BARRIEREFREIHEIT (ACCESSIBILITY)
