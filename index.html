@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="assets/images/brand/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/brand/apple-touch-icon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ferienwohnung oberhalb des Gardasees – Stay in San Zeno</title>
@@ -15,14 +17,17 @@
   <meta property="og:title" content="Traumhafte Ferienwohnung am Gardasee | Stay in San Zeno" />
   <meta property="og:description" content="Renovierte Ferienwohnung oberhalb des Gardasees mit Dorf- und Bergblick. Für bis zu 5 Gäste, 6. Person auf Anfrage." />
   <meta property="og:url" content="https://stayinsanzeno.com/" />
-  <meta property="og:image" content="https://stayinsanzeno.com/hero-ausblick.jpg" />
+  <meta property="og:image" content="https://stayinsanzeno.com/assets/images/hero/social-preview.jpg" />
+  <meta property="og:image:width" content="1280" />
+  <meta property="og:image:height" content="720" />
+  <meta property="og:image:alt" content="Seitlicher Teilseeblick bei Sonnenuntergang von Stay in San Zeno" />
   <meta property="og:locale" content="de_DE" />
   
   <!-- Fallback für iMessage & Co. (Twitter Cards) -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Traumhafte Ferienwohnung am Gardasee | Stay in San Zeno" />
   <meta name="twitter:description" content="Renovierte Ferienwohnung oberhalb des Gardasees mit Dorf- und Bergblick." />
-  <meta name="twitter:image" content="https://stayinsanzeno.com/hero-ausblick.jpg" />
+  <meta name="twitter:image" content="https://stayinsanzeno.com/assets/images/hero/social-preview.jpg" />
   
  <script type="application/ld+json">
   {
@@ -33,14 +38,14 @@
     "url": "https://stayinsanzeno.com",
     "identifier": "stayinsanzeno-01",
     "image": [
-      "https://stayinsanzeno.com/hero-ausblick.jpg",
-      "https://stayinsanzeno.com/wohnzimmer-ausblick.jpg",
-      "https://stayinsanzeno.com/balkon-sitzplatz.jpg",
-      "https://stayinsanzeno.com/kueche.jpg",
-      "https://stayinsanzeno.com/zimmer1-haupt.jpg",
-      "https://stayinsanzeno.com/zimmer2-bett.jpg",
-      "https://stayinsanzeno.com/dorf-san-zeno.jpg",
-      "https://stayinsanzeno.com/gebaeude-aussen.jpg"
+      "https://stayinsanzeno.com/assets/images/hero/hero-teilseeblick-sonnenuntergang-1600.webp",
+      "https://stayinsanzeno.com/assets/images/gallery/wohnzimmer-01-1280.webp",
+      "https://stayinsanzeno.com/assets/images/gallery/essbereich-kueche-01-1280.webp",
+      "https://stayinsanzeno.com/assets/images/gallery/kueche-01-1280.webp",
+      "https://stayinsanzeno.com/assets/images/gallery/schlafzimmer-doppelbett-01-1280.webp",
+      "https://stayinsanzeno.com/assets/images/gallery/schlafzimmer-drei-schlafplaetze-01-1200.webp",
+      "https://stayinsanzeno.com/assets/images/gallery/bad-wc-bidet-dusche-01-1280.webp",
+      "https://stayinsanzeno.com/assets/images/gallery/balkon-sitzbereich-01-1280.webp"
     ],
     "address": { 
       "@type": "PostalAddress", 
@@ -109,7 +114,7 @@
  
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="logo.JPG" alt="Stay in San Zeno">
+    <img src="assets/images/brand/stay-in-san-zeno-logo.webp" width="480" height="273" alt="Stay in San Zeno">
   </a>
   
   <ul class="nav-links">
@@ -132,7 +137,12 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-photo" data-image="hero-ausblick.jpg"></div>
+  <picture class="hero-photo">
+    <source media="(max-width: 640px)" type="image/avif" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-640.avif 640w, assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-960.avif 960w, assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-1280.avif 1280w" sizes="100vw">
+    <source media="(max-width: 640px)" type="image/webp" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-640.webp 640w, assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-960.webp 960w, assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-1280.webp 1280w" sizes="100vw">
+    <source type="image/avif" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-768.avif 768w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1280.avif 1280w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1600.avif 1600w, assets/images/hero/hero-teilseeblick-sonnenuntergang-2000.avif 2000w, assets/images/hero/hero-teilseeblick-sonnenuntergang-2400.avif 2400w" sizes="100vw">
+    <img src="assets/images/hero/hero-teilseeblick-sonnenuntergang-1280.webp" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-768.webp 768w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1280.webp 1280w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1600.webp 1600w, assets/images/hero/hero-teilseeblick-sonnenuntergang-2000.webp 2000w, assets/images/hero/hero-teilseeblick-sonnenuntergang-2400.webp 2400w" sizes="100vw" width="2400" height="1350" alt="Seitlicher Teilseeblick bei Sonnenuntergang mit den Dächern der Nachbarschaft" fetchpriority="high" decoding="async">
+  </picture>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">San Zeno di Montagna · Gardasee · 550 m ü.M.</p>
@@ -192,7 +202,9 @@
 <!-- ABOUT -->
 <section class="about" id="unterkunft">
   <div class="about-img">
-    <div class="about-img-inner" style="background-image:url('wohnzimmer-ausblick.jpg');background-size:cover;background-position:center;"></div>
+    <picture class="about-img-inner">
+      <img src="assets/images/gallery/wohnzimmer-01-640.webp" srcset="assets/images/gallery/wohnzimmer-01-400.webp 400w, assets/images/gallery/wohnzimmer-01-640.webp 640w, assets/images/gallery/wohnzimmer-01-960.webp 960w, assets/images/gallery/wohnzimmer-01-1280.webp 1280w" sizes="(max-width: 960px) 100vw, 50vw" width="1280" height="1707" loading="lazy" decoding="async" alt="Heller Wohnbereich mit Sofa und Fenster">
+    </picture>
     <div class="about-img-badge">
       <span class="badge-num">6</span>
       <span class="badge-text"><span data-lang="de" class="active">Gäste</span><span data-lang="it">Ospiti</span><span data-lang="en">Guests</span></span>
@@ -261,38 +273,18 @@
   </div>
   
   <div class="gallery-grid">
-    <!-- === DIE 6 SICHTBAREN BILDER === -->
-    <div class="gallery-item" data-image="hero-ausblick.jpg">
-      <div class="gallery-item-inner"></div>  
-      <div class="gallery-label"><span>Panorama · Gardasee</span></div>
-    </div>
-    <div class="gallery-item" data-image="wohnzimmer-ausblick.jpg">
-      <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>Wohnzimmer mit Seeblick</span></div>
-    </div>
-    <div class="gallery-item" data-image="balkon-sitzplatz.jpg">
-      <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>Balkon</span></div>
-    </div>
-     <div class="gallery-item" data-image="dorf-san-zeno.jpg">
-      <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>San Zeno di Montagna</span></div>
-    </div>
-    <div class="gallery-item" data-image="wohnzimmer.jpg">
-      <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>Wohnzimmer</span></div>
-    </div>
-    <div class="gallery-item" data-image="gebaeude-aussen.jpg">
-      <div class="gallery-item-inner"></div>
-      <div class="gallery-label"><span>Die Unterkunft</span></div>
-    </div>
-
-    <!-- === DIE UNSICHTBAREN BILDER (Nur für die Lightbox) === -->
-    <div class="gallery-item hidden-gallery-item" data-image="kueche.jpg"></div>
-    <div class="gallery-item hidden-gallery-item" data-image="see-nahaufnahme.jpg"></div>
-    <div class="gallery-item hidden-gallery-item" data-image="zimmer1-haupt.jpg"></div>
-    <div class="gallery-item hidden-gallery-item" data-image="zimmer2-bett.jpg"></div>
-    <div class="gallery-item hidden-gallery-item" data-image="zimmer2.jpg"></div>
+    <button class="gallery-item" type="button" data-full-src="assets/images/hero/hero-teilseeblick-sonnenuntergang-2000.webp" data-alt-de="Seitlicher Teilseeblick bei Sonnenuntergang" data-alt-it="Scorcio laterale del lago al tramonto" data-alt-en="Partial side lake view at sunset"><picture><source type="image/avif" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-768.avif 768w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1280.avif 1280w"><img src="assets/images/hero/hero-teilseeblick-sonnenuntergang-768.webp" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-768.webp 768w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1280.webp 1280w" sizes="(max-width:960px) 50vw, 33vw" width="1280" height="720" loading="lazy" decoding="async" alt="Seitlicher Teilseeblick bei Sonnenuntergang"></picture><span class="gallery-label"><span data-lang="de" class="active">Seitlicher Teilseeblick</span><span data-lang="it">Scorcio laterale del lago</span><span data-lang="en">Partial side lake view</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/wohnzimmer-01-1600.webp" data-alt-de="Heller Wohnbereich mit Sofa" data-alt-it="Luminoso soggiorno con divano" data-alt-en="Bright living area with sofa"><picture><img src="assets/images/gallery/wohnzimmer-01-640.webp" srcset="assets/images/gallery/wohnzimmer-01-400.webp 400w, assets/images/gallery/wohnzimmer-01-640.webp 640w, assets/images/gallery/wohnzimmer-01-960.webp 960w" sizes="(max-width:960px) 50vw, 33vw" width="960" height="1280" loading="lazy" decoding="async" alt="Heller Wohnbereich mit Sofa"></picture><span class="gallery-label"><span data-lang="de" class="active">Wohnbereich</span><span data-lang="it">Zona giorno</span><span data-lang="en">Living area</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/essbereich-kueche-01-1600.webp" data-alt-de="Essbereich mit gedecktem Tisch und Küche" data-alt-it="Zona pranzo con tavola apparecchiata e cucina" data-alt-en="Dining area with a set table and kitchen"><picture><img src="assets/images/gallery/essbereich-kueche-01-640.webp" srcset="assets/images/gallery/essbereich-kueche-01-400.webp 400w, assets/images/gallery/essbereich-kueche-01-640.webp 640w, assets/images/gallery/essbereich-kueche-01-960.webp 960w" sizes="(max-width:960px) 50vw, 33vw" width="960" height="1280" loading="lazy" decoding="async" alt="Essbereich mit gedecktem Tisch und Küche"></picture><span class="gallery-label"><span data-lang="de" class="active">Essbereich &amp; Küche</span><span data-lang="it">Zona pranzo e cucina</span><span data-lang="en">Dining area &amp; kitchen</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/kueche-01-1600.webp" data-alt-de="Moderne Küche mit Arbeitsfläche und Einbaugeräten" data-alt-it="Cucina moderna con piano di lavoro ed elettrodomestici" data-alt-en="Modern kitchen with worktop and built-in appliances"><picture><img src="assets/images/gallery/kueche-01-640.webp" srcset="assets/images/gallery/kueche-01-400.webp 400w, assets/images/gallery/kueche-01-640.webp 640w, assets/images/gallery/kueche-01-960.webp 960w" sizes="(max-width:960px) 50vw, 33vw" width="960" height="1280" loading="lazy" decoding="async" alt="Moderne Küche mit Arbeitsfläche und Einbaugeräten"></picture><span class="gallery-label"><span data-lang="de" class="active">Küche</span><span data-lang="it">Cucina</span><span data-lang="en">Kitchen</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/schlafzimmer-doppelbett-01-1600.webp" data-alt-de="Schlafzimmer mit Doppelbett" data-alt-it="Camera con letto matrimoniale" data-alt-en="Bedroom with double bed"><picture><img src="assets/images/gallery/schlafzimmer-doppelbett-01-640.webp" srcset="assets/images/gallery/schlafzimmer-doppelbett-01-400.webp 400w, assets/images/gallery/schlafzimmer-doppelbett-01-640.webp 640w, assets/images/gallery/schlafzimmer-doppelbett-01-960.webp 960w" sizes="(max-width:960px) 50vw, 33vw" width="960" height="1280" loading="lazy" decoding="async" alt="Schlafzimmer mit Doppelbett"></picture><span class="gallery-label"><span data-lang="de" class="active">Doppelzimmer</span><span data-lang="it">Camera matrimoniale</span><span data-lang="en">Double bedroom</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/schlafzimmer-drei-schlafplaetze-01-1200.webp" data-alt-de="Schlafzimmer mit drei Schlafplätzen" data-alt-it="Camera con tre posti letto" data-alt-en="Bedroom with three sleeping places"><picture><img src="assets/images/gallery/schlafzimmer-drei-schlafplaetze-01-640.webp" srcset="assets/images/gallery/schlafzimmer-drei-schlafplaetze-01-400.webp 400w, assets/images/gallery/schlafzimmer-drei-schlafplaetze-01-640.webp 640w, assets/images/gallery/schlafzimmer-drei-schlafplaetze-01-960.webp 960w, assets/images/gallery/schlafzimmer-drei-schlafplaetze-01-1200.webp 1200w" sizes="(max-width:960px) 50vw, 33vw" width="960" height="1280" loading="lazy" decoding="async" alt="Schlafzimmer mit drei Schlafplätzen"></picture><span class="gallery-label"><span data-lang="de" class="active">Drei Schlafplätze</span><span data-lang="it">Tre posti letto</span><span data-lang="en">Three sleeping places</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/bad-wc-bidet-dusche-01-1600.webp" data-alt-de="Badezimmer mit Dusche, WC und Bidet" data-alt-it="Bagno con doccia, WC e bidet" data-alt-en="Bathroom with shower, toilet and bidet"><picture><img src="assets/images/gallery/bad-wc-bidet-dusche-01-640.webp" srcset="assets/images/gallery/bad-wc-bidet-dusche-01-400.webp 400w, assets/images/gallery/bad-wc-bidet-dusche-01-640.webp 640w, assets/images/gallery/bad-wc-bidet-dusche-01-960.webp 960w" sizes="(max-width:960px) 50vw, 33vw" width="960" height="1280" loading="lazy" decoding="async" alt="Badezimmer mit Dusche, WC und Bidet"></picture><span class="gallery-label"><span data-lang="de" class="active">Badezimmer</span><span data-lang="it">Bagno</span><span data-lang="en">Bathroom</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/bad-waschbecken-02-1600.webp" data-alt-de="Badezimmer mit Waschbecken und Handtuchheizkörper" data-alt-it="Bagno con lavabo e scaldasalviette" data-alt-en="Bathroom with washbasin and heated towel rail"><picture><img src="assets/images/gallery/bad-waschbecken-02-640.webp" srcset="assets/images/gallery/bad-waschbecken-02-400.webp 400w, assets/images/gallery/bad-waschbecken-02-640.webp 640w, assets/images/gallery/bad-waschbecken-02-960.webp 960w" sizes="(max-width:960px) 50vw, 33vw" width="960" height="1280" loading="lazy" decoding="async" alt="Badezimmer mit Waschbecken und Handtuchheizkörper"></picture><span class="gallery-label"><span data-lang="de" class="active">Waschplatz</span><span data-lang="it">Lavabo</span><span data-lang="en">Washbasin</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/balkon-sitzbereich-01-1600.webp" data-alt-de="Kleiner Balkon mit Sitzbereich" data-alt-it="Piccolo balcone con posti a sedere" data-alt-en="Small balcony with seating area"><picture><img src="assets/images/gallery/balkon-sitzbereich-01-640.webp" srcset="assets/images/gallery/balkon-sitzbereich-01-400.webp 400w, assets/images/gallery/balkon-sitzbereich-01-640.webp 640w, assets/images/gallery/balkon-sitzbereich-01-960.webp 960w" sizes="(max-width:960px) 50vw, 33vw" width="960" height="1280" loading="lazy" decoding="async" alt="Kleiner Balkon mit Sitzbereich"></picture><span class="gallery-label"><span data-lang="de" class="active">Balkon</span><span data-lang="it">Balcone</span><span data-lang="en">Balcony</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/dorfblick-bergblick-balkon-01-2000.webp" data-alt-de="Dorf- und Bergblick vom Balkon" data-alt-it="Vista sul borgo e sulle montagne dal balcone" data-alt-en="Village and mountain view from the balcony"><picture><img src="assets/images/gallery/dorfblick-bergblick-balkon-01-800.webp" srcset="assets/images/gallery/dorfblick-bergblick-balkon-01-480.webp 480w, assets/images/gallery/dorfblick-bergblick-balkon-01-800.webp 800w, assets/images/gallery/dorfblick-bergblick-balkon-01-1200.webp 1200w" sizes="(max-width:960px) 50vw, 33vw" width="1200" height="900" loading="lazy" decoding="async" alt="Dorf- und Bergblick vom Balkon"></picture><span class="gallery-label"><span data-lang="de" class="active">Dorf- &amp; Bergblick</span><span data-lang="it">Vista borgo e montagne</span><span data-lang="en">Village &amp; mountain view</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/teilseeblick-tageslicht-01-2000.webp" data-alt-de="Seitlicher Teilseeblick bei Tageslicht mit Nachbarschaft" data-alt-it="Scorcio laterale del lago di giorno con il quartiere" data-alt-en="Partial side lake view in daylight with the neighbourhood"><picture><source type="image/avif" srcset="assets/images/gallery/teilseeblick-tageslicht-01-480.avif 480w, assets/images/gallery/teilseeblick-tageslicht-01-800.avif 800w, assets/images/gallery/teilseeblick-tageslicht-01-1200.avif 1200w"><img src="assets/images/gallery/teilseeblick-tageslicht-01-800.webp" srcset="assets/images/gallery/teilseeblick-tageslicht-01-480.webp 480w, assets/images/gallery/teilseeblick-tageslicht-01-800.webp 800w, assets/images/gallery/teilseeblick-tageslicht-01-1200.webp 1200w" sizes="(max-width:960px) 50vw, 33vw" width="1200" height="959" loading="lazy" decoding="async" alt="Seitlicher Teilseeblick bei Tageslicht mit Nachbarschaft"></picture><span class="gallery-label"><span data-lang="de" class="active">Teilseeblick bei Tag</span><span data-lang="it">Scorcio del lago di giorno</span><span data-lang="en">Partial lake view by day</span></span></button>
+    <button class="gallery-item" type="button" data-full-src="assets/images/gallery/wohnzimmer-essbereich-02-1600.webp" data-alt-de="Wohnbereich mit Sofa und Essplatz im Hintergrund" data-alt-it="Zona giorno con divano e tavolo da pranzo sullo sfondo" data-alt-en="Living area with sofa and dining table in the background"><picture><img src="assets/images/gallery/wohnzimmer-essbereich-02-640.webp" srcset="assets/images/gallery/wohnzimmer-essbereich-02-400.webp 400w, assets/images/gallery/wohnzimmer-essbereich-02-640.webp 640w, assets/images/gallery/wohnzimmer-essbereich-02-960.webp 960w" sizes="(max-width:960px) 50vw, 33vw" width="960" height="1280" loading="lazy" decoding="async" alt="Wohnbereich mit Sofa und Essplatz im Hintergrund"></picture><span class="gallery-label"><span data-lang="de" class="active">Wohn- &amp; Essbereich</span><span data-lang="it">Zona giorno e pranzo</span><span data-lang="en">Living &amp; dining area</span></span></button>
   </div>
 </section>
  
@@ -590,7 +582,7 @@
       <button class="lb-btn" id="lbPrev">&#10094;</button>
       <button class="lb-btn" id="lbNext">&#10095;</button>
     </div>
-    <img src="" id="lbImg" class="lb-img" alt="Galerie">
+    <img id="lbImg" class="lb-img" width="2000" height="1500" alt="">
     <div class="lb-counter" id="lbCounter"></div>
   </div>
 </div>

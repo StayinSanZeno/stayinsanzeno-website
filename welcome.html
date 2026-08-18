@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="icon" href="assets/images/brand/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="assets/images/brand/apple-touch-icon.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Willkommen – Stay in San Zeno</title>
-  <meta name="description" content="Entdecken Sie unsere exklusive Ferienwohnung hoch über dem Gardasee. Panoramablick, modernes Design und absolute Ruhe." />
+  <meta name="description" content="Entdecken Sie unsere renovierte Ferienwohnung in San Zeno di Montagna mit Dorf- und Bergblick sowie seitlichem Teilseeblick aus bestimmten Fenstern." />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://stayinsanzeno.com/welcome.html" />
   
@@ -14,16 +16,16 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Stay in San Zeno" />
   <meta property="og:title" content="Willkommen im Paradies | Stay in San Zeno" />
-  <meta property="og:description" content="Ihre exklusive Auszeit hoch über dem Gardasee. Genießen Sie absolute Ruhe, modernes Design und einen unvergesslichen Panoramablick." />
+  <meta property="og:description" content="Renovierte Ferienwohnung in San Zeno di Montagna mit Dorf- und Bergblick sowie seitlichem Teilseeblick aus bestimmten Fenstern." />
   <meta property="og:url" content="https://stayinsanzeno.com/welcome.html" />
-  <meta property="og:image" content="https://stayinsanzeno.com/hero-ausblick.jpg" />
+  <meta property="og:image" content="https://stayinsanzeno.com/assets/images/hero/social-preview.jpg" />
   <meta property="og:locale" content="de_DE" />
   
   <!-- Fallback für iMessage & Co. -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Willkommen im Paradies | Stay in San Zeno" />
-  <meta name="twitter:description" content="Ihre exklusive Auszeit hoch über dem Gardasee. Genießen Sie absolute Ruhe und modernes Design." />
-  <meta name="twitter:image" content="https://stayinsanzeno.com/hero-ausblick.jpg" />
+  <meta name="twitter:description" content="Renovierte Ferienwohnung mit Dorf- und Bergblick sowie seitlichem Teilseeblick aus bestimmten Fenstern." />
+  <meta name="twitter:image" content="https://stayinsanzeno.com/assets/images/hero/social-preview.jpg" />
   
   <!-- Wir nutzen exakt dasselbe Design und Skript! -->
   <link rel="stylesheet" href="style.css" />
@@ -35,7 +37,7 @@
 <!-- REDUZIERTE KOPFZEILE (Nur Logo & Sprache, kein Menü) -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="logo.JPG" alt="Stay in San Zeno">
+    <img src="assets/images/brand/stay-in-san-zeno-logo.webp" width="480" height="273" alt="Stay in San Zeno">
   </a>
   <div class="nav-controls">
     <div class="lang-bar">
@@ -49,8 +51,12 @@
 <!-- HERO BEREICH (Der emotionale Einstieg) -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <!-- Das Skript lädt das Bild automatisch -->
-  <div class="hero-photo" data-image="hero-ausblick.jpg"></div>
+  <picture class="hero-photo">
+    <source media="(max-width: 640px)" type="image/avif" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-640.avif 640w, assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-960.avif 960w, assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-1280.avif 1280w" sizes="100vw">
+    <source media="(max-width: 640px)" type="image/webp" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-640.webp 640w, assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-960.webp 960w, assets/images/hero/hero-teilseeblick-sonnenuntergang-mobile-1280.webp 1280w" sizes="100vw">
+    <source type="image/avif" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-768.avif 768w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1280.avif 1280w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1600.avif 1600w, assets/images/hero/hero-teilseeblick-sonnenuntergang-2000.avif 2000w, assets/images/hero/hero-teilseeblick-sonnenuntergang-2400.avif 2400w" sizes="100vw">
+    <img src="assets/images/hero/hero-teilseeblick-sonnenuntergang-1280.webp" srcset="assets/images/hero/hero-teilseeblick-sonnenuntergang-768.webp 768w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1280.webp 1280w, assets/images/hero/hero-teilseeblick-sonnenuntergang-1600.webp 1600w, assets/images/hero/hero-teilseeblick-sonnenuntergang-2000.webp 2000w, assets/images/hero/hero-teilseeblick-sonnenuntergang-2400.webp 2400w" sizes="100vw" width="2400" height="1350" alt="Seitlicher Teilseeblick bei Sonnenuntergang mit den Dächern der Nachbarschaft" fetchpriority="high" decoding="async">
+  </picture>
   <div class="hero-overlay"></div>
   
   <div class="hero-content">
